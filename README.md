@@ -28,6 +28,9 @@
   <pre></pre>:表示内容会按照原来有换行和空格形式显示，适合写入程序
   <p></p>:段落标签
   <blockquote></blockquote>:段落模块儿标签
+  <sub></sub>:上角标识标签
+  <sup></sup>:下角标识标签
+~~~
 ##属性
 ~~~
   contentEditable:表示标签可编辑
