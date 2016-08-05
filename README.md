@@ -38,7 +38,6 @@
   hidden:表示属性隐藏
   spellcheck:表示检查单词是否正确
 ~~~
-~~~
 # css和css3汇总
 ##背景
 ~~~css
