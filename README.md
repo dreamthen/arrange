@@ -2,7 +2,7 @@
 用来整理我的前端所学知识，以及样式和插件的汇总
 # HTML5
 # css和css3汇总
->背景
+> ##背景
 ~~~css
   background-color:背景颜色
   background-image:背景图片
@@ -12,7 +12,7 @@
   background-origin:背景图片的定位位置
   background-clip:背景图片的切片位置
 ~~~
->文本
+> ##文本
 ~~~css
   color:字体颜色
   text-align:内容位置
