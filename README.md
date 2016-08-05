@@ -25,7 +25,7 @@
   word-wrap:单词换行状态，是否让单词字母不分开
   line-height:设置行间距
 ~~~
->文字
+> ##文字
 ~~~css
   font-size:字体大小
   font-family:文字类型
@@ -37,24 +37,24 @@
   }
   自己设置文字的类型,调用外部字体包
 ~~~
->链接
+> ##链接
 ~~~css
   a:link 链接没点击时候的状态
   a:visited 链接点击后的状态
   a:hover 链接移上去后的状态
   a:active 链接点击后的状态
 ~~~
->列表
+> ##列表
 ~~~css
   list-style-type:列表标记的类型
   list-style-image:列表标记图片
   list-style-position:列表标记(默认类型或者图片)位置
 ~~~
->表格
+> ##表格
 ~~~css
   border-collapse:collapse 将表格边框折叠
 ~~~
->外边框
+> ##外边框
 ~~~css
   outline:#CDCDCD double 3px; 外边框的框宽度为2px,框类型为双框,框颜色为#CDCDCD(浅灰色)
 ~~~
