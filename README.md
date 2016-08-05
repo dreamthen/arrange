@@ -23,13 +23,23 @@
   <mark></mark>:表示对标记定义的标签
   <time></time>:表示对时间戳的定义
   <ruby><ruby>:表示对特殊字符的定义标签
-  <rp></rp>:表示特殊字符的父级,比如难写的中文字,要进行标注拼音,这就表示的是中文字部分
-  <rt></rt>:表示特殊字符的子级,如上,表示的时标注拼音部分
+  <rp></rp>:表示特殊字符的父级,比如难写的中文字,要进行标注拼音,这就表示的是中文字部分,在ruby标签中
+  <rt></rt>:表示特殊字符的子级,如上,表示的时标注拼音部分,在ruby标签中
   <pre></pre>:表示内容会按照原来有换行和空格形式显示，适合写入程序
   <p></p>:段落标签
   <blockquote></blockquote>:段落模块儿标签
   <sub></sub>:上角标识标签
   <sup></sup>:下角标识标签
+  <header></header>:表示网页开头部分标签
+  <main></main>:表示网页主要部分标签
+  <section></section>:表示网页模块部分标签
+  <aside></aside>:表示网页边栏部分标签
+  <article></article>:表示网页内容文章部分标签
+  <nav></nav>:表示导航栏部分标签
+  <figure></figure>:表示承载图片部分标签
+  <figcaption></figcaption>:表示对图片进行注解部分标签,在figure标签中
+  <hgroup></hgroup>:表示承载标题部分标签
+  <footer></footer>:表示网页结尾部分标签
 ~~~
 ##属性
 ~~~
