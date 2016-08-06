@@ -41,6 +41,8 @@
   <figcaption></figcaption>:表示对图片进行注解部分标签,在figure标签中
   <hgroup></hgroup>:表示承载标题部分标签
   <footer></footer>:表示网页结尾部分标签
+  <ul></ul>:表示无序列表标签
+  <li></li>:表示有序和无序列表子标签
 ~~~
 ##属性
 ~~~
