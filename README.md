@@ -42,7 +42,23 @@
   <hgroup></hgroup>:表示承载标题部分标签
   <footer></footer>:表示网页结尾部分标签
   <ul></ul>:表示无序列表标签
+  <ol></ol>:表示有序列表标签
   <li></li>:表示有序和无序列表子标签
+  <abbr></abbr>:表示对文字缩写与简称的描述
+  <h1></h1>:表示一级标题
+  <h2></h2>:表示二级标题
+  <h3></h3>:表示三级标题
+  <h4></h4>:表示四级标题
+  <h5></h5>:表示五级标题
+  <h6></h6>:表示六级标题
+  <button></button>:表示按钮按键的标签
+  <input type="text">:表示文本输入框
+  <input type="password">:表示密码输入框
+  <input type="number">:表示数字输入框
+  <input type="email">:表示邮箱输入框
+  <input type="url">:表示地址链接输入框
+  <input type="color">:表示颜色输入框
+  <input type="file">:表示文件输入框
 ~~~
 ##属性
 ~~~
