@@ -167,3 +167,7 @@
   如果邻节点都设置了margin,它会根据margin外边距边距大的一方进行外边距处理，而不会进行外边距累加
 ~~~
 #JavaScript
+##方法
+~~~Javascript
+  Array数组的方法:
+~~~
