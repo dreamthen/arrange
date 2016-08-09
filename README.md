@@ -90,6 +90,7 @@
 ~~~css
   color:字体颜色
   text-align:内容位置
+  text-indent:指段落空格的长度
   text-decoration:内容标记
   text-transform:内容改写,常用capitalize(单词第一个字母大写),uppercase(所有字母都大写),lowercase(所有字母都小写)
   text-shadow:内容文本阴影
