@@ -148,5 +148,8 @@
   border-width:边框的宽度
   border-style:边框的类型,常用的有solid(直线),double(双线),dashed(曲线),dotted(曲线)
   border-color:边框的颜色
-  
+  border:3px double #CDCDCD; 指对边框进行批量设置，根据border-width border-style border-color进行批量设置
+  border-radius:对盒子标签元素进行圆角处理
+  box-shadow:2px 2px 1px 1px #C0C0C0; 对盒子标签元素进行阴影设置，根据水平方向宽度 竖直方向宽度 加粗处理宽度 加粗模糊宽度 颜色设置进行批量设置
+  border-image:对盒子标签元素边框进行图片设置
 ~~~
