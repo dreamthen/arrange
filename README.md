@@ -143,3 +143,10 @@
   padding-top:指对盒子内上边距进行设置
   padding-bottom:指对盒子下边距进行设置
 ~~~
+##边框
+~~~css
+  border-width:边框的宽度
+  border-style:边框的类型,常用的有solid(直线),double(双线),dashed(曲线),dotted(曲线)
+  border-color:边框的颜色
+  
+~~~
