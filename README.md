@@ -67,6 +67,14 @@
   hidden:表示属性隐藏
   spellcheck:表示检查单词是否正确
 ~~~
+##meta,手机Ipad的适配、兼容的工具和开头网站信息的描述
+~~~
+  <meta name="keywords" content="壳艺兼职">:表示关键字，有利于搜索引擎查找
+  <meta name="author" content="Gary">:表示作者
+  <meta name="description" content="不一样的兼职就在壳艺">:表示对网站的描述
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">:表示对手机和平板的适配，在这里最大的适配宽度是与PC网页端相同，在手机和平板上面适配100%宽度
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1.0">:表示兼容IE最高Edge版本的DOM文档结构和操作，谷歌浏览器chrome也兼容最新版本的DOM文档结构和操作
+~~~
 # css和css3汇总
 ##背景
 ~~~css
