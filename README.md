@@ -133,3 +133,13 @@
 ~~~css
   outline:#CDCDCD double 3px; 外边框的框宽度为2px,框类型为双框,框颜色为#CDCDCD(浅灰色)
 ~~~
+#css盒子模型
+##内边距
+~~~css
+  padding:上 右 下 左; 指对盒子内边距进行设置,根据上右下左进行批量设置
+  padding:上下 左右; 指对盒子内边距进行批量设置,根据上下 左右进行批量设置
+  padding-left:指对盒子内左边距进行设置
+  padding-right:指对盒子内右边距进行设置
+  padding-top:指对盒子内上边距进行设置
+  padding-bottom:指对盒子下边距进行设置
+~~~
