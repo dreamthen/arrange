@@ -68,7 +68,7 @@
   spellcheck:表示检查单词是否正确
 ~~~
 ##meta,手机Ipad的适配、兼容的工具和开头网站信息的描述
-~~~
+~~~html
   <meta name="keywords" content="壳艺兼职">:表示关键字，有利于搜索引擎查找
   <meta name="author" content="Gary">:表示作者
   <meta name="description" content="不一样的兼职就在壳艺">:表示对网站的描述
