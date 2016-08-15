@@ -171,9 +171,11 @@
   transform:translate(100px,100px); 沿着x轴右移100px,沿着y轴上移100px,translate平移,沿着x轴和y轴方向进行平移,负值沿各自反方向平移
   transform:translateX(100px); 沿着x轴右移100px,translateX沿着x轴方向进行平移,负值沿x轴反方向平移
   transform:translateY(100px); 沿着y轴上移100px,translateY沿着y轴方向进行平移,负值沿y轴反方向平移
-  transform:scale(2); 对元素标签进行放大,在这里,scale宽和高都放大两倍
-  transform:scale(2,0.5); 对元素标签进行放大,在这里,scale宽放大两倍,高缩小1/2
-  
+  transform:scale(2); 对元素标签模块儿进行放大,在这里,scale宽和高都放大两倍
+  transform:scale(2,0.5); 对元素标签模块儿进行放大,在这里,scale宽放大两倍,高缩小1/2
+  transform:rotate(45deg); 对元素标签模块儿进行旋转,在这里,rotate沿x轴方向旋转45度角(deg),沿y轴方向旋转45度角(deg)
+  transform:rotate(45deg,60deg); 对元素标签模块儿进行旋转,在这里,rotate沿x轴方向旋转45度角(deg),沿y轴方向旋转60度角(deg)
+  transform:rotateX(30deg) rotateY(90deg); 对元素模块儿进行旋转,在这里,rotateX沿x轴方向旋转30度角(deg),沿y轴方向旋转90度角(deg)
 ~~~
 #JavaScript
 ##方法
