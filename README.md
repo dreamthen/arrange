@@ -166,6 +166,15 @@
 ~~~css
   如果邻节点都设置了margin,它会根据margin外边距边距大的一方进行外边距处理，而不会进行外边距累加
 ~~~
+##2D,3D动画
+~~~
+  transform:translate(100px,100px); 沿着x轴右移100px,沿着y轴上移100px,translate平移,沿着x轴和y轴方向进行平移,负值沿各自反方向平移
+  transform:translateX(100px); 沿着x轴右移100px,translateX沿着x轴方向进行平移,负值沿x轴反方向平移
+  transform:translateY(100px); 沿着y轴上移100px,translateY沿着y轴方向进行平移,负值沿y轴反方向平移
+  transform:scale(2); 对元素标签进行放大,在这里,scale宽和高都放大两倍
+  transform:scale(2,0.5); 对元素标签进行放大,在这里,scale宽放大两倍,高缩小1/2
+  
+~~~
 #JavaScript
 ##方法
 ~~~Javascript
