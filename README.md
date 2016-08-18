@@ -195,7 +195,11 @@
 ~~~css
   animation-name:要进行动画播放的名字
   animation-duration:动画播放的时间
-  
+  animation-timing-function:动画播放执行的时间曲线
+  animation-iteration-count:动画播放次数
+  animation-direction:动画播放是否可退回播放
+  animation-delay:哪个时刻进行动画播放，也就是延迟动画播放执行的时间
+  animation-fill-mode:动画执行前和动画执行之后执行的动画方式
 ~~~
 #JavaScript
 ##方法
