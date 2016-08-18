@@ -184,6 +184,13 @@
 ##过渡
 ~~~css
   transition-property:要进行过渡动画的样式名称
+  transition-duration:过渡动画进行的时间
+  transition-timing-function:过渡动画进行的运动曲线
+  transition-delay:哪个时刻进行过渡动画，也就是延迟过渡动画执行的时间
+  transition:all 1.8s ease-in-out 0s; 指对过渡动画的批量设置，根据transition-property transition-duration transition-timing-function transition-delay进行对过渡动画的批量设置
+~~~
+##动画
+~~~css
 ~~~
 #JavaScript
 ##方法
