@@ -193,6 +193,9 @@
 ~~~
 ##动画
 ~~~css
+  animation-name:要进行动画播放的名字
+  animation-duration:动画播放的时间
+  
 ~~~
 #JavaScript
 ##方法
