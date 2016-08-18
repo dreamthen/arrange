@@ -201,6 +201,9 @@
   animation-delay:哪个时刻进行动画播放，也就是延迟动画播放执行的时间
   animation-fill-mode:动画执行前和动画执行之后执行的动画方式
 ~~~
+##多列
+~~~css
+~~~
 #JavaScript
 ##方法
 ~~~Javascript
