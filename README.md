@@ -182,6 +182,7 @@
 ~~~
 ##过渡
 ~~~css
+  transition-property:要进行过渡动画的样式名称
 ~~~
 #JavaScript
 ##方法
