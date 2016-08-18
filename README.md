@@ -180,6 +180,7 @@
   transform:skew(45deg,30deg); 对元素标签模块儿进行倾斜,在这里,skew沿x轴方向倾斜45度角(deg),沿y轴方向倾斜30度角(deg)
   transform:skewX(60deg) skewY(30deg); 对元素标签模块儿进行倾斜,在这里,skew沿x轴方向倾斜60度角(deg),沿y轴方向倾斜40度角(deg)
   transform-origin:0 0; 将坐标轴的原点进行重新设置,设置为元素标签模块儿的左上角,(0,0)点
+  PS:需要加前缀进行兼容
 ~~~
 ##过渡
 ~~~css
@@ -188,6 +189,7 @@
   transition-timing-function:过渡动画进行的运动曲线
   transition-delay:哪个时刻进行过渡动画，也就是延迟过渡动画执行的时间
   transition:all 1.8s ease-in-out 0s; 指对过渡动画的批量设置，根据transition-property transition-duration transition-timing-function transition-delay进行对过渡动画的批量设置
+  PS:需要加前缀进行兼容
 ~~~
 ##动画
 ~~~css
