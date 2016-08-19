@@ -135,10 +135,10 @@
 ~~~
 ##定位
 ~~~css
-  position:static; 
-  position:absolute;
-  position:relative;
-  position:fixed;
+  position:static; 定位的默认值static,静态
+  position:absolute; 定位的固定布局absolute,不占用空间,可覆盖,相当于在原来的层面上再添加一层,top和left移动的距离默认相对于body整个页面的左上角部分,但是当父级节点以及父级以上节点含有position:relative相对布局时,会根据最近的上层节点的左上角进行top和left移动距离
+  position:relative; 定位的相对布局relative,可相对于本位置进行相对偏移,top和left相对于本位置进行距离顶部和左部的距离设置
+  position:fixed; 定位的绝对布局fixed,不占用空间,同position:absolute,但是会固定在窗口的设定的位置,如果页面随着滚动条滚动,也不会消失,是根据页面窗口位置进行设置
 ~~~
 #css盒子模型
 ##内边距
