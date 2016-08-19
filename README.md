@@ -142,6 +142,13 @@
 ~~~
 ##浮动
 ~~~css
+  float:none; 不进行浮动
+  float:left; 向左进行浮动
+  float:right; 向右进行浮动
+  float:inherit; 继承父节点的浮动设置
+  clear:left; 清除向左浮动
+  clear:right; 清除向右浮动
+  clear:both; 清除向左向右两边浮动
 ~~~
 #css盒子模型
 ##内边距
