@@ -150,7 +150,7 @@
   clear:right; 清除向右浮动
   clear:both; 清除向左向右两边浮动
 ~~~
-###清除浮动例子
+##清除浮动例子
 ~~~css
   .example-float-events:after {
     content:".";
@@ -162,7 +162,24 @@
 ~~~
 ##两边浮动,中间自适应(浮动例子)
 ~~~css
-  
+  .example-float-left-events {
+    width:200px;
+    height:200px;
+    float:left;
+    background-color:#866ab3;
+  }
+  .example-float-right-events{
+    width:200px;
+    height:200px;
+    float:right;
+    background-color:#8a6d3b;
+  }
+  .example-float-none-events{
+    width:auto;
+    height:200px;
+    margin:0 210px;
+    background-color:brown;
+  }
 ~~~
 #css盒子模型
 ##内边距
