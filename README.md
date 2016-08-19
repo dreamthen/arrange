@@ -152,6 +152,7 @@
 ~~~
 ##清除浮动例子
 ~~~css
+<style>
   .example-float-events:after {
     content:".";
     display:block;
@@ -159,9 +160,11 @@
     visiblity:hidden;
     height:0;
   }
+</style>  
 ~~~
 ##两边浮动,中间自适应(浮动例子)
 ~~~css
+<style>
   .example-float-left-events {
     width:200px;
     height:200px;
@@ -180,11 +183,16 @@
     margin:0 210px;
     background-color:brown;
   }
+</style>  
 ~~~
 ~~~html
-  <div class="example-float-left-events"></div>
-  <div class="example-float-right-events"></div>
-  <div class="example-float-none-events"></div>
+<html>
+  <body>
+    <div class="example-float-left-events"></div>
+    <div class="example-float-right-events"></div>
+    <div class="example-float-none-events"></div>
+  </body>  
+</html>  
 ~~~
 #css盒子模型
 ##内边距
