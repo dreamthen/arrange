@@ -140,6 +140,9 @@
   position:relative; 定位的相对布局relative,可相对于本位置进行相对偏移,top和left相对于本位置进行距离顶部和左部的距离设置
   position:fixed; 定位的绝对布局fixed,不占用空间,同position:absolute,但是会固定在窗口的设定的位置,如果页面随着滚动条滚动,也不会消失,是根据页面窗口位置进行设置
 ~~~
+##浮动
+~~~css
+~~~
 #css盒子模型
 ##内边距
 ~~~css
