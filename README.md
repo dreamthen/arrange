@@ -203,6 +203,10 @@
 ~~~
 ##多列
 ~~~css
+  column-count:分列的数量，也就是分几列
+  column-gap:分列之后，列与列之间的间隔宽度
+  column-width:分列的每列宽度
+  column-rule:列与列之间边框的宽度、样式类型和颜色，根据边框的宽度、样式类型和颜色进行批量设置
 ~~~
 #JavaScript
 ##方法
