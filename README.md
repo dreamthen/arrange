@@ -133,6 +133,13 @@
 ~~~css
   outline:#CDCDCD double 3px; 外边框的框宽度为2px,框类型为双框,框颜色为#CDCDCD(浅灰色)
 ~~~
+##定位
+~~~css
+  position:static; 
+  position:absolute;
+  position:relative;
+  position:fixed;
+~~~
 #css盒子模型
 ##内边距
 ~~~css
