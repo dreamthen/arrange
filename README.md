@@ -181,6 +181,11 @@
     background-color:brown;
   }
 ~~~
+~~~html
+  <div class="example-float-left-events"></div>
+  <div class="example-float-right-events"></div>
+  <div class="example-float-none-events"></div>
+~~~
 #css盒子模型
 ##内边距
 ~~~css
