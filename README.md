@@ -150,6 +150,20 @@
   clear:right; 清除向右浮动
   clear:both; 清除向左向右两边浮动
 ~~~
+###清除浮动例子
+~~~css
+  .example-float-events:after {
+    content:".";
+    display:block;
+    clear:both;
+    visiblity:hidden;
+    height:0;
+  }
+~~~
+##两边浮动,中间自适应(浮动例子)
+~~~css
+  
+~~~
 #css盒子模型
 ##内边距
 ~~~css
