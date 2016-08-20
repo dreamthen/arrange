@@ -271,8 +271,19 @@
 ~~~
 #响应式布局
 ##媒介查询
+~~~html
+  <link rel="stylesheet" type="text/css" href="" media="only screen and (min-width:960px)"> 指的是此css外部引导css文件只针对页面宽度为960px及其以上的宽度生效
+~~~
 ~~~css
+  @media screen and (min-width:640px){
+    /*在这儿样式针对页面宽度为640px及其以上的宽度生效*/
+  }
   
+  @media screen and (min-width:320px) and (max-width:640px){
+    /*
+      在这样式针对页面宽度最大不超过为640px,最小不低于320px的宽度生效
+    */
+  }
 ~~~
 #JavaScript
 ##方法
