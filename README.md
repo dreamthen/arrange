@@ -272,7 +272,7 @@
 #响应式布局
 ##媒介查询
 ~~~html
-  <link rel="stylesheet" type="text/css" href="" media="only screen and (min-width:960px)"> 指的是此css外部引导css文件只针对页面宽度为960px及其以上的宽度生效
+  <link rel="stylesheet" type="text/css" href="" media="only screen and (min-width:960px)"> <!--指的是此css外部引导css文件只针对页面宽度为960px及其以上的宽度生效-->
 ~~~
 ~~~css
   @media screen and (min-width:640px){
