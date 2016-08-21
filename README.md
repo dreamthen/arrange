@@ -299,4 +299,14 @@
     /*定义函数的另一种方式*/
   }
   
+  var n = 10;
+  function func(name,age){
+    var result = "姓名:"+name+",年龄:"+age;
+    console.log("姓名:"+name+",年龄:"+age);
+    return result;
+  }
+  var myResult = func("Gary",23); //传递参数name("Gary")和age(23)进到函数里面,返回"姓名:Gary,年龄:23",而且还会在控制台显示"姓名:Gary,年龄:23"
+  console.log(result); //会报错,因为result是局部变量
+  console.log(n); //n是全局变量,在控制台显示10
+  console.log(name+","+age); //name,age是全局变量,作为参数的全局变量,在控制台中显示"Gary,23"
 ~~~
