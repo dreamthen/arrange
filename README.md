@@ -310,3 +310,4 @@
   console.log(n); //n是全局变量,在控制台显示10
   console.log(name+","+age); //name,age是全局变量,作为参数的全局变量,在控制台中显示"Gary,23"
 ~~~
+#jQuery
