@@ -290,3 +290,13 @@
 ~~~Javascript
   Array数组的方法:
 ~~~
+##函数
+~~~Javascript
+  function func(){
+    /*定义函数的一种方式*/
+  }
+  var func = function(){
+    /*定义函数的另一种方式*/
+  }
+  
+~~~
