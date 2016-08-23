@@ -76,6 +76,30 @@
   <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1.0">:表示兼容IE最高Edge版本的DOM文档结构和操作，谷歌浏览器chrome也兼容最新版本的DOM文档结构和操作
 ~~~
 # css和css3汇总
+##选择器
+~~~css
+  p,h1,h2{
+    /*元素选择器*/
+  }
+  #id{
+    /*id选择器*/
+  }
+  .class{
+    /*类选择器*/
+  }
+  .p1.p2{
+    /*多类选择器*/
+  }
+  .hbig.hsmall{
+    /*多类选择器*/
+  }
+  p[title="col-lg-p"]{
+    /*属性选择器,选择title="col-lg-p"的元素节点*/
+  }
+  p[title*="col-"]{
+    /*属性选择器,选择title内容里面包含"col-"的元素节点,*=是指内容包含"col-"*/
+  }
+~~~
 ##背景
 ~~~css
   background-color:背景颜色
