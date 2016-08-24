@@ -33,9 +33,9 @@
   <sup></sup>:下角标识标签
   <header></header>:表示网页开头部分标签
   <main></main>:表示网页主要部分标签
-  <section></section>:表示网页模块部分标签
+  <section></section>:表示网页模块部分标签,没有标题或者进行装容的容器不可使用section
   <aside></aside>:表示网页边栏部分标签
-  <article></article>:表示网页内容文章部分标签
+  <article></article>:表示网页内容文章部分标签,此部分非常独立,可做插件容器<embed></embed>
   <nav></nav>:表示导航栏部分标签
   <figure></figure>:表示承载图片部分标签
   <figcaption></figcaption>:表示对图片进行注解部分标签,在figure标签中
@@ -61,11 +61,13 @@
   <input type="file">:表示文件输入框
 ~~~
 ##属性
-~~~
+~~~html
   contentEditable:表示标签可编辑
   designModel:表示页面可编辑
   hidden:表示属性隐藏
   spellcheck:表示检查单词是否正确
+  datetime:在time标签显示的属性,对现在的时间节点进行定义和解释
+  pubdate:发布日期属性,指对article和time标签发布日期的定义和解释
 ~~~
 ##meta,手机Ipad的适配、兼容的工具和开头网站信息的描述
 ~~~html
