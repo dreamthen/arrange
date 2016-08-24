@@ -118,6 +118,10 @@
   min-height:元素块儿的最小的高度
   max-height:元素块儿的最大的高度
 ~~~
+##分类
+~~~css
+  
+~~~
 ##背景
 ~~~css
   background-color:背景颜色
@@ -235,6 +239,10 @@
     <div class="example-float-none-events"></div>
   </body>  
 </html>  
+~~~
+##元素块儿居中
+~~~css
+  
 ~~~
 #css盒子模型
 ##内边距
