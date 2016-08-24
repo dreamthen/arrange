@@ -122,7 +122,9 @@
 ##分类
 ~~~css
   cursor:移到元素块儿上面的时候,鼠标显示的形状,常用:pointer,inherit
-  display:设置元素块儿的显示表现方式,inerit继承父节点的显示表现方式,inline内联表现方式,inline-block内联块表现方式,block快表现方式
+  display:设置元素块儿的显示表现方式,inerit继承父节点的显示表现方式,inline内联表现方式,inline-block内联块表现方式,block块表现方式,none元素块儿消失,不占用显现时所处位置区域
+  position:元素块儿的定位方式,absolute固定布局固定定位方式,relative相对布局相对定位方式,static静态定位,是默认定位方式,fixed绝对固定布局,这种定位方式会使元素块儿定位在窗口的某一块儿区域,不会随着滚动条的滚动而消失,会依然处在窗口的某一块儿区域
+  visiblity:设置元素块儿的显示表现方式,占用显现时所处位置区域,hidden元素内容消失,但是还是位置还是占用
 ~~~
 ##背景
 ~~~css
