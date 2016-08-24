@@ -71,6 +71,8 @@
   spellcheck:表示检查单词是否正确
   datetime:在time标签显示的属性,对现在的时间节点进行定义和解释
   pubdate:发布日期属性,指对article和time标签发布日期的定义和解释
+  controls:音频和视频的控制栏,controls值表示显示控制栏
+  autoplay:音频和视频是否开始自动播放,autoplay值表示自动播放
 ~~~
 ##meta,手机Ipad的适配、兼容的工具和开头网站信息的描述
 ~~~html
