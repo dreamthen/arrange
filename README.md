@@ -121,7 +121,8 @@
 ~~~
 ##分类
 ~~~css
-  
+  cursor:移到元素块儿上面的时候,鼠标显示的形状,常用:pointer,inherit
+  display:设置元素块儿的显示表现方式,inerit继承父节点的显示表现方式,inline内联表现方式,inline-block内联块表现方式,block快表现方式
 ~~~
 ##背景
 ~~~css
