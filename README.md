@@ -111,7 +111,12 @@
 ~~~
 ##长宽大小
 ~~~css
-  
+  width:元素块儿的宽度
+  min-width:元素块儿最小的宽度
+  max-width:元素块儿最大的宽度
+  height:元素块儿的高度
+  min-height:元素块儿的最小的高度
+  max-height:元素块儿的最大的高度
 ~~~
 ##背景
 ~~~css
