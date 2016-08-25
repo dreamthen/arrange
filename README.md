@@ -351,6 +351,18 @@
 ~~~Javascript
   Array数组的方法:
 ~~~
+##老版本浏览器兼容html5标签方法
+~~~Javascript
+  (function(global){
+      if(!0){
+        return;
+      }
+      var e = "header,footer,section,article,aside,figure,figcaption".split(","),i=e.length;
+      while(i--){
+        document.createElement(e[i]);
+      }
+  })(window);
+~~~
 ##函数
 ~~~Javascript
   function func(){
