@@ -296,6 +296,9 @@
     width:100px;
     float:left;
     margin-left:-100%;
+    position:relative;
+    right:100px;
+    text-align:center;
   }
   
   .medium{
@@ -307,6 +310,9 @@
     width:150px;
     float:left;
     margin-left:-150px;
+    position:relative;
+    left:150px;
+    text-align:center
   }
 </style>  
 ~~~
