@@ -342,6 +342,44 @@
 ###第三种方法:双飞翼布局
 ~~~css
 <style>
+  .header,
+  .main,
+  .footer{
+    width:80%;
+    margin:0 auto;
+  }
+  
+  .header{
+    background-color:#7a43b6;
+  }
+  
+  .footer{
+    background-color:#8a6d3b;
+  }
+  
+  .main{
+    height:1000px;
+    background-color:#0D3349;
+    overflow:hidden;
+  }
+  
+  .left{
+    width:100px;
+    float:left;
+    margin-left:-100%;
+    
+  }
+  
+  .right{
+    width:150px;
+    float:left;
+    margin-left:-150px;
+  }
+  
+  .medium{
+    width:100%;
+    float:left;
+  }
 </style>
 ~~~
 ~~~html
