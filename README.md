@@ -262,6 +262,7 @@
 ~~~
 ###第二种方法:圣杯布局加强版
 ~~~css
+<style>
   .header,
   .main,
   .footer{
@@ -279,31 +280,58 @@
   
   .main{
     height:1000px;
+    padding:0 150px 0 100px;
     background-color:#0D3349;
   }
   
   .footer{
     background-color:#8a6d3b;
   }
+  
+  .left,.medium,.right{
+    display:block;
+  }
+  
+  .left{
+    width:100px;
+    float:left;
+    margin-left:-100%;
+  }
+  
+  .medium{
+    width:100%;
+    float:left;
+  }
+  
+  .right{
+    width:150px;
+    float:left;
+    margin-left:-150px;
+  }
+</style>  
 ~~~
 ~~~html
-  <header class="header">
-    头部
-  </header>
-  <main class="main">
-    <section class="medium">
-        我是中间部分
-    </section>
-    <section class="left">
-        我是左边部分
-    </section>
-    <section class="right">
-        我是右边部分
-    </section>
-  </main>
-  <footer class="footer">
-    底部
-  </footer>
+<html>
+  <body>
+    <header class="header">
+      头部
+    </header>
+    <main class="main">
+      <section class="medium">
+          我是中间部分
+      </section>
+      <section class="left">
+          我是左边部分
+      </section>
+      <section class="right">
+          我是右边部分
+      </section>
+    </main>
+    <footer class="footer">
+      底部
+    </footer>
+  </body>
+</html>  
 ~~~
 ##元素块儿居中
 ~~~css
