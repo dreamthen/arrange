@@ -227,7 +227,7 @@
   }
 </style>  
 ~~~
-##两边浮动,中间自适应(浮动例子)
+##三列布局,两边浮动,中间自适应(浮动例子)
 ~~~css
 <style>
   .example-float-left-events {
