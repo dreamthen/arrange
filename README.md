@@ -262,9 +262,23 @@
 ~~~
 ###第二种方法:圣杯布局加强版
 ~~~css
-  
+  .header,
+  .main,
+  .footer{
+    width:80%;
+    margin:0 auto;
+  }
 ~~~
 ~~~html
+  <header>
+    头部
+  </header>
+  <main>
+    
+  </main>
+  <footer>
+    底部
+  </footer>
 ~~~
 ##元素块儿居中
 ~~~css
