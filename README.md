@@ -268,15 +268,40 @@
     width:80%;
     margin:0 auto;
   }
+  
+  .header,.footer{
+    height:90px;
+  }
+  
+  .header{
+    background-color:#7a43b6;
+  }
+  
+  .main{
+    height:1000px;
+    background-color:#0D3349;
+  }
+  
+  .footer{
+    background-color:#8a6d3b;
+  }
 ~~~
 ~~~html
-  <header>
+  <header class="header">
     头部
   </header>
-  <main>
-    
+  <main class="main">
+    <section class="medium">
+        我是中间部分
+    </section>
+    <section class="left">
+        我是左边部分
+    </section>
+    <section class="right">
+        我是右边部分
+    </section>
   </main>
-  <footer>
+  <footer class="footer">
     底部
   </footer>
 ~~~
