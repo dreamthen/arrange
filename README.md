@@ -263,6 +263,10 @@
 ###第二种方法:圣杯布局加强版
 ~~~css
 <style>
+  html,body{
+    padding:0;
+    margin:0;
+  }
   .header,
   .main,
   .footer{
@@ -342,6 +346,10 @@
 ###第三种方法:双飞翼布局
 ~~~css
 <style>
+  html,body{
+    padding:0;
+    margin:0;
+  }
   .header,
   .main,
   .footer{
@@ -361,6 +369,12 @@
     height:1000px;
     background-color:#0D3349;
     overflow:hidden;
+  }
+  
+  .left,
+  .medium,
+  .right{
+    display:block;
   }
   
   .left{
@@ -384,6 +398,11 @@
 ~~~
 ~~~html
 <html>
+  <body>
+    <header>
+      头部
+    </header>
+  </body>
 </html>
 ~~~
 ##元素块儿居中
