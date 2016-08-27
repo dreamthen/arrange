@@ -383,6 +383,7 @@
     margin-left:-100%;
     padding-bottom:9999px;
     margin-bottom:-9999px;
+    text-align:center;
   }
   
   .right{
@@ -391,6 +392,7 @@
     margin-left:-150px;
     padding-bottom:9999px;
     margin-bottom:-9999px;
+    text-align:center;
   }
   
   .medium{
