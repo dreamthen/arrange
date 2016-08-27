@@ -381,18 +381,27 @@
     width:100px;
     float:left;
     margin-left:-100%;
-    
+    padding-bottom:9999px;
+    margin-bottom:-9999px;
   }
   
   .right{
     width:150px;
     float:left;
     margin-left:-150px;
+    padding-bottom:9999px;
+    margin-bottom:-9999px;
   }
   
   .medium{
     width:100%;
     float:left;
+    padding-bottom:9999px;
+    margin-bottom:-9999px;
+  }
+  
+  .medium > .inner{
+    margin:0 150px 0 100px;
   }
 </style>
 ~~~
@@ -402,6 +411,20 @@
     <header>
       头部
     </header>
+    <main class="main">
+      <section class="medium">
+        <div class="inner">我是中间</div>
+      </section>
+      <section class="left">
+        我是左边
+      </section>
+      <section class="right">
+        我是右边
+      </section>
+    </main>
+    <footer class="footer">
+      底部
+    </footer>
   </body>
 </html>
 ~~~
