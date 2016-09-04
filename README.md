@@ -577,6 +577,40 @@
   console.log(date.getMinutes());                   //在控制台中显示:23
   console.log(date.getSeconds());                   //在控制台中显示:24
 ~~~
+###Date计时器
+~~~javascript
+  time();
+  var time = function(){
+      var date = new Date();
+      var div = document.getElementsByTagName("div")[0];
+      var y = date.getFullYear();
+      var month = checkDate(date.getMonth()+1);
+      var d = checkDate(date.getDate());
+      var h = checkDate(date.getHours());
+      var m = checkDate(date.getMinutes());
+      var s = checkDate(date.getSeconds());
+      var dateMine = y + "年" + month + "月" + d + "日 " + h + "时" + m + "分" + s +"秒";
+      div.innerHTML = dateMine;
+      setTimeOut(function(){
+        time();
+      },1000);
+  }
+  
+  function checkDate(timecheck){
+      if(timecheck<10){
+        timeCheck = "0" + timeCheck;
+      }
+      return timeCheck;
+  }
+~~~
+~~~html
+  <html>
+    <body>
+      <div class="div">
+      </div>
+    </body>
+  </html>
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
