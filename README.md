@@ -550,6 +550,23 @@
     console.log(arrayNum.shift());                  //在控制台中显示:[19,2,45,256,89,95,33]
     console.log(arrayNum.unshift("熊笨笨"));        //在控制台中显示:["熊笨笨",22,19,2,45,256,89,95,33]
 ~~~
+###Number类型Math各种数学函数的方法
+~~~javascript
+   var num = 1314.356;
+   var absTest = -100.256;
+   console.log(Math.abs(absTest));                  //在控制台中显示:100.256
+   console.log(Math.PI);                            //在控制台中显示:3.1415926...
+   console.log(Math.round(num));                    //在控制台中显示:1314
+   console.log(Math.min(25,67,3,100,256,34,0,-45)); //在控制台中显示:-45
+   console.log(Math.max(25,67,3,100,256,34,0,-45)); //在控制台中显示:256
+   console.log(Math.ceil(8.1));                     //在控制台中显示:9
+   console.log(Math.floor(10.9));                   //在控制台中显示:10
+   console.log(Math.pow(2,4));                      //在控制台中显示:16
+   console.log(Math.sqrt(144));                     //在控制台中显示:12
+   console.log(num.toFixed(2));                     //在控制台中显示:1314.36
+   console.log(num.toExponential());                //在控制台中显示:1.314356*10^4
+   console.log(num.toPrecision(5));                 //在控制台中显示:1314.4
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
