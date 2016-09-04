@@ -527,9 +527,8 @@
 ~~~
 #JavaScript
 ##方法
+###Array数组的方法:
 ~~~Javascript
-  Array数组的方法:
-  ~~~Javascript
     var arrayNum = [22,19,2,45,256,89,95,33];
     var arrayString = ["yinwk","zhaoy"];
     console.log(arrayString.join("|"));             //在控制台中显示:"yinwk|zhaoy"
@@ -550,7 +549,6 @@
     console.log(arrayNum.pop());                    //在控制台中显示:[22,19,2,45,256,89,95]
     console.log(arrayNum.shift());                  //在控制台中显示:[19,2,45,256,89,95,33]
     console.log(arrayNum.unshift("熊笨笨"));        //在控制台中显示:["熊笨笨",22,19,2,45,256,89,95,33]
-  ~~~
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
