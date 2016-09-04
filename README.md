@@ -620,6 +620,21 @@
   console.log(string.slice(3,5));                   //在控制台中显示:"lo"
   console.log(string.substring(3,5));               //在控制台中显示:"lo"
   console.log(string.substr(3,2));                  //在控制台中显示:"lo"
+  console.log(string.slice(3,-2));                  //在控制台中显示:"lo Wor"
+  console.log(string.substring(3,-2));              //在控制台中显示:"Hel"
+  console.log(string.substr(3,-2));                 //在控制台中显示:""
+  console.log(string.search(/[l]/g));               //在控制台中显示:2
+  console.log(string.match(/[l]/g));                //在控制台中显示:["l","l","l"]
+  console.log(string.split(" "));                   //在控制台中显示:["Hello","World"]
+  console.log(string.replace(/[l]/g,"m"));          //在控制台中显示:Hemmo Wormd
+  console.log(string.indexOf("o"));                 //在控制台中显示:4
+  console.log(string.indexOf("o",5));               //在控制台中显示:7
+  console.log(string.lastIndexOf("o"));             //在控制台中显示:7
+  console.log(string.lastIndexOf("o",5));           //在控制台中显示:4
+  console.log(string.toUpperCase());                //在控制台中显示:"HELLO WORLD"
+  console.log(string.toLowerCase());                //在控制台中显示:"hello world"
+  console.log(string.toLocaleUpperCase());          //在控制台中显示:"HELLO WORLD"
+  console.log(string.toLocaleLowerCase());          //在控制台中显示:"hello world"
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
