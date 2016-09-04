@@ -611,6 +611,10 @@
     </body>
   </html>
 ~~~
+###String字符串的方法
+~~~javascript
+  
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
