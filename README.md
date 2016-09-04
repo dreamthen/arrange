@@ -613,7 +613,13 @@
 ~~~
 ###String字符串的方法
 ~~~javascript
-  
+  var string = "Hello World";
+  console.log(string.charAt(4));                    //在控制台中显示:"o"
+  console.log(string.charCodeAt(4));                //在控制台中显示:111
+  console.log(string.concat(" yinwk"));             //在控制台中显示:"Hello World yinwk"
+  console.log(string.slice(3,5));                   //在控制台中显示:"lo"
+  console.log(string.substring(3,5));               //在控制台中显示:"lo"
+  console.log(string.substr(3,2));                  //在控制台中显示:"lo"
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
