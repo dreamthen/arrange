@@ -529,6 +529,28 @@
 ##方法
 ~~~Javascript
   Array数组的方法:
+  ~~~Javascript
+    var arrayNum = [22,19,2,45,256,89,95,33];
+    var arrayString = ["yinwk","zhaoy"];
+    console.log(arrayString.join("|"));             //在控制台中显示:"yinwk|zhaoy"
+    console.log(arrayString.concat(arrayNum));      //在控制台中显示:["yinwk","zhaoy",22,19,2,45,256,89,95,33]
+    console.log(arrayNum.slice(3,5));               //在控制台中显示:[45,256]
+    arrayString.splice(1,0,"love");    
+    console.log(arrayString);                       //在控制台中显示:["yinwk","love","zhaoy"]
+    console.log(arrayString.splice(0,1));           
+    console.log(arrayString);                       //在控制台中显示:["zhaoyue"]
+    arrayString.splce(0,1,"尹文楷");
+    console.log(arrayString);                       //在控制台中显示:["尹文楷","zhaoy"]
+    console.log(arrayString.reverse());             //在控制台中显示:["zhaoy","yinwk"]
+    console.log(arrayNum.sort());                   //在控制台中显示:[19,2,22,256,33,45,89,95]
+    console.log(arrayNum.sort(function(a,b){
+          return a - b;
+    }));                                            //在控制台中显示:[2,19,22,33,45,89,95,256]
+    console.log(arrayNum.push("笨笨熊"));           //在控制台中显示:[22,19,2,45,256,89,95,33,"笨笨熊"]
+    console.log(arrayNum.pop());                    //在控制台中显示:[22,19,2,45,256,89,95]
+    console.log(arrayNum.shift());                  //在控制台中显示:[19,2,45,256,89,95,33]
+    console.log(arrayNum.unshift("熊笨笨"));        //在控制台中显示:["熊笨笨",22,19,2,45,256,89,95,33]
+  ~~~
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
