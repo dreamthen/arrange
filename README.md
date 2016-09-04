@@ -567,6 +567,16 @@
    console.log(num.toExponential());                //在控制台中显示:1.314356*10^4
    console.log(num.toPrecision(5));                 //在控制台中显示:1314.4
 ~~~
+###Date类型方法
+~~~javascript
+  var date = new Date();
+  console.log(date.getFullYear());                  //在控制台中显示:2016
+  console.log(date.getDate());                      //在控制台中显示:4
+  console.log((date.getMonth()+1));                 //在控制台中显示:9
+  console.log(date.getHours());                     //在控制台中显示:20
+  console.log(date.getMinutes());                   //在控制台中显示:23
+  console.log(date.getSeconds());                   //在控制台中显示:24
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
