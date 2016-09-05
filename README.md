@@ -636,6 +636,10 @@
   console.log(string.toLocaleUpperCase());          //在控制台中显示:"HELLO WORLD"
   console.log(string.toLocaleLowerCase());          //在控制台中显示:"hello world"
 ~~~
+##对象封装
+~~~javascript
+  
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
