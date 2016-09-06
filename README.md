@@ -638,6 +638,7 @@
 ~~~
 ##面向对象封装
 ~~~javascript
+window.onload = function(){
   var app = {};
   (function(obj){
       function Person(name,age){
@@ -657,7 +658,50 @@
       });
   })(app);
   var person = new app.Person("尹文楷",23);
-  console.log(person.description());                //在控制台中显示:"姓名:尹文楷,年龄:23"                    
+  console.log(person.description());                //在控制台中显示:"姓名:尹文楷,年龄:23"
+}  
+~~~
+##面向对象继承
+~~~javascript
+window.onload = function(){
+  var app = {};
+  (function(obj){
+      function Person(name){
+        this.name = name;
+      }
+      Person.prototype.getName = function(){
+        return "姓名:" + this.name;
+      };
+      function extend(subClass,superClass){
+        var F = function(){};
+        F.prototype = superClass.prototype;
+        subClass.prototype = new F();
+        subClass.prototype.constructor = subClass;
+        subClass.superClasses = superClass.prototype;
+        if(superClass.prototype.constructor == Object.prototype.constructor){
+            superClass.prototype.constructor = superClass;
+        }
+      }
+      extend(Store,Person);
+      function Store(name,books){
+        this.book = books;
+        Store.superClasses.constructor.call(this,name);
+      }
+      Store.prototype.getName = function(){
+        return "书名:" + this.book + ",借书者:" + this.name;
+      }
+      Object.defineProperties(obj,{
+          Store:{
+            value:Store,
+            writable:true,
+            configurable:true,
+            enumable:true
+          }
+      });
+  })(app);
+  var book = new app.Store("赵悦","鲁滨逊漂流记");
+  console.log(book.getName());                      //在控制台中显示:"书名:鲁滨逊漂流记,借书者:赵悦"
+}  
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
