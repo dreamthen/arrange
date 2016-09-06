@@ -638,7 +638,26 @@
 ~~~
 ##面向对象封装
 ~~~javascript
-  
+  var app = {};
+  (function(obj){
+      function Person(name,age){
+          this.name = name;
+          this.age = age;
+      }
+      Person.prototype.description = function(){
+          return "姓名:" + this.name + ",年龄:" + this.age;
+      };
+      Object.defineProperties(obj,{
+          Person:{
+            value:Person,
+            writable:true,
+            configurable:true,
+            enumable:true
+          }
+      });
+  })(app);
+  var person = new app.Person("尹文楷",23);
+  console.log(person.description());                //在控制台中显示:"姓名:尹文楷,年龄:23"                    
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
