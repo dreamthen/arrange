@@ -714,6 +714,28 @@ window.onload = function(){
   p.appendChild(text);                                              //将文本节点"yinwk love zhao"加入到p标签DOM节点里面
   findById.appendChild(p);                                          //将id值为div的节点里面加入子节点p标签DOM节点
 ~~~
+###DOM获取子节点、类型以及值
+~~~javascript
+  var ul = document.getElementsByTagName("ul")[0];
+  console.log(ul.childNodes.length);                                //在控制台中显示:7
+  for(var i = 0; i < ul.childNodes.length; i++){
+      if(ul.childNodes[i].nodeType !== 3){
+          console.log(ul.childNodes[i].nodeName);                   //在控制台中显示:LI
+                                                                    //               LI
+                                                                    //               LI
+      }
+      console.log(ul.childNodes[i].nodeName);                       //在控制台中显示:#text
+                                                                    //               LI
+                                                                    //               #text
+                                                                    //               LI
+                                                                    //               #text
+                                                                    //               LI
+                                                                    //               #text
+  }
+~~~
+~~~html
+  
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
