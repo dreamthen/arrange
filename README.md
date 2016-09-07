@@ -703,6 +703,17 @@ window.onload = function(){
   console.log(book.getName());                      //在控制台中显示:"书名:鲁滨逊漂流记,借书者:赵悦"
 }  
 ~~~
+##DOM
+~~~javascript
+  var findById = document.getElementById("div");                    //在全局节点中寻找id值为div的节点
+  var findByClass = document.getElementsByClassName("classFirst");  //在全局节点中寻找class值为classFirst的节点数组
+  var findByName = document.getElementsByName("userName");          //在全局节点中寻找name值为userName的节点数组
+  var findByTag = document.getElementsByTagName("p");               //在全局节点中寻找全部的p节点数组
+  var p = document.createElement("p");                              //创建一个p标签DOM节点
+  var text = document.createTextNode("yinwk love zhaoy");           //创建一个文本节点,内容为"yinwk love zhaoy"
+  p.appendChild(text);                                              //将文本节点"yinwk love zhao"加入到p标签DOM节点里面
+  findById.appendChild(p);                                          //将id值为div的节点里面加入子节点p标签DOM节点
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
