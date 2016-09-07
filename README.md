@@ -721,16 +721,16 @@ window.onload = function(){
   for(var i = 0; i < ul.childNodes.length; i++){
       if(ul.childNodes[i].nodeType !== 3){
           console.log(ul.childNodes[i].nodeName);                   //在控制台中显示:LI
-                                                                    //               LI
-                                                                    //               LI
+                                                                    //              LI
+                                                                    //              LI
       }
       console.log(ul.childNodes[i].nodeName);                       //在控制台中显示:#text
-                                                                    //               LI
-                                                                    //               #text
-                                                                    //               LI
-                                                                    //               #text
-                                                                    //               LI
-                                                                    //               #text
+                                                                    //              LI
+                                                                    //              #text
+                                                                    //              LI
+                                                                    //              #text
+                                                                    //              LI
+                                                                    //              #text
   }
 ~~~
 ~~~html
