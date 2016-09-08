@@ -818,6 +818,7 @@ window.onload = function(){
     console.log(time);
   }
   setTimeInterval(getTime,1000);                                     //不断执行的时间,在页面上显示:2016年09月09日 21时39分59秒,并不断执行刷新
+  setTimeOut(getTime,1000);                                          //只执行一次,执行时间
   function changeStatus(time){
     if(time<10){
       time = "0" + time;
