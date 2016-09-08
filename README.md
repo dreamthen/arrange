@@ -713,6 +713,10 @@ window.onload = function(){
   var text = document.createTextNode("yinwk love zhaoy");           //创建一个文本节点,内容为"yinwk love zhaoy"
   p.appendChild(text);                                              //将文本节点"yinwk love zhao"加入到p标签DOM节点里面
   findById.appendChild(p);                                          //将id值为div的节点里面加入子节点p标签DOM节点
+  console.log(findByTag[0].parentNode.nodeName);                    //将全部节点中第一个p节点的父节点在控制台中显示出来
+  var li = document.getElementsByTagName("li")[0];
+  var ul = document.getElemetnsByTagName("ul")[0];
+  ul.removeChild(li);                                               //将全部节点中的第一个li节点从全部节点中的第一个uli节点中删除
 ~~~
 ###DOM获取子节点、类型以及值
 ~~~javascript
@@ -741,6 +745,24 @@ window.onload = function(){
         <li>zhaoy</li>
         <li>liuzj</li>
       </ul>
+    </body>
+  </html>
+~~~
+###DOM在原有p节点的上方添加p节点
+~~~javascript
+  var p = document.getElementsByTagName("p")[0];
+  var div = document.getElementById("div");
+  var word = document.createElement("p");
+  var text = document.createTextNode("笨熊熊爱小悦");
+  word.appendChild(text);
+  div.insertBefore(word,p);                                         //在p标签的上面添加了一行p,内容显示"笨笨熊爱小悦"
+~~~
+~~~html
+  <html>
+    <body>
+      <div id="div">
+          <p>在这一行上面添加一行p</p>
+      </div>
     </body>
   </html>
 ~~~
