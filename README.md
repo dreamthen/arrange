@@ -788,6 +788,14 @@ window.onload = function(){
   var protocol = window.location.protocol;                          //获取到URL的协议
   window.locatioin.assign("http://www.baidu.com");                  //页面重新执行加载,加载出百度首页
 ~~~
+###history对象
+~~~javascript
+  window.history.go(0);                                             //本页面重新加载
+  window.history.go(1);                                             //页面跳到历史记录下一个浏览的页面
+  window.history.go(-1);                                            //页面跳到历史记录上一个浏览的页面
+  window.history.back();                                            //页面跳到历史记录上一个浏览的页面
+  window.history.forward();                                         //页面跳到历史记录写一个浏览的页面
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
