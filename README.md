@@ -717,8 +717,9 @@ window.onload = function(){
   var li = document.getElementsByTagName("li")[0];
   var ul = document.getElemetnsByTagName("ul")[0];
   ul.removeChild(li);                                               //将全部节点中的第一个li节点从全部节点中的第一个uli节点中删除
-  var width = document.body.offsetWidth;                            //获取到当前页面当前的宽度
-  var height = document.body.offsetHeight;                          //获取到当前页面当前的高度
+  var width = document.body.offsetWidth || document.documentElement.offsetWidth;                            
+  //获取到当前页面当前的宽度,并兼容IE
+  var height = document.body.offsetHeight || document.documentElement.offsetHeight;                          //获取到当前页面当前的高度,并兼容IE
 ~~~
 ###DOM获取子节点、类型以及值
 ~~~javascript
@@ -795,6 +796,13 @@ window.onload = function(){
   window.history.go(-1);                                            //页面跳到历史记录上一个浏览的页面
   window.history.back();                                            //页面跳到历史记录上一个浏览的页面
   window.history.forward();                                         //页面跳到历史记录写一个浏览的页面
+~~~
+###screen对象
+~~~javascript
+  var screenWidth = window.screen.Width;                            //获取到屏幕的宽度
+  var screenHeight = window.screen.Height;                          //获取到屏幕的高度
+  var avaWidth = window.screen.availWidth;                          //获取到屏幕的最大宽度
+  var avaHeight = window.screen.availHeight;                        //获取到屏幕的最大高度
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
