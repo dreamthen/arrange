@@ -734,7 +734,15 @@ window.onload = function(){
   }
 ~~~
 ~~~html
-  
+  <html>
+    <body>
+      <ul>
+        <li>yinwk</li>
+        <li>zhaoy</li>
+        <li>liuzj</li>
+      </ul>
+    </body>
+  </html>
 ~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
