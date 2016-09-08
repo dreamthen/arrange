@@ -717,6 +717,8 @@ window.onload = function(){
   var li = document.getElementsByTagName("li")[0];
   var ul = document.getElemetnsByTagName("ul")[0];
   ul.removeChild(li);                                               //将全部节点中的第一个li节点从全部节点中的第一个uli节点中删除
+  var width = document.body.offsetWidth;                            //获取到当前页面当前的宽度
+  var height = document.body.offsetHeight;                          //获取到当前页面当前的高度
 ~~~
 ###DOM获取子节点、类型以及值
 ~~~javascript
