@@ -804,6 +804,27 @@ window.onload = function(){
   var avaWidth = window.screen.availWidth;                          //获取到屏幕的最大宽度
   var avaHeight = window.screen.availHeight;                        //获取到屏幕的最大高度
 ~~~
+###计时器
+~~~javascript
+  function getTime(){
+    var date = new Date();
+    var y = changeStatus(date.getFullYear());
+    var month = changeStatus(date.getMonth()+1);
+    var d = changeStatus(date.getDate());
+    var h = changeStatus(date.getHours());
+    var m = changeStatus(date.getMinutes());
+    var s = changeStatus(date.getSeconds());
+    var time = y + "年" + month + "月" + d + "日 " + h + "时" + m + "分" + s + "秒";
+    console.log(time);
+  }
+  setTimeInterval(getTime,1000);                                     //不断执行的时间,在页面上显示:2016年09月09日 21时39分59秒,并不断执行刷新
+  function changeStatus(time){
+    if(time<10){
+      time = "0" + time;
+    }
+    return time;
+  }
+~~~
 ##老版本浏览器兼容html5标签方法
 ~~~Javascript
   (function(global){
