@@ -863,7 +863,11 @@ window.onload = function(){
 ~~~javascript
   $(document).ready(function(){
       var id =  $("#div");                                           //Jquery获取到id为div的节点
-      var class = $(".className");                                   //
+      var class = $(".className");                                   //Jquery获取到class为className的节点数组
+      var p = $("p");                                                //Jquery获取到所有的p节点数组
+      var title = $("input[title*='only']");                           //Jquery获取到所有的input中的title属性包含"only"字符串的节点数组
+      var name = $("input[name='userName']");                        //Jquery获取到所有的input节点中的name属性等于"userName"字符串的节点数组
+      
   });
   
 ~~~
