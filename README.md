@@ -922,5 +922,21 @@ window.onload = function(){
   </body>
 </html>
 ~~~
+###jQuery绑定事件
+~~~javascript
+//由于jQery的事件click,dblclick....事件太占用电脑和浏览器内存,所以使用绑定事件
+$(document).ready(function(){
+    var div = $("#div");
+    div.bind("click",clickOne);                                         //bind进行事件绑定点击事件,在控制台中显示"divOne"
+    
+    function clickOne(e){
+        console.log("divOne");
+    }
+    
+    div.unbind("click",clickOne);                                       //unbind进行事件解绑点击事件,在控制台中没有显示
+    div.on("click",clickOne);                                           //on进行事件绑定点击事件,在控制台中显示"divOne"
+    div.off("click",clickOne);                                          //off进行事件解绑点击事件,在控制台中没有显示
+});
+~~~
 
 
