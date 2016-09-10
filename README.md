@@ -862,7 +862,7 @@ window.onload = function(){
 ###jQuery获取节点
 ~~~javascript
   $(document).ready(function(){
-      var id =  $("#div");                                          // Jquery获取到id为div的节点
+      var id =  $("#div");                                           //Jquery获取到id为div的节点
   });
   setTimeOut(getTime,1000);                                          //只执行一次,执行时间
 ~~~
