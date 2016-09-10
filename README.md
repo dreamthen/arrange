@@ -870,5 +870,57 @@ window.onload = function(){
       var alt = $("img[alt~='panda']");                             //Jquery获取到所有的img节点中的alt属性特定等于"panda"字符串的节点数组
   });
 ~~~
+###jQuery自定义事件
+~~~javascript
+  $(document).ready(function(){
+      var button = $("#button");
+      button.click(function(){
+        var e = jQery.Event("myEvent");
+        button.trigger(e);
+      });
+      
+      button.bind("myEvent",function(event){
+        console.log(event);                                           //jQuery.Event进行自定义事件,这个内置对象是指myEvent
+      });
+  });
+~~~
+###jQuery内置对象
+~~~javascript
+  $(document).ready(function(){
+      var div = $("#div");
+      var button = $("#button");
+      div.on("click",function(e){
+          console.log("div");
+          e.stopPropagation();                                        //取消父级冒泡事件
+          e.stopImmediatePropagation();                               //取消所有节点的冒泡事件
+      });
+      
+      button.on("click",function(e){
+          console.log("button");
+      });
+  });
+~~~
+~~~html
+<html>
+  <head>
+    <style>
+      html,body{
+        margin:0;
+        padding:0;
+      }
+      #div{
+        width:400px;
+        height:400px;
+        background-color:brown;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="div">
+          <button id="button">点击</button>
+      </div>
+  </body>
+</html>
+~~~
 
 
