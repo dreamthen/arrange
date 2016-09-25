@@ -548,11 +548,22 @@
     console.log(arrayNum.sort());                     //在控制台中显示:[19,2,22,256,33,45,89,95]
     console.log(arrayNum.sort(function(a,b){
           return a - b;
-    }));                                              //在控制台中显示:[2,19,22,33,45,89,95,256]
-    console.log(arrayNum.push("笨笨熊"));             //在控制台中显示:[22,19,2,45,256,89,95,33,"笨笨熊"]
-    console.log(arrayNum.pop());                     //在控制台中显示:[22,19,2,45,256,89,95]
-    console.log(arrayNum.shift());                   //在控制台中显示:[19,2,45,256,89,95,33]
-    console.log(arrayNum.unshift("熊笨笨"));         //在控制台中显示:["熊笨笨",22,19,2,45,256,89,95,33]
+    }));                                                //在控制台中显示:[2,19,22,33,45,89,95,256]
+    console.log(arrayNum.push("笨笨熊"));               //在控制台中显示:[22,19,2,45,256,89,95,33,"笨笨熊"]
+    console.log(arrayNum.pop());                       //在控制台中显示:[22,19,2,45,256,89,95]
+    console.log(arrayNum.shift());                     //在控制台中显示:[19,2,45,256,89,95,33]
+    console.log(arrayNum.unshift("熊笨笨"));            //在控制台中显示:["熊笨笨",22,19,2,45,256,89,95,33]
+    arrayNum.forEach(function(item,index,array){
+        console.log(item);                             //在控制台中显示:[22,19,2,45,256,89,95,33]
+    });
+    var arrAno = arrayNum.filter(function(item,index,array){
+        return item < 80;                           
+    });
+    console.log(arrAno);                               //在控制台中显示:[22,19,2,45,33]
+    var arrThird = arrayNum.map(function(item,index,array){
+        return item + 10;
+    });
+    console.log(arrThird);                             //在控制台中显示:[32,29,12,55,266,99,105,43]
 ~~~
 ###Number类型Math各种数学函数的方法
 ~~~javascript
