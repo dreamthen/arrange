@@ -801,6 +801,8 @@ window.onload = function(){
   //在一个新页面上打开百度的URL,这个新页面宽度为300px,高度为300px,距离顶部100px,距离左部100px,设置导航栏,设置菜单栏,必须有滚动条
   window.close();
   //关闭页面
+  window.print();
+  //打印页面
 ~~~
 ###location对象
 ~~~javascript
