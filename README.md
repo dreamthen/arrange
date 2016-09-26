@@ -794,7 +794,9 @@ window.onload = function(){
 ###window
 ~~~javascript
   var width = window.innerWidth;                                    //获取到屏幕内层的宽度
-  var height = window.innerHeight;                                  //获取到屏幕外层的高度
+  var height = window.innerHeight;                                  //获取到屏幕内层的高度
+  var outerWidth = window.outerWidth;                               //获取到屏幕外层的宽度
+  var outerHeight = window.outerHeight;                             //获取到屏幕外层的高度
   window.open("http://www.baidu.com","_blank","width=300,height=300,top=100,left=100,toolbar=yes,menubar=yes,scrollbars=yes");
   //在一个新页面上打开百度的URL,这个新页面宽度为300px,高度为300px,距离顶部100px,距离左部100px,设置导航栏,设置菜单栏,必须有滚动条
   window.close();
