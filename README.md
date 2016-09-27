@@ -806,13 +806,16 @@ window.onload = function(){
 ~~~
 ###location对象
 ~~~javascript
+  var url = window.location.href;                                   //获取到整个URL
+  var host = window.location.host;                                  //获取到ip地址+端口号
   var hostName = window.location.hostname;                          //获取到URL的ip地址
   var port = window.location.port;                                  //获取到URL的端口
   var pathName = window.location.pathname;                          //获取到URL的路径
   var search = window.location.search;                              //获取到URL的参数
   var hash = window.location.hash;                                  //获取到URL的hash指针
   var protocol = window.location.protocol;                          //获取到URL的协议
-  window.locatioin.assign("http://www.baidu.com");                  //页面重新执行加载,加载出百度首页
+  window.locatioin.assign("http://www.baidu.com");                  //页面执行载入,加载出百度首页
+  window.location.reload();                                         //本页面重新加载
 ~~~
 ###history对象
 ~~~javascript
