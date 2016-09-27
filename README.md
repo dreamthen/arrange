@@ -814,7 +814,7 @@ window.onload = function(){
   var search = window.location.search;                              //获取到URL的参数
   var hash = window.location.hash;                                  //获取到URL的hash指针
   var protocol = window.location.protocol;                          //获取到URL的协议
-  window.locatioin.assign("http://www.baidu.com");                  //页面执行载入,加载出百度首页
+  window.location.assign("http://www.baidu.com");                  //页面执行载入,加载出百度首页
   window.location.reload();                                         //本页面重新加载
 ~~~
 ###history对象
