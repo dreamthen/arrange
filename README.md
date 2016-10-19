@@ -970,9 +970,9 @@ $(document).ready(function(){
 ~~~javascript
 $(function(){
   $(window).scroll(function(){
-      var scrollTop = $(document).scrollTop();
-      var windowHeight = $(window).height();
-      var documentHeight = $(document).height();
+      var scrollTop = $(document).scrollTop();                           //获取到滚动条距离document顶端的距离
+      var windowHeight = $(window).height();                             //获取到窗口的高度
+      var documentHeight = $(document).height();                         //
       if(scrollTop >= (documentHeight - windowHeight)){
           console.log("到达底端~");
       }
