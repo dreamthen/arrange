@@ -966,5 +966,18 @@ $(document).ready(function(){
     div.off("click",clickOne);                                          //off进行事件解绑点击事件,在控制台中没有显示
 });
 ~~~
+###jQuery判断滚动条是否到底
+~~~javascript
+$(function(){
+  $(window).scroll(function(){
+      var scrollTop = $(document).scrollTop();
+      var windowHeight = $(window).height();
+      var documentHeight = $(document).height();
+      if(scrollTop >= (documentHeight - windowHeight)){
+          console.log("到达底端~");
+      }
+  });
+});
+~~~
 
 
