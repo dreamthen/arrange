@@ -727,7 +727,39 @@ window.onload = function(){
 ~~~
 ###多函数继承
 ~~~javascript
+window.onload = function(){
+  function Person(name){
+     this.name = name;
+  }
   
+  Person.prototype.getName = function(){
+     return name;
+  };
+  
+  function extend(subClass,superClass){
+     function F(){}
+     for(propTypes in superClass[prototype]){
+        F[prototype][propTypes] = superClass[prototype][propTypes];
+     }
+     for(propF in F[prototype){
+        subClass[prototype][propF] = F[prototype][propF];
+     }
+     subClass.prototype.constructor = subClass;
+     subClass.superClasses = superClass;
+     if(superClass.prototype.constructor === Object.prototype.constructor){
+        superClass.prototype.constructor = superClass;
+     }
+  }
+  
+  extend(Book,Person);
+  function Book(name,book){
+      Book.superClasses.prototype.call(this,name);
+      this.book = book;
+  }
+  Book.prototype.description = function(){
+      
+  }
+}
 ~~~
 ##DOM
 ~~~javascript
