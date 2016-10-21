@@ -751,13 +751,22 @@ window.onload = function(){
      }
   }
   
+  function Transformer(action){
+      this.action = action;
+  }
+  
+  Transformer.prototype.getAction = function(){
+      return this.action;
+  }
+  
   extend(Book,Person);
+  extend(Book,Transformer);
   function Book(name,book){
       Book.superClasses.prototype.call(this,name);
       this.book = book;
   }
   Book.prototype.description = function(){
-      
+      return "借书名:"+this.book+",借书人:"+this.name;
   }
 }
 ~~~
