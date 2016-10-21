@@ -683,6 +683,7 @@ window.onload = function(){
 }  
 ~~~
 ##面向对象继承
+###空函数对象继承
 ~~~javascript
 window.onload = function(){
   var app = {};
@@ -723,6 +724,10 @@ window.onload = function(){
   var book = new app.Store("赵悦","鲁滨逊漂流记");
   console.log(book.getName());                      //在控制台中显示:"书名:鲁滨逊漂流记,借书者:赵悦"
 }  
+~~~
+###多函数继承
+~~~javascript
+  
 ~~~
 ##DOM
 ~~~javascript
