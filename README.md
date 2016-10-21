@@ -728,46 +728,59 @@ window.onload = function(){
 ###多函数继承
 ~~~javascript
 window.onload = function(){
-  function Person(name){
-     this.name = name;
-  }
-  
-  Person.prototype.getName = function(){
-     return name;
-  };
-  
-  function extend(subClass,superClass){
-     function F(){}
-     for(propTypes in superClass[prototype]){
-        F[prototype][propTypes] = superClass[prototype][propTypes];
-     }
-     for(propF in F[prototype){
-        subClass[prototype][propF] = F[prototype][propF];
-     }
-     subClass.prototype.constructor = subClass;
-     subClass.superClasses = superClass;
-     if(superClass.prototype.constructor === Object.prototype.constructor){
-        superClass.prototype.constructor = superClass;
-     }
-  }
-  
-  function Transformer(action){
-      this.action = action;
-  }
-  
-  Transformer.prototype.getAction = function(){
-      return this.action;
-  }
-  
-  extend(Book,Person);
-  extend(Book,Transformer);
-  function Book(name,book){
-      Book.superClasses.prototype.call(this,name);
-      this.book = book;
-  }
-  Book.prototype.description = function(){
-      return "借书名:"+this.book+",借书人:"+this.name;
-  }
+  (function(global){
+      function Person(name){
+         this.name = name;
+      }
+
+      Person.prototype.getName = function(){
+         return name;
+      };
+
+      function extend(subClass,superClass){
+         function F(){}
+         for(propTypes in superClass[prototype]){
+            F[prototype][propTypes] = superClass[prototype][propTypes];
+         }
+         for(propF in F[prototype){
+            subClass[prototype][propF] = F[prototype][propF];
+         }
+         subClass.prototype.constructor = subClass;
+         subClass.superClasses = superClass;
+         if(superClass.prototype.constructor === Object.prototype.constructor){
+            superClass.prototype.constructor = superClass;
+         }
+      }
+
+      function Transformer(){
+          this.action = "";
+      }
+
+      Transformer.prototype.getAction = function(action){
+          this.action = action;
+          return this.action;
+      }
+
+      extend(Book,Person);
+      extend(Book,Transformer);
+      function Book(name,book){
+          Book.superClasses.prototype.call(this,name);
+          this.book = book;
+      }
+      Book.prototype.description = function(){
+          return "借书名:"+this.book+",借书人:"+this.name;
+      }
+
+      var book = new Book("yinwk","鲁滨逊漂流记");
+      Object.defineProperties(global,{
+          book:{
+            value:book,
+            enumable:true,
+            writable:true,
+            configurable:true
+          }
+      });
+  })(window);
 }
 ~~~
 ##DOM
