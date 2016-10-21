@@ -974,7 +974,7 @@ $(function(){
       var windowHeight = $(window).height();                             //获取到窗口的高度
       var documentHeight = $(document).height();                         //获取到整个页面document的高度
       if(scrollTop >= (documentHeight - windowHeight)){                  //判断是否到达页面的底端
-          console.log("到达底端~");
+          console.log("到达底端~");                                       //将页面滚动条滑到底端,在控制台中显示"到达底端~"
       }
   });
 });
