@@ -972,12 +972,29 @@ $(function(){
   $(window).scroll(function(){
       var scrollTop = $(document).scrollTop();                           //获取到滚动条距离document顶端的距离
       var windowHeight = $(window).height();                             //获取到窗口的高度
-      var documentHeight = $(document).height();                         //
-      if(scrollTop >= (documentHeight - windowHeight)){
+      var documentHeight = $(document).height();                         //获取到整个页面document的高度
+      if(scrollTop >= (documentHeight - windowHeight)){                  //判断是否到达页面的底端
           console.log("到达底端~");
       }
   });
 });
 ~~~
+###jQuery获取DOM对象
+~~~javascript
+$(function(){
+  var objQuery = $("#objQuery");
+  console.log(objQuery.get(0));                                           //获取到jQuery对象的DOM对象,在控制台显示:"DivElement"
+});
+~~~
+~~~html
+<head>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="objQuery"></div>
+</body>
+~~~
+
 
 
