@@ -1056,7 +1056,9 @@ $(function(){
 ~~~
 #Git版本管理工具
 ##设置ssh keygen命令
+~~~javascript
 ssh-keygen -t rsa -b 4096 -c "dreamthen.00@gmail.com"                     //对自己的邮箱进行ssh加密,保存在自己的C盘的用户文件夹的yinwk文件夹的.ssh文件夹的底下
+~~~
 ##Git命令
 ~~~javascript
 git clone git@github.com:dreamthen/Altitude.git                           //对项目克隆并复制到本地
