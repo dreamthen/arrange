@@ -1054,6 +1054,18 @@ $(function(){
   <div id="objQuery"></div>
 </body>
 ~~~
+#Git版本管理工具
+##设置ssh keygen命令
+ssh-keygen -t rsa -b 4096 -c "dreamthen.00@gmail.com"                     //对自己的邮箱进行ssh加密,保存在自己的C盘的用户文件夹的yinwk文件夹的.ssh文件夹的底下
+##Git命令
+git clone git@github.com:dreamthen/Altitude.git                           //对项目克隆并复制到本地
+git status                                                                //显示出此git项目其中文件的状态
+git add stylesheets                                                       //添加stylesheets这个文件夹到github库
+git commit -m "altitude"                                                  //你进行此次添加操作的注解或者说是说明
+git push                                                                  //提交进入github库,并进行远程github网站项目同步
+git reset                                                                 //消除上一步的git操作
+git config --global user.email "dreamthen.00@gmail.com"                   //设置默认提交的邮箱为dreamthen.00@gmail.com
+git config --global user.name "dreamthen"                                 //设置默认提交的姓名为dreamthen
 
 
 
