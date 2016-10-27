@@ -1069,6 +1069,8 @@ git push                                                
 git reset                                                                 //消除上一步的git操作
 git config --global user.email "dreamthen.00@gmail.com"                   //设置默认提交的邮箱为dreamthen.00@gmail.com
 git config --global user.name "dreamthen"                                 //设置默认提交的姓名为dreamthen
+git config --list                                                         //显示设置列表
+git init                                                                  //初始化一个git项目,会出现一个.git文件,其中都是初始化的文件
 git log                                                                   //显示之前提交过到github上所有的记录
 git reset --hard [git log想要回到过去的版本号]                              //回到过去提交代码之前项目的状态
 git reflog                                                                //显示过去每一次操作项目的状态记录
