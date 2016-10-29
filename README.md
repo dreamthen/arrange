@@ -1078,6 +1078,7 @@ git reset --hard [git reflog想要去往将来的版本号]              
 git checkout master                                                       //切换到master分支
 git merge origin/dueTo1008-1027                                           //将dueTo1008-1027分支合并到master分支上
 ~~~
+#树型结构Tree
 
 
 
