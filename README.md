@@ -1094,6 +1094,10 @@ git cat-file -t HEAD                                                      //查�
 git cat file -p HEAD                                                      //查找HEAD文件中的commit提交版本状态中的git tree码
 git cat-file -t 7a78c                                                     //查找git tree码中commit状态,显示tree
 git cat-file- p 7a78c                                                     //查找git tree码中文件tree码或者blob码
+git branch test                                                           //新建一个分支test
+git branch -d test                                                        //删除分支test
+git checkout 分支名(test)                                                  //切换分支到某个分支,比如test分支
+git checkout -b test                                                      //新建一个分支test,并切换到test分支
 ~~~
 #树型结构Tree
 ##ant design树型结构
