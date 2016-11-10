@@ -1084,7 +1084,9 @@ git reflog                                                                //显�
 git reset --hard [git reflog想要去往将来的版本号]                           //去往将来最新一次提交代码项目的状态
 git checkout master                                                       //切换到master分支
 git merge origin/dueTo1008-1027                                           //将dueTo1008-1027分支合并到master分支上
-
+git rm README.md                                                          //git永久删除文件README.md
+git rm --cached README.md                                                 //git删除远程分支文件README.md,本地working directory还保留有文件README.md
+git mv README.md README.txt                                               //git对文件名字进行修改,rename
 ~~~
 #树型结构Tree
 ##ant design树型结构
