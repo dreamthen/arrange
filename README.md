@@ -1105,12 +1105,12 @@ git log --oneline                                                         //显�
 cd .git
 cat refs/heads/master                                                     //获取到master版本现在的git码
 git cat-file -t master                                                    //获取到master版本现在的状态commit
-git cat file -p master                                                    //获取到master版本现在的状态commit git tree码
+git cat-file -p master                                                    //获取到master版本现在的状态commit git tree码
 git log --oneline                                                         //显示之前提交过到github上所有版本commit 简化版的记录
 git rev-parse HEAD                                                        //获取到HEAD文件中的commit提交版本状态中的git tree码
 git rev-parse HEAD~                                                       //获取到HEAD~指向的HEAD下层提交commit版本状态中的git tree码
-git rev parse HEAD~4                                                      //获取到HEAD~4指向的HEAD~3下层提交commit版本状态中的git tree码
-git rev parse HEAD~4^{tree}                                               //获取到HEAD~4指向的HEAD~3下层提交commit版本状态中的git tree独有码
+git rev-parse HEAD~4                                                      //获取到HEAD~4指向的HEAD~3下层提交commit版本状态中的git tree码
+git rev-parse HEAD~4^{tree}                                               //获取到HEAD~4指向的HEAD~3下层提交commit版本状态中的git tree独有码
 git cat-file -p HEAD~4:readme.md                                          //获取到HEAD~4指向的HEAD~3下层提交commit版本状态中的reademe.md内容describle介绍和method方法
 ~~~
 #树型结构Tree
