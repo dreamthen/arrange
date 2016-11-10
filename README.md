@@ -1087,6 +1087,11 @@ git merge origin/dueTo1008-1027                                           //将d
 git rm README.md                                                          //git永久删除文件README.md
 git rm --cached README.md                                                 //git删除远程分支文件README.md,本地working directory还保留有文件README.md
 git mv README.md README.txt                                               //git对文件名字进行修改,rename
+git stash                                                                 //想要使得自己修改的文件回到修改前最原始的状态,包含(git add之后git commit之前)
+git stash list                                                            //列出git stash命令的操作历史列表
+git stash pop                                                             //想要使得自己修改的文件回到git stash列表里面最新git stash状态,git commit之后
+git cat-file -t HEAD                                                      //查找HEAD文件
+git cat file -p HEAD                                                      //查找HEAD文件中的git tree码
 ~~~
 #树型结构Tree
 ##ant design树型结构
