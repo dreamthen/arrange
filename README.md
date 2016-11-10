@@ -1092,6 +1092,8 @@ git stash list                                                            //列�
 git stash pop                                                             //想要使得自己修改的文件回到git stash列表里面最新git stash状态,git commit之后
 git cat-file -t HEAD                                                      //查找HEAD文件中的commit状态
 git cat file -p HEAD                                                      //查找HEAD文件中的commit提交版本状态中的git tree码
+git cat-file -t 7a78c                                                     //查找git tree码中commit状态,显示tree
+git cat-file- p 7a78c                                                     //查找git tree码中文件tree码或者blob码
 ~~~
 #树型结构Tree
 ##ant design树型结构
