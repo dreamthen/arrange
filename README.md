@@ -1115,6 +1115,20 @@ git cat-file -p HEAD~4:readme.md                                          //获�
 ~~~
 #树型结构Tree
 ##ant design树型结构
+#nodeJs
+##node命令
+~~~javascript
+node -v                                                                   //获取到本机的nodeJs的版本
+node                                                                      //输入node命令如同进入了浏览器控制台,由于都是用的Chrome的V8引擎,所以可以输入并运行javascript代码
+node me.js                                                                //也可以运行javascript文件以及文件中的代码
+npm init                                                                  //对于npm依赖包进行初始化
+npm install jquery --save                                                 //npm下载外部依赖jquery包,并保存在npm init初始化的package.json中
+~~~
+##淘宝镜像cnpm
+~~~javascript
+npm install -g cnpm --registry=https://registry.npm.taobao.org            //npm从内网https://registry.npm.taobao.org下载淘宝镜像cnpm,这样下载外部依赖包下载速度会秒下
+cnpm install jquery --save                                                //用淘宝镜像cnpm下载外部依赖包jquery包,并保存在npm init初始化的package.json中,速度很快,秒下
+~~~
 
 
 
