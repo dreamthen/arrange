@@ -48,6 +48,7 @@
   <audio></audio>:表示装容音频的标签
   <video></video>:表示装容视频的标签
   <source></source>:表示音频视频的资源标签,一般被包容在audio和video标签里面
+  <caption></caption>:表示表格的标题
   <h1></h1>:表示一级标题
   <h2></h2>:表示二级标题
   <h3></h3>:表示三级标题
@@ -69,6 +70,7 @@
   designModel:表示页面可编辑
   hidden:表示属性隐藏
   spellcheck:表示检查单词是否正确
+  summary:表示对表格的摘要
   datetime:在time标签显示的属性,对现在的时间节点进行定义和解释
   pubdate:发布日期属性,指对article和time标签发布日期的定义和解释
   controls:音频和视频的控制栏,controls值表示显示控制栏
