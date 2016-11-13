@@ -1159,5 +1159,9 @@ console.log("why first is me");                                 
                                                                            //why first is me
                                                                            //<Buffer 7b 0a 09 22 6e 61 6d 65 22 3a 22 47 61 72 79 22 0a 7d 0a>
 ~~~
+##使用express
+~~~javascript
+
+~~~
 
 
