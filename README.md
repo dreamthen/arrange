@@ -1161,7 +1161,12 @@ console.log("why first is me");                                 
 ~~~
 ##使用express
 ~~~javascript
-
+const express = require("express");
+const app = express();
+app.get("/", (req, res)=>{
+  res.send("Hello World");
+});
+app.listen(3000);                                                          //nodeJs express监听端口3000,地址localhost:3000网站显示Hello World
 ~~~
 
 
