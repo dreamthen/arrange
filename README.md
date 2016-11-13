@@ -1132,12 +1132,32 @@ cnpm install jquery --save                                    
 ##NodeJs原理
 ~~~javascript
 const fs = require("fs");
-fs.readFile("me.json",function(error, data){
+fs.readFile("me.json", (error, data)=>{
   if(error) throw error;
   console.log(data);
 });
 console.log("why first is me");                                           //先打印why first is me
                                                                           //再打印<Buffer 7b 0a 09 22 6e 61 6d 65 22 3a 22 47 61 72 79 22 0a 7d 0a>
+~~~
+~~~javascript
+const fs = require("fs");
+const data = fs.readFileSync("me.json");
+console.log(data);
+fs.readFile("me.json",(error, data)=>{
+  if(error) throw error;
+  console.log(data);
+})
+read = (name, callback) =>{
+  callback(name);
+}
+read("CLAY",(name)=>{
+  console.log("why is "+name);
+});
+console.log("why first is me");                                            //在控制台中显示:
+                                                                           //<Buffer 7b 0a 09 22 6e 61 6d 65 22 3a 22 47 61 72 79 22 0a 7d 0a>
+                                                                           //why is CLAY
+                                                                           //why first is me
+                                                                           //<Buffer 7b 0a 09 22 6e 61 6d 65 22 3a 22 47 61 72 79 22 0a 7d 0a>
 ~~~
 
 
