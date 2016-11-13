@@ -1136,6 +1136,8 @@ fs.readFile("me.json",function(error, data){
   if(error) throw error;
   console.log(data);
 });
+console.log("why first is me");                                           //先打印why first is me
+                                                                          //再打印<Buffer 7b 0a 09 22 6e 61 6d 65 22 3a 22 47 61 72 79 22 0a 7d 0a>
 ~~~
 
 
