@@ -851,6 +851,26 @@ window.onload = function(){
     </body>
   </html>
 ~~~
+##读取和获取节点属性
+~~~javascript
+  var attr = document.getElementById("attr");
+  console.log(attr.style.color);                                     //在控制台中显示:#2dc3e8的rgb的形式
+  console.log(attr.attributes.title);                                //在控制台中显示:title="attrMost"
+  console.log(attr.getAttribute("title"));                           //在控制台中显示:attrMost
+  attr.style.color = "#000";                                         //将节点style样式中的color样式,由"#2dc3e8"变为"#000"
+  attr.setAttribute("style","color:#000");                           //将节点style样式中的color样式,由"#2dc3e8"变为"#000"
+  attr.removeAttribute("title");                                     //将节点title属性删除
+  console.log(attr.getAttribute("title"));                           //由于title属性已被删除,所以在控制台中显示:undefined
+~~~
+~~~html
+  <head>
+  </head>
+  <body>
+    <div id="attr" class="attr-get" title="attrMost" style="color:#2dc3e8">
+        attributes
+    </div>
+  </body>
+~~~
 ##浏览器对象
 ###window
 ~~~javascript
