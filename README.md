@@ -1196,5 +1196,19 @@ app.get("/", (req, res)=>{
 });
 app.listen(3000);                                                          //nodeJs express监听端口3000,地址localhost:3000网站显示Hello World
 ~~~
+#react
+##react project
+~~~javascript
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+</head>
+<body>
+</body>
+</html>
+~~~
 
 
