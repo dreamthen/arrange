@@ -1151,6 +1151,12 @@ npm install jquery --save                                     
 npm install -g cnpm --registry=https://registry.npm.taobao.org            //npm从内网https://registry.npm.taobao.org下载淘宝镜像cnpm,这样下载外部依赖包下载速度会秒下
 cnpm install jquery --save                                                //用淘宝镜像cnpm下载外部依赖包jquery包,并保存在npm init初始化的package.json中,速度很快,秒下
 ~~~
+##淘宝镜像cnpm bug
+~~~javascript
+下载多个外部依赖包会出现循环依赖,因此不建议用cnpm进行下载外部依赖包
+改进:
+npm config set registry https://registry.npm.taobao.org                  //使用npm下载外部依赖包并走淘宝镜像下载路线,不会出现循环依赖
+~~~
 ##NodeJs原理
 ~~~javascript
 const fs = require("fs");
