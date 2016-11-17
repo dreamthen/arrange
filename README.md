@@ -1379,24 +1379,40 @@ const ListItem = React.createClass({
       isEdit:true
     }
   },
+  save(){
+    const {id} = this.props;
+    this.props.onSave(id, this.refs.inputText.value);
+    this.setState({
+      isEdit:false
+    });
+  },
+  remove(){
+    const {id} = this.props;
+    this.props.onRemove(id);
+  },
+  update(){
+    this.setState({
+      isEdit:true
+    })
+  },
   render(){
     const {isEdit} = this.state; 
     return(
       {
         isEdit ? <li className="list-group-item" id={this.props.id}>
           <input ref="inputText" defaultValue={this.props.name} className="add-person" type="text" />
-          <i className="glyphicon glyphicon-share share-person">
+          <i className="glyphicon glyphicon-share share-person" onClick={this.save}>
           
           </i>
-          <i className="glyphicon glyphicon-ban-circle share-person">
+          <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.remove}>
           
           </i>
         </li>:<li className="list-group-item" id={this.props.id}>
           this.props.name
-          <i className="glyphicon glyphicon-ban-circle">
+          <i className="glyphicon glyphicon-ban-circle" onClick={this.remove}>
           
           </i>
-          <i className="glyphicon glyphicon-edit">
+          <i className="glyphicon glyphicon-edit" onClick={this.update}>
           </i>
         </li>
       }
@@ -1415,12 +1431,23 @@ const List = React.createClass({
     const {list} = this.state;
     let key = ++this.state.key;
     list.set(key, {name:""});
+    this.forceUpdate();
+  },
+  saveList(id, name){
+    const {list} = this.state;
+    list.set(id, {name:name});
+    this.forceUpdate();
+  },
+  removeList(id){
+    const {list} = this.state;
+    list.delete(id);
+    this.forceUpdate();
   },
   render(){
     const listDom = [];
     const {list} = this.state;
     for(let item of list){
-      listDom.push(<ListItem id={item[0]} key={item[0]} name={item[1].name}/>);
+      listDom.push(<ListItem id={item[0]} key={item[0]} name={item[1].name} onSave={this.saveList} onRemove={this.removeList}/>);
     }
     return(
       <div className="container">
