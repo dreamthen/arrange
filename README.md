@@ -1373,6 +1373,48 @@ ReactDOM.render(<List />,document.getElementById("containerDiv"));
 ~~~
 ##react optimise project
 ~~~javascript
+const ListItem = React.createClass({
+  getInitialState(){
+    return{
+      isEdit:true
+    }
+  },
+  render(){
+    const {isEdit} = this.state; 
+    return(
+      {
+        isEdit ? <li>
+        </li>
+      }
+    )
+  }
+});
+
+const List = React.createClass({
+  getInitialState(){
+    return{
+      list:new Map(),
+      key:0
+    }
+  },
+  add(){
+    const {list} = this.state;
+    let key = ++this.state.key;
+    list.set(key, {name:""});
+  },
+  render(){
+    const listDom = [];
+    const {list} = this.state;
+    for(let item of list){
+      listDom.push(<ListItem id={item[0]} key={item[0]} name={item[1].name}/>);
+    }
+    return(
+      <div className="container">
+        <button className="btn btn-default" onClick={this.add}>Add</button>
+      </div>
+    )
+  }
+});
 ~~~
 ~~~css
 @charset "utf-8"
