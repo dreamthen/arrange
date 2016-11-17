@@ -1373,6 +1373,9 @@ ReactDOM.render(<List />,document.getElementById("containerDiv"));
 ~~~
 ##react optimise project
 ~~~javascript
+/**
+  ListItem
+*/
 const ListItem = React.createClass({
   getInitialState(){
     return{
@@ -1419,7 +1422,9 @@ const ListItem = React.createClass({
     )
   }
 });
-
+/**
+  List
+*/
 const List = React.createClass({
   getInitialState(){
     return{
