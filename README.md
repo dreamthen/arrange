@@ -1204,7 +1204,13 @@ app.listen(3000);                                                          //nod
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="reactTest.css">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="react.min.js"></script>
+<script type="text/javascript" src="react-dom.min.js"></script>
+<script type="text/javascript" src="browser.js"></script>
 </head>
 <body>
 </body>
