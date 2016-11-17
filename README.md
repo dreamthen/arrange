@@ -1199,6 +1199,28 @@ app.listen(3000);                                                          //nod
 #react
 ##react project
 ~~~javascript
+/**
+  ListItem
+*/
+const ListItem = React.createClass({
+  render(){
+    return(
+      <li className="list-group-item" id={this.props.id}>
+          {this.props.name}
+          <i className="">
+          
+          </i>
+          <i className="">
+          
+          </i>
+      </li>
+    )
+  }
+});
+
+/**
+  List
+*/
 const List = React.createClass({
   getInitialState(){
     return{
@@ -1212,10 +1234,10 @@ const List = React.createClass({
     const listEditDom = [];
     const {list, editList} = this.state;
     for(let item of list){
-        listDom.push(<listItem name={item.name} />);
+        listDom.push(<ListItem name={item.name} />);
     }
     for(let editItem of editList){
-        listEditDom.push(<editListItem name={editItem.name} />);
+        listEditDom.push(<EditListItem name={editItem.name} />);
     }
     return(
        <div className="container">
