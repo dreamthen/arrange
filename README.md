@@ -1207,13 +1207,22 @@ const List = React.createClass({
        key:0
     }
   },
-  render(
-    <div className="container">
-      <button className="btn btn-default">Add</button>
-      <ul className="list-group">
-      </ul>
-    </div>
-  )
+  render(){
+    const listDom = [];
+    const listEditDom = [];
+    const {list, editList} = this.state;
+    for(let item of list){
+    }
+    for(let editItem of editList){
+    }
+    return(
+       <div className="container">
+         <button className="btn btn-default">Add</button>
+         <ul className="list-group">
+         </ul>
+       </div> 
+    )
+  }
 });
 ReactDOM.render(<List />,document.getElementById("containerDiv"));
 ~~~
