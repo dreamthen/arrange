@@ -1222,9 +1222,26 @@ const ListItem = React.createClass({
   ListEditItem
 */
 const ListEditItem = React.createClass({
+  getInitialState(){
+    return {
+      name:""
+    }
+  },
+  changeHandle(event){
+    this.setState({
+      name:event.target.value
+    })
+  },
   render(){
     return(
-      <li>
+      <li className="list-group-item" id={this.props.id}>
+          <input type="text" value={this.state.name} onChange={this.changeHandle} />
+          <i className="glyphicon glyphicon-share share-person">
+            
+          </i>
+          <i className="glyphicon glyphicon-ban-circle share-person">
+          
+          </i>
       </li>
     )
   }
@@ -1257,7 +1274,7 @@ const List = React.createClass({
         listDom.push(<ListItem name={item.name} />);
     }
     for(let editItem of editList){
-        listEditDom.push(<EditListItem name={editItem.name} />);
+        listEditDom.push(<ListEditItem id={editItem[0]} name={editItem[1].name} />);
     }
     return(
        <div className="container">
