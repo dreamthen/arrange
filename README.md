@@ -1212,8 +1212,10 @@ const List = React.createClass({
     const listEditDom = [];
     const {list, editList} = this.state;
     for(let item of list){
+        listDom.push(<listItem name={item.name} />);
     }
     for(let editItem of editList){
+        listEditDom.push(<editListItem name={editItem.name} />);
     }
     return(
        <div className="container">
