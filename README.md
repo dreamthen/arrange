@@ -1200,9 +1200,18 @@ app.listen(3000);                                                          //nod
 ##react project
 ~~~javascript
 const List = React.createClass({
+  getInitialState(){
+    return{
+       list:[],
+       editList:[],
+       key:0
+    }
+  },
   render(
     <div className="container">
       <button className="btn btn-default">Add</button>
+      <ul className="list-group">
+      </ul>
     </div>
   )
 });
