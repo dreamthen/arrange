@@ -1203,14 +1203,20 @@ app.listen(3000);                                                          //nod
   ListItem
 */
 const ListItem = React.createClass({
+  remove(){
+    this.props.onRemove(this.props.id);
+  },
+  update(){
+    this.props.onUpdate(this.props.id,this.props.name);
+  },
   render(){
     return(
       <li className="list-group-item" id={this.props.id}>
           {this.props.name}
-          <i className="glyphicon glyphicon-ban-circle">
+          <i className="glyphicon glyphicon-ban-circle" onClick={this.remove}>
           
           </i>
-          <i className="glyphicon glyphicon-edit">
+          <i className="glyphicon glyphicon-edit" onClick={this.update}>
           
           </i>
       </li>
@@ -1224,13 +1230,16 @@ const ListItem = React.createClass({
 const ListEditItem = React.createClass({
   getInitialState(){
     return {
-      name:""
+      name:this.props.name
     }
   },
   changeHandle(event){
     this.setState({
       name:event.target.value
     })
+  },
+  save(){
+    this.props.onSave(this.props.id,this.state.name);
   },
   remove(){
     this.props.onRemove(this.props.id);
@@ -1239,7 +1248,7 @@ const ListEditItem = React.createClass({
     return(
       <li className="list-group-item" id={this.props.id}>
           <input type="text" value={this.state.name} onChange={this.changeHandle} />
-          <i className="glyphicon glyphicon-share share-person">
+          <i className="glyphicon glyphicon-share share-person" onClick={this.save}>
             
           </i>
           <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.remove}>
@@ -1269,21 +1278,41 @@ const List = React.createClass({
     this.forceUpdate();
   },
   
+  removeList(id){
+    const {list} = this.state;
+    list.delete(id);
+    this.forceUpdate();
+  },
+  
+  updateList(id,name){
+    const {list, editList} = this.state;
+    list.delete(id);
+    editList.set(id, {name:name});
+    this.forceUpdate();
+  },
+  
   removeEditList(id){
     const {editList} = this.state;
     editList.delete(id);
     this.forceUpdate();
-  }
+  },
+  
+  saveEditList(id, name){
+    const {list, editList} = this.state;
+    editList.delete(id);
+    list.set(id,{name:name});
+    this.forceUpdate();
+  },
   
   render(){
     const listDom = [];
     const listEditDom = [];
     const {list, editList} = this.state;
     for(let item of list){
-        listDom.push(<ListItem name={item.name} />);
+        listDom.push(<ListItem id={item[0]} key={item[0]} name={item[1].name} onRemove={this.removeList} onUpdate={this.updateList}/>);
     }
     for(let editItem of editList){
-        listEditDom.push(<ListEditItem id={editItem[0]} key={editItem[0]} name={editItem[1].name} onRemove={this.removeEditList} />);
+        listEditDom.push(<ListEditItem id={editItem[0]} key={editItem[0]} name={editItem[1].name} onRemove={this.removeEditList} onSave={this.saveEditList}/>);
     }
     return(
        <div className="container">
