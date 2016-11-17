@@ -1213,6 +1213,8 @@ app.listen(3000);                                                          //nod
 <script type="text/javascript" src="browser.js"></script>
 </head>
 <body>
+<div id="containerDiv"></div>
+<script type="text/babel" src="reactTest.js"></script>
 </body>
 </html>
 ~~~
