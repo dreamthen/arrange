@@ -1199,7 +1199,14 @@ app.listen(3000);                                                          //nod
 #react
 ##react project
 ~~~javascript
-
+const List = React.createClass({
+  render(
+    <div className="container">
+      <button className="btn btn-default">Add</button>
+    </div>
+  )
+});
+ReactDOM.render(<List />,document.getElementById("containerDiv"));
 ~~~
 ~~~css
 
