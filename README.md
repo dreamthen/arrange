@@ -1207,10 +1207,10 @@ const ListItem = React.createClass({
     return(
       <li className="list-group-item" id={this.props.id}>
           {this.props.name}
-          <i className="">
+          <i className="glyphicon glyphicon-ban-circle">
           
           </i>
-          <i className="">
+          <i className="glyphicon glyphicon-edit">
           
           </i>
       </li>
