@@ -1299,7 +1299,30 @@ const List = React.createClass({
 ReactDOM.render(<List />,document.getElementById("containerDiv"));
 ~~~
 ~~~css
+@charset "utf-8"
+.list-group{
+  margin-top: 6px; 
+}
+.list-group-item > i {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+    color: rgb(59, 111, 165);
+}
 
+.add-person {
+    outline: none;
+    border-width: 0 0 1px 0;
+    width: 150px;
+}
+
+.list-group-item > i.share-person {
+    float: none;
+    position: relative;
+    display: inline-block;
+    top:4px;
+}
 ~~~
 ~~~html
 <!DOCTYPE html>
