@@ -1232,6 +1232,9 @@ const ListEditItem = React.createClass({
       name:event.target.value
     })
   },
+  remove(){
+    this.props.onRemove(this.props.id);
+  },
   render(){
     return(
       <li className="list-group-item" id={this.props.id}>
@@ -1239,7 +1242,7 @@ const ListEditItem = React.createClass({
           <i className="glyphicon glyphicon-share share-person">
             
           </i>
-          <i className="glyphicon glyphicon-ban-circle share-person">
+          <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.remove}>
           
           </i>
       </li>
@@ -1262,9 +1265,15 @@ const List = React.createClass({
   add(){
     const {editList} = this.state;
     let key = ++this.state.key;
-    editList.set(key,{name:""});
+    editList.set(key,{name : ""});
     this.forceUpdate();
   },
+  
+  removeEditList(id){
+    const {editList} = this.state;
+    editList.delete(id);
+    this.forceUpdate();
+  }
   
   render(){
     const listDom = [];
@@ -1274,7 +1283,7 @@ const List = React.createClass({
         listDom.push(<ListItem name={item.name} />);
     }
     for(let editItem of editList){
-        listEditDom.push(<ListEditItem id={editItem[0]} name={editItem[1].name} />);
+        listEditDom.push(<ListEditItem id={editItem[0]} key={editItem[0]} name={editItem[1].name} onRemove={this.removeEditList} />);
     }
     return(
        <div className="container">
