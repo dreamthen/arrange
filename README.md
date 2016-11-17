@@ -1383,7 +1383,21 @@ const ListItem = React.createClass({
     const {isEdit} = this.state; 
     return(
       {
-        isEdit ? <li>
+        isEdit ? <li className="list-group-item" id={this.props.id}>
+          <input ref="inputText" defaultValue={this.props.name} className="add-person" type="text" />
+          <i className="glyphicon glyphicon-share share-person">
+          
+          </i>
+          <i className="glyphicon glyphicon-ban-circle share-person">
+          
+          </i>
+        </li>:<li className="list-group-item" id={this.props.id}>
+          this.props.name
+          <i className="glyphicon glyphicon-ban-circle">
+          
+          </i>
+          <i className="glyphicon glyphicon-edit">
+          </i>
         </li>
       }
     )
@@ -1411,6 +1425,9 @@ const List = React.createClass({
     return(
       <div className="container">
         <button className="btn btn-default" onClick={this.add}>Add</button>
+        <ul className="list-group">
+          {listDom}
+        </ul>
       </div>
     )
   }
