@@ -1219,16 +1219,36 @@ const ListItem = React.createClass({
 });
 
 /**
+  ListEditItem
+*/
+const ListEditItem = React.createClass({
+  render(){
+    return(
+      <li>
+      </li>
+    )
+  }
+})
+
+/**
   List
 */
 const List = React.createClass({
   getInitialState(){
     return{
-       list:[],
-       editList:[],
+       list:new Map(),
+       editList:new Map(),
        key:0
     }
   },
+  
+  add(){
+    const {editList} = this.state;
+    let key = ++this.state.key;
+    editList.set(key,{name:""});
+    this.forceUpdate();
+  },
+  
   render(){
     const listDom = [];
     const listEditDom = [];
@@ -1241,8 +1261,10 @@ const List = React.createClass({
     }
     return(
        <div className="container">
-         <button className="btn btn-default">Add</button>
+         <button className="btn btn-default" onClick={this.add}>Add</button>
          <ul className="list-group">
+            {listDom}
+            {listEditDom}
          </ul>
        </div> 
     )
