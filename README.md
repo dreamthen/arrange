@@ -1371,5 +1371,51 @@ ReactDOM.render(<List />,document.getElementById("containerDiv"));
 </body>
 </html>
 ~~~
+##react optimise project
+~~~javascript
+~~~
+~~~css
+@charset "utf-8"
+.list-group{
+  margin-top: 6px; 
+}
+.list-group-item > i {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+    color: rgb(59, 111, 165);
+}
 
+.add-person {
+    outline: none;
+    border-width: 0 0 1px 0;
+    width: 150px;
+}
+
+.list-group-item > i.share-person {
+    float: none;
+    position: relative;
+    display: inline-block;
+    top:4px;
+}
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="reactTest.css">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="react.min.js"></script>
+<script type="text/javascript" src="react-dom.min.js"></script>
+<script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div id="containerDiv"></div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+</html>
+~~~
 
