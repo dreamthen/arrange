@@ -1535,7 +1535,10 @@ ReactDOM.render(React.createClass('ul',{className:"list-group"},
  React.createClass('li',{className:"list-group-item"},'one one Line!')
  ]));
 //JSX标签形式属性
-ReactDOM.render(<ul>)
+ReactDOM.render(<ul className="list-group">
+  <li className="list-group-item" style={{backgroundColor:"#2dc3e8"}}>one one Line!</li>
+  <ListItem />
+</ul>,document.getElementById("containerDiv"));
 ~~~
 ~~~html
 <!DOCTYPE html>
