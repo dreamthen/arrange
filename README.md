@@ -1553,6 +1553,32 @@ ReactDOM.render(<ul className="list-group">
 //Javascript形式-三元运算符
 ReactDOM.render(React.createElement('ul',{className:"list-group"},
 bool ? [React.createElement(ListItem),React.createElement(ListItem)] : [React.createElement('h1',{style:{backgroundColor:"#2dc3e8"}},'Clown Laugh At You'),React.createElement(ListItem)]));
+//JSX标签形式-三元运算符+数组
+const bool = false;
+const result = [];
+if(bool){
+  result.push(<ListItem/>);
+  result.push(<ListItem/>);
+}else{
+  result.push(<h1 style={{backgroundColor:"#2dc3e8"}}>Clown Laugh At You</h1>);
+  result.push(<ListItem/>);
+}
+ReactDOM.render(<ul className="list-group">
+  {result}
+  <ListItem/>
+</ul>,document.getElementById("containerDiv"));
+//Javascript形式-三元运算符+数组
+const bool = false;
+const result = [];
+if(bool){
+  result.push(React.createElement(ListItem));
+  result.push(React.createElement(ListItem));
+}else{
+  result.push(React.createElement('h1',{style:{backgroundColor:"#2dc3e8"}},'Clown Laugh At You'));
+  result.push(React.createElement(ListItem));
+}
+ReactDOM.render(React.createElement('ul',{className:"list-group"},
+[result,React.createElement(ListItem)]));
 ~~~
 ~~~html
 <!DOCTYPE html>
