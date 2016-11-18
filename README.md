@@ -1526,7 +1526,8 @@ const List = React.createClass({
     <script type="text/javascript" src="browser.js"></script>
   </head>
   <body>
-    
+    <div id="containerDiv">
+    </div>
   </body>
 </html>
 ~~~
