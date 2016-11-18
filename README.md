@@ -1509,4 +1509,10 @@ const List = React.createClass({
 </body>
 </html>
 ~~~
+##JSX语法
+~~~javascript
+
+~~~
+~~~html
+~~~
 
