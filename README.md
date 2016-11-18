@@ -1514,5 +1514,13 @@ const List = React.createClass({
 
 ~~~
 ~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactText.css">
+    <script></script>
+  </head>
+</html>
 ~~~
 
