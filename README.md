@@ -1550,10 +1550,10 @@ ReactDOM.render(<ul className="list-group">
       bool ? <ListItem/><ListItem/>:<h1 style={{backgroundColor:"#2dc3e8"}}>Clown Laugh At You</h1><ListItem/>
   }
 </ul>,document.getElementById("containerDiv"));
-~~~
 //Javascript形式-三元运算符
 ReactDOM.render(React.createElement('ul',{className:"list-group"},
 bool ? [React.createElement(ListItem),React.createElement(ListItem)] : [React.createElement('h1',{style:{backgroundColor:"#2dc3e8"}},'Clown Laugh At You'),React.createElement(ListItem)]));
+~~~
 ~~~html
 <!DOCTYPE html>
 <html lang="zh-cn">
