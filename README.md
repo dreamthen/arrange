@@ -1521,20 +1521,22 @@ const ListItem = React.createClass({
   }
 });
 //可以以JSX标签的形式来显示
-ReactDOM.render(<ul>
-  <li>
+ReactDOM.render(<ul className="list-group">
+  <li className="list-group-item">
     one one Line!
   </li>
-  <li>
+  <li className="list-group-item">
     one one Line!
   </li>
 </ul>,document.getElementById("containerDiv"));
-~~~
 //也可以用Javascript的形式来显示
-ReactDOM.render(React.createClass('ul',null,
-[React.createClass('li',null,'one one Line!'),
- React.createClass('li',null,'one one Line!')
+ReactDOM.render(React.createClass('ul',{className:"list-group"},
+[React.createClass('li',{className:"list-group-item"},'one one Line!'),
+ React.createClass('li',{className:"list-group-item"},'one one Line!')
  ]));
+//JSX标签形式属性
+ReactDOM.render(<ul>)
+~~~
 ~~~html
 <!DOCTYPE html>
 <html lang="zh-cn">
