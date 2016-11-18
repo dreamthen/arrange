@@ -1530,9 +1530,9 @@ ReactDOM.render(<ul className="list-group">
   </li>
 </ul>,document.getElementById("containerDiv"));
 //也可以用Javascript的形式来显示
-ReactDOM.render(React.createClass('ul',{className:"list-group"},
-[React.createClass('li',{className:"list-group-item"},'one one Line!'),
- React.createClass('li',{className:"list-group-item"},'one one Line!')
+ReactDOM.render(React.createElement('ul',{className:"list-group"},
+[React.createElement('li',{className:"list-group-item"},'one one Line!'),
+ React.createElement('li',{className:"list-group-item"},'one one Line!')
  ]));
 //JSX标签形式显示属性
 ReactDOM.render(<ul className="list-group">
@@ -1540,10 +1540,20 @@ ReactDOM.render(<ul className="list-group">
   <ListItem />
 </ul>,document.getElementById("containerDiv"));
 //Javascript形式显示属性
-ReactDOM.render(React.createClass('ul',{className:"list-group"},
-[React.createClass('li',{className:"list-group-item",style:{backgroundColor:"#2dc3e8"}},'one one line!'),
-React.createClass(ListItem)]),document.getElementById("containerDiv"));
+ReactDOM.render(React.createElement('ul',{className:"list-group"},
+[React.createElement('li',{className:"list-group-item",style:{backgroundColor:"#2dc3e8"}},'one one line!'),
+React.createElement(ListItem)]),document.getElementById("containerDiv"));
+//JSX标签形式-三元运算符
+const bool = false;
+ReactDOM.render(<ul className="list-group">
+  {
+      bool ? <ListItem/><ListItem/>:<h1 style={{backgroundColor:"#2dc3e8"}}>Clown Laugh At You</h1><ListItem/>
+  }
+</ul>,document.getElementById("containerDiv"));
 ~~~
+//Javascript形式-三元运算符
+ReactDOM.render(React.createElement('ul',{className:"list-group"},
+bool ? [React.createElement(ListItem),React.createElement(ListItem)] : [React.createElement('h1',{style:{backgroundColor:"#2dc3e8"}},'Clown Laugh At You'),React.createElement(ListItem)]));
 ~~~html
 <!DOCTYPE html>
 <html lang="zh-cn">
