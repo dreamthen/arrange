@@ -1511,7 +1511,20 @@ const List = React.createClass({
 ~~~
 ##JSX语法
 ~~~javascript
-
+const ListItem = React.createClass({
+  render(){
+    return(
+      <li className="list-group-item" style={{backgroundColor:"#2dc3e8"}}>
+          one one Line!
+      <li>
+    )
+  }
+});
+ReactDOM.render(<ul>
+  <ListItem />
+  <ListItem />
+  <ListItem />
+</ul>,document.getElementById("containerDiv"));
 ~~~
 ~~~html
 <!DOCTYPE html>
@@ -1528,6 +1541,7 @@ const List = React.createClass({
   <body>
     <div id="containerDiv">
     </div>
+    <script type="text/babel" src="reactText.js"></script>
   </body>
 </html>
 ~~~
