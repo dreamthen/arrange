@@ -1604,4 +1604,66 @@ ReactDOM.render(React.createElement('ul',{className:"list-group"},
 HTML tag标签只是做描述 --- DOM才是其形成的原理
 react Element只是做描述 --- Component组件才是其进行搭建框架的main structure
 ~~~
+~~~javascript
+//es5语法
+const ref = {
+  test(){
+    console.log("Legend!"+this.props.group);
+  }
+};
+
+const Item = React.createClass({
+  //displayName:"Item"
+  getInitialState(){
+    return {
+      List:[]
+    }
+  },
+  getDefaultProps(){
+    return {
+      group:"CLAY"
+    }
+  },
+  mixins:[ref],
+  render(){
+    return {
+      <div>
+         <h1 style={{backgroundColor:"#2dc3e8"}}>Clown Laugh At You!{this.props.group}</h1>
+         <input type="button" onClick={this.test} value="Click it"/>
+      </div>
+    }
+  }
+});
+//es6语法
+class Item extends React.Component {
+  //displayName:"Item"
+  constructor(props) {
+    super(props);
+    //getInitialState
+    this.state = {
+      List:[]
+    }
+  }
+  //getDefaultProps
+  static get defaultProps() {
+    return {
+      group:"CLAY"
+    }
+  }
+  //mixins
+  test(){
+    console.log("Legend!"+this.props.group);
+  }
+  render() {
+    return {
+      <div>
+         <h1 style={{backgroundColor:"#2dc3e8"}}>Clown Laugh At You!{this.props.group}</h1>
+         <input type="button" onClick={this.test} value="Click it"/>
+      </div>
+    }
+  }
+}
+//ReactDOM.render(<Item />,document.getElementById("containerDiv"));
+ReactDOM.render(React.createElement(Item),document.getElementById("containerDiv"));
+~~~
 
