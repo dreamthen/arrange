@@ -1599,4 +1599,9 @@ ReactDOM.render(React.createElement('ul',{className:"list-group"},
   </body>
 </html>
 ~~~
+##Component和Element
+~~~javascript
+HTML tag标签只是做描述 --- DOM才是其形成的原理
+react Element只是做描述 --- Component组件才是其进行搭建框架的main structure
+~~~
 
