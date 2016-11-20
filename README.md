@@ -1657,13 +1657,53 @@ class Item extends React.Component {
   render() {
     return {
       <div>
-         <h1 style={{backgroundColor:"#2dc3e8"}}>Clown Laugh At You!{this.props.group}</h1>
-         <input type="button" onClick={this.test} value="Click it"/>
+         <h1 style={{backgroundColor:"yellow"}}>Clown Laugh At You!{this.props.group}</h1>
+         <input type="button" onClick={this.test.bind(this)} value="Click it"/>
       </div>
     }
   }
 }
 //ReactDOM.render(<Item />,document.getElementById("containerDiv"));
 ReactDOM.render(React.createElement(Item),document.getElementById("containerDiv"));
+//在界面显示
+//Clown Laugh At You!CLAY(背景为黄色)
+//在控制台中打印
+//Legend!CLAY
+~~~
+##生命周期
+###初始化阶段
+~~~javascript
+const Item = React.createClass({
+  displayName:"Item",
+  getInitialState(){
+    console.log("get initial state");
+    return{
+      main:"Clown Laugh At You!"
+    }
+  },
+  getDefaultProps(){
+    console.log("get default props");
+    return{
+      group:"Gary Love Zhaoy!"
+    }
+  },
+  render(){
+    return (
+      <div>
+        {this.state.main + this.props.group}
+      </div>
+    )
+  }
+});
+ReactDOM.render(<div><Item /><Item /><Item /></div>,document.getElementById("containerDiv"));
+//在界面上显示
+//Clown Laugh At You!Gary Love Zhaoy!
+//Clown Laugh At You!Gary Love Zhaoy!
+//Clown Laugh At You!Gary Love Zhaoy!
+//在控制台中打印
+//get default props
+//get initial state
+//get initial state
+//get initial state
 ~~~
 
