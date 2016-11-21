@@ -1851,4 +1851,90 @@ render();
 //component did update
 //如果shouldComponentUpdate中返回false,且点击按钮之后使用了this.forceUpdate,点击按钮之后,同上
 ~~~
+###卸载阶段
+~~~javascript
+const Item = React.createClass({
+  displayName:"Item",
+  getInitialState(){
+    console.log("get initial state");
+    return {
+       main:"Clown Laugh At You!",
+       loopName:""
+    }
+  },
+  getDefaultProps(){
+    console.log("get default props");
+    return {
+       group:"Gary Love Zhaoy!"
+    }
+  },
+  componentWillMount(){
+    console.log("component will mount");
+  },
+  componentDidMount(){
+    console.log("component did mount");
+  },
+  test(){
+    this.setState({
+        main:"Google!"
+    });
+  },
+  componentWillReceiveProps(nextProps){
+    console.log("component will receive props");
+  },
+  componentWillUpdate(nextPorps, nextState){
+    console.log("component will update");
+  },
+  componentDidUpdate(oldProps, oldState){
+    console.log("component did update");
+    const dom = ReactDOM.findNodeDOM(this);
+    dom.style.backgroundColor = "#2dc3e8";
+    let bool = false;
+    this.state.loopName = setInterval(function(){
+        if(bool){
+          dom.style.backgroundColor = "#2dc3e8";
+          bool = false;
+        }else{
+          dom.style.backgroundColor = "yellow";
+          bool = true;
+        }
+    },2000);
+  },
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("should component update");
+    return true;
+  },
+  componentWillUnmount(){
+    console.log("component will unmount");
+    clearInterval(this.state.loopName);
+  },
+  render(){
+    console.log("render");
+    return(
+      <div>
+        {this.state.main + this.props.group}
+        <input type="button" value="click it" onClick={this.test.bind(this)} />
+      </div>
+    )
+  }
+});
+function render(bool){
+  React.render(<div><Item />{bool ? <Item /> : ""}</div>,document.getElementById("containerDiv"));
+}
+render(true);
+$("#clear").on("click",function(e){
+  render();
+});
+//在界面中显示
+//Clown Laugh At You!Gary Love Zhaoy!click it按钮
+//Clown Laugh At You!Gary Love Zhaoy!click it按钮
+//背景在两秒之内黄蓝交替呈现
+//点击clear按钮之后,在控制台中显示
+//component will receive props
+//should component update
+//component will update
+//render
+//component will unmount
+//component did update
+~~~
 
