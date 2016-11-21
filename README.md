@@ -1782,6 +1782,18 @@ const Item = React.createClass({
   },
   componentDidUpdate(oldProps, oldState){
     console.log("component did update");
+    const dom = ReactDOM.findNodeDOM(this);
+    dom.style.backgroundColor = "#2dc3e8";
+    let bool = false;
+    setInterval(function(){
+        if(bool){
+          dom.style.backgroundColor = "#2dc3e8";
+          bool = false;
+        }else{
+          dom.style.backgroundColor = "yellow";
+          bool = true;
+        }
+    },2000);
   },
   shouldComponentUpdate(nextProps, nextState){
     console.log("should component update");
@@ -1797,5 +1809,46 @@ const Item = React.createClass({
     )
   }
 });
+function render(){
+  ReactDOM.render(<Item />,document.getElementById("containerDiv"));
+}
+render();
+render();
+//在界面上显示
+//Clown Laugh At You!Gary Love Zhaoy!click it按钮
+//背景在两秒之内黄蓝交替呈现
+//在控制台中显示
+//get default props
+//get initial state
+//component will mount
+//render
+//component did mount
+//should component update
+//component will update
+//render
+//component did update
+//点击按钮之后,在界面中显示
+//Google!Gary Love Zhaoy!click it按钮
+//背景在两秒之内黄蓝交替呈现
+//点击按钮之后,在控制台中显示
+//should component update
+//component will update
+//render
+//component did update
+//如果shouldComponentUpdate中返回true,且点击按钮之后使用了this.setState,点击按钮之后
+//在控制台中显示
+//should component update
+//component will update
+//render
+//component did update
+//如果shouldComponentUpdate中返回false,且点击按钮之后使用了this.setState,点击按钮之后
+//在控制台中显示
+//should component update
+//如果shouldComponentUpdate中返回true,且点击按钮之后使用了this.forceUpdate,点击按钮之后
+//在控制台中显示
+//component will update
+//render
+//component did update
+//如果shouldComponentUpdate中返回false,且点击按钮之后使用了this.forceUpdate,点击按钮之后,同上
 ~~~
 
