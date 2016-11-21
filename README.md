@@ -1740,5 +1740,62 @@ const Item = React.createClass({
 ReactDOM.render(<Item />,document.getElementById("containerDiv"));
 //在界面上显示
 //Clown Laugh At You!Gary Love Zhaoy!
+//在控制台中显示
+//get default props
+//get initial state
+//component will mount
+//render
+//component did mount
+~~~
+###更新阶段
+~~~javascript
+const Item = React.createClass({
+  displayName:"Item",
+  getInitialState(){
+    console.log("get initial state");
+    return {
+       main:"Clown Laugh At You!"
+    }
+  },
+  getDefaultProps(){
+    console.log("get default props");
+    return {
+       group:"Gary Love Zhaoy!"
+    }
+  },
+  componentWillMount(){
+    console.log("component will mount");
+  },
+  componentDidMount(){
+    console.log("component did mount");
+  },
+  test(){
+    this.setState({
+        main:"Google!"
+    });
+  },
+  componentWillReceiveProps(nextProps){
+    console.log("component will receive props");
+  },
+  componentWillUpdate(nextPorps, nextState){
+    console.log("component will update");
+  },
+  componentDidUpdate(oldProps, oldState){
+    console.log("component did update");
+  },
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("should component update");
+    return true;
+  },
+  render(){
+    console.log("render");
+    return(
+      <div>
+        {this.state.main + this.props.group}
+        <input type="button" value="click it" onClick={this.test.bind(this)} />
+      </div>
+    )
+  }
+});
 ~~~
 
