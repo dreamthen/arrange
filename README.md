@@ -1706,4 +1706,39 @@ ReactDOM.render(<div><Item /><Item /><Item /></div>,document.getElementById("con
 //get initial state
 //get initial state
 ~~~
+###装载阶段
+~~~javascript
+const Item = React.createClass({
+  displayName:"Item",
+  getInitialState(){
+    console.log("get initial state");
+    return {
+       main:"Clown Laugh At You!"
+    }
+  },
+  getDefaultProps(){
+    console.log("get default props");
+    return {
+       group:"Gary Love Zhaoy!"
+    }
+  },
+  componentWillMount(){
+    console.log("component will mount");
+  },
+  componentDidMount(){
+    console.log("component did mount");
+  },
+  render(){
+    console.log("render");
+    return(
+      <div>
+        {this.state.main + this.props.group}
+      </div>
+    )
+  }
+});
+ReactDOM.render(<Item />,document.getElementById("containerDiv"));
+//在界面上显示
+//Clown Laugh At You!Gary Love Zhaoy!
+~~~
 
