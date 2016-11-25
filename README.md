@@ -1974,6 +1974,11 @@ class Item extends React.Component{
   
   componentWillMount(){
     console.log("component will mount");
+    const {value} = this.state;
+    let dbKey = database.add({value:value});
+    this.setState({
+      dbKey
+    });
   }
   
   componentWillReceiveProps(){
@@ -1982,10 +1987,13 @@ class Item extends React.Component{
   
   shouldComponentUpdate(){
     console.log("should component update");
+    return true;
   }
   
   componentWillUpdate(){
+    const {dbKey,value} = this.state;
     console.log("component will update");
+    database.update(dbKey, {value:value});
   }
   
   componentDidUpdate(){
@@ -2008,12 +2016,12 @@ class Item extends React.Component{
       <div className="container">
         <div className="form-horizontal">
           <div className="form-group" style={{marginTop:"8px"}}>
-            <input type="text" className="form-control" ref="inputText" value={value} onChange={this.onChangeHandler.bind(this)} style={{width:"90%",display:"inline-block",marginRight:"8px",float:"left"}}/>
-            <button className="btn btn-info" onClick={this.save.bind(this)} style={{width:"8%",display:"inline-block",float:"left"}}>save</button>
+            <input type="text" className="form-control" ref="inputText" value={value} onChange={this.onChangeHandler.bind(this)} style={{width:"90%", display:"inline-block", marginRight:"8px", float:"left"}}/>
+            <button className="btn btn-info" onClick={this.save.bind(this)} style={{width:"8%", display:"inline-block", float:"left"}}>save</button>
           </div>
           <div className="form-group" style={{marginTop:"8px"}}>
             <button className="btn btn-default" onClick={this.prev.bind(this)}>prev</button>
-            <def className="display:inline-block;height:34px;line-height:34px;padding:0 8px;">history[currentHistoryIndex]</def>
+            <def className="display:inline-block;height:34px;line-height:34px;padding:0 8px;border-radius:4px;backgroundColor:rgb(217,237,247);">history[currentHistoryIndex]</def>
             <button className="btn btn-default" onClick={this.next.bind(this)}>next</button>
           </div>
         </div>
@@ -2038,7 +2046,7 @@ ReactDOM.render(<Item />,document.getElementById("containerDiv"));
 </head>
 <body>
   <div id="containerDiv">
-  
+      
   </div>
   <script type="text/babel" src="reactTest.js"></script>
 </body>
