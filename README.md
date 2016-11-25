@@ -1939,16 +1939,97 @@ $("#clear").on("click",function(e){
 ~~~
 ###生命周期Demo
 ~~~javascript
+let list = [];
+const database = {
+  add(newGroupData){
+    list.push(newGroupData);
+    return list.length - 1;
+  },
+  del(index){
+    list[index] = null;
+  },
+  update(index,newGroupData){
+    list.splice(index,1,newGroupData);
+  },
+  get list(){
+    return list;
+  }
+};
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      value:this.props.value,
+      dbKey:0,
+      currentHistoryIndex:0,
+      history:[this.props.value]
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      value:"no value"
+    }
+  }
+  
+  componentWillMount(){
+    console.log("component will mount");
+  }
+  
+  componentWillReceiveProps(){
+    console.log("component will receive props");
+  }
+  
+  shouldComponentUpdate(){
+    console.log("should component update");
+  }
+  
+  componentWillUpdate(){
+    console.log("component will update");
+  }
+  
+  componentDidUpdate(){
+    console.log("component did update");
+  }
+  
+  componentDidMount(){
+    console.log("component did mount");
+  }
+  
+  render(){
+    return (
+      <div className="container">
+        <div className="form-horizontal">
+          <div className="form-group" style={{marginTop:"8px"}}>
+            <input type="text" className="form-control" />
+          </div>
+          <div className="form-group" style={{marginTop:"8px"}}>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
 
+ReactDOM.render(<Item />,document.getElementById("containerDiv"));
 ~~~
 ~~~html
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="reactText.css">
+  <link rel="stylesheet" type="text/css" href="reactTest.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="react.min.js"></script>
+  <script type="text/javascript" src="react-dom.min.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
 </head>
 <body>
+  <div id="containerDiv">
+  
+  </div>
+  <script type="text/babel" src="reactTest.js"></script>
 </body>
 </html>
 ~~~
