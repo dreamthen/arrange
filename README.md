@@ -1962,7 +1962,8 @@ class Item extends React.Component{
       value:this.props.value,
       dbKey:0,
       currentHistoryIndex:0,
-      history:[this.props.value]
+      history:[this.props.value],
+      loopName:""
     }
   }
   
@@ -1998,10 +1999,34 @@ class Item extends React.Component{
   
   componentDidUpdate(){
     console.log("component did update");
+    const {dom} = this.refs.inputText;
+    dom.style.border = "1px solid rgb(217,237,247)";
+    setTimeout(function(){
+      dom.style.border = "none";
+    },2000);
   }
   
   componentDidMount(){
     console.log("component did mount");
+    const {dom} = ReactDOM.findDOMNode(this);
+    dom.style.backgroundColor = "rgb(217,237,247)";
+    let bool = false;
+    
+    this.state.loopName = setInterval(function(){
+        if(bool) {
+          dom.style.backgroundColor = "rgb(217,237,247)";
+          bool = false;
+        } else {
+          dom.style.backgroundColor = "#fff";
+          bool = true;
+        }
+    },1000);
+  }
+  
+  componentWillUnmount(){
+    console.log("component will unmount");
+    const {loopName} = this.state;
+    clearInterval(loopName);
   }
   
   onChangeHandler(event){
