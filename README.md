@@ -2117,6 +2117,7 @@ charset "utf-8";
 </html>
 ~~~
 ##refs属性
+###refs属性Demo
 ~~~javascript
 class Comp extends React.Component{
   constructor(props){
