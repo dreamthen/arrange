@@ -2010,6 +2010,35 @@ class Item extends React.Component{
     });
   }
   
+  save(){
+    const {value} = this.state;
+    let {history} = this.state;
+    let currentHistoryIndex = this.state.currentHistoryIndex + 1;
+    history.push(value);
+    this.setState({
+      history,
+      currentHistoryIndex
+    });
+  };
+  
+  prev(){
+    let {currentHistoryIndex} = this.state;
+    if(currentHistoryIndex !== 0){
+      this.setState({
+        currentHistoryIndex:currentHistoryIndex - 1;
+      })
+    }
+  };
+  
+  next(){
+    let {currentHistoryIndex,history} = this.state;
+    if(currentHistoryIndex !== history.length - 1){
+      this.setState({
+        currentHistoryIndex:currentHistoryIndex + 1;
+      })
+    }
+  };
+  
   render(){
     const {value,history,currentHistoryIndex} = this.state; 
     return (
