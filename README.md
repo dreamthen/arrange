@@ -2069,7 +2069,7 @@ class Item extends React.Component{
     return (
       <div className="container">
         <div className="form-horizontal">
-          <div className="form-group" style={{marginTop:"8px"}}>
+          <div className="form-group form-clear" style={{marginTop:"8px"}}>
             <input type="text" className="form-control" ref="inputText" value={value} onChange={this.onChangeHandler.bind(this)} style={{width:"90%", display:"inline-block", marginRight:"8px", float:"left"}}/>
             <button className="btn btn-info" onClick={this.save.bind(this)} style={{width:"8%", display:"inline-block", float:"left"}}>save</button>
           </div>
@@ -2085,6 +2085,92 @@ class Item extends React.Component{
 }
 
 ReactDOM.render(<Item />,document.getElementById("containerDiv"));
+~~~
+~~~css
+charset "utf-8";
+.form-clear::after{
+  clear:both;
+  display:"block";
+  height:0;
+  content:".";
+  visibility:hidden;
+}
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="reactTest.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="react.min.js"></script>
+  <script type="text/javascript" src="react-dom.min.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+  <div id="containerDiv">
+      
+  </div>
+  <script type="text/babel" src="reactTest.js"></script>
+</body>
+</html>
+~~~
+##refs属性
+~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+    
+    }
+  }
+  
+  onClickHandler(e){
+    const dom = this.refs.inputText;
+    dom.focus();
+  }
+  
+  componentDidMount(){
+    const dom = this.refs.inputText;
+    dom.focus();
+  }
+  
+  render(){
+    return (
+      <div className="container">
+        <div className="form-horizontal">
+          <div className="form-group form-clear">
+            <input type="text" ref="inputText" className="form-control" style={{width:"90%", display:"inline-block", float:"left", marginRight:"8px"}}/>
+            <button onClick={this.onClickHandler.bind(this)} className="btn btn-default" style={{width:"8%", float:"left", display:"inline-block"}}>click me</button>
+          </div>
+          <div className="form-group form-clear">
+            <input type="text" className="form-control" ref={function(dom){
+                console.log("ref component start");
+                dom.focus();
+            }} style={{width:"90%", display:"inline-block", float:"left"}} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
+~~~
+~~~css
+.form-clear::after{
+  clear:both;
+  content:".";
+  visibility:hidden;
+  height:0;
+  display:block;
+}
 ~~~
 ~~~html
 <!DOCTYPE html>
