@@ -2138,6 +2138,7 @@ class Comp extends React.Component{
   }
   
   componentDidMount(){
+    console.log("component did mount");
     const dom = this.refs.inputText;
     dom.focus();
   }
@@ -2164,6 +2165,7 @@ class Comp extends React.Component{
 ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
 ~~~
 ~~~css
+charset "utf-8";
 .form-clear::after{
   clear:both;
   content:".";
