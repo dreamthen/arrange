@@ -1941,3 +1941,14 @@ $("#clear").on("click",function(e){
 ~~~javascript
 
 ~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="reactText.css">
+</head>
+<body>
+</body>
+</html>
+~~~
