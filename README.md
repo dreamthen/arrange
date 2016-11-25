@@ -1937,4 +1937,7 @@ $("#clear").on("click",function(e){
 //component will unmount
 //component did update
 ~~~
+###生命周期Demo
+~~~javascript
 
+~~~
