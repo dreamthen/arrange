@@ -1996,12 +1996,19 @@ class Item extends React.Component{
     console.log("component did mount");
   }
   
+  onChangeHandler(event){
+    this.setState({
+      value:event.target.value
+    });
+  }
+  
   render(){
     return (
       <div className="container">
         <div className="form-horizontal">
           <div className="form-group" style={{marginTop:"8px"}}>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" ref="inputText" value={this.state.value} onChange={this.onChangeHandler.bind(this)} style={{width:"90%",display:"inline-block",marginRight:"8px",float:"left"}}/>
+            <button className="btn btn-default" onClick={this.save.bind(this)} style={{width:"8%",display:"inline-block",float:"left"}}>save</button>
           </div>
           <div className="form-group" style={{marginTop:"8px"}}>
           </div>
