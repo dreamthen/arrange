@@ -2198,6 +2198,28 @@ charset "utf-8";
 ##React表单事件
 ###React表单事件Demo
 ~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+    
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+    
+    }
+  }
+  
+  render(){
+    return (
+      
+    )
+  }
+}
+
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"))
 ~~~
 ~~~html
 <html lang="zh-cn">
