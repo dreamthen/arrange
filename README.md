@@ -1670,7 +1670,7 @@ ReactDOM.render(React.createElement(Item),document.getElementById("containerDiv"
 //在控制台中打印
 //Legend!CLAY
 ~~~
-##生命周期
+##React生命周期
 ###初始化阶段
 ~~~javascript
 const Item = React.createClass({
@@ -1937,7 +1937,7 @@ $("#clear").on("click",function(e){
 //component will unmount
 //component did update
 ~~~
-###生命周期Demo
+###React生命周期Demo
 ~~~javascript
 let list = [];
 const database = {
@@ -2116,8 +2116,8 @@ charset "utf-8";
 </body>
 </html>
 ~~~
-##refs属性
-###refs属性Demo
+##React refs属性
+###React refs属性Demo
 ~~~javascript
 class Comp extends React.Component{
   constructor(props){
@@ -2336,8 +2336,8 @@ ReactDOM.render(<Comp />,document.getElementById("containerDiv"))
 </body>
 </html>
 ~~~
-##键盘事件
-###键盘事件Demo
+##React键盘事件
+###React键盘事件Demo
 ~~~javascript
 ~~~
 ~~~html
