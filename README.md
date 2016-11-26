@@ -2231,10 +2231,15 @@ class Comp extends React.Component{
       <div className="container">
         <div className="form-horizontal">
           <div className="form-group" style={{marginTop:"8px"}}>
-            <input className="form-control" value={value} onChange={this.onChangeHandler.bind(this)} />
+            <label htmlFor="inputTest">输入框:</label>
+            <input id="inputTest" className="form-control" value={value} onChange={this.onChangeHandler.bind(this)} />
           </div>
           <div className="form-group" style={{marginTop:"8px"}}>
-            <input className="form-control" defaultValue={valueAno} onChange={this.onChangeHandlerAno.bind(this)} />
+            <label htmlFor="inputTestAno">另一个输入框:</label>
+            <input id="inputTestAno" className="form-control" defaultValue={valueAno} onChange={this.onChangeHandlerAno.bind(this)} />
+          </div>
+          <div className="checkbox-inline">
+            
           </div>
         </div>
       </div>
