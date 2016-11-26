@@ -2203,7 +2203,13 @@ class Comp extends React.Component{
     super(props);
     this.state = {
       value:this.props.value,
-      valueAno:this.props.value
+      valueAno:this.props.value,
+      checkboxValue:false,
+      checkboxValueAno:true,
+      radioValue:false,
+      selectValue:"乙",
+      selectValueArr:["乙","丙"],
+      textAreaValue:this.props.value
     }
   }
   
@@ -2225,22 +2231,84 @@ class Comp extends React.Component{
     });
   }
   
+  onCheckBoxHandler(event){
+    let checkboxValue = this.state.checkboxValue;
+    this.setState({
+      checkboxValue:!checkboxValue
+    });
+  }
+  
+  onCheckBoxHandlerAno(event){
+    let checkboxValueAno = this.state.checkboxValue;
+    this.setState({
+      checkboxValueAno:!checkboxValueAno
+    });
+  }
+  
+  onRadioHandler(event){
+    let radioValue = this.state;radioValue;
+    this.setState({
+      radioValue:!radioValue
+    });
+  }
+  
+  onSelectHandler(event){
+    this.setState({
+       selectValue:event.target.value
+    });
+  }
+  
+  onSelectHandlerArr(event){
+    let selectValueArr = [];
+    selectValueArr.push(event.target.value);
+    this.setState({
+      selectValueArr
+    });
+  }
+  
+  onTextAreaHandler(event){
+    this.setState({
+      textAreaValue:event.target.value
+    });
+  }
+  
   render(){
-    const {value,valueAno} = this.state;
+    const {value, valueAno, checkboxValue, checkboxValueAno, radioValue, selectValue, selectValueArr, textAreaValue} = this.state;
     return (
       <div className="container">
         <div className="form-horizontal">
           <div className="form-group" style={{marginTop:"8px"}}>
-            <label htmlFor="inputTest">输入框:</label>
+            <label htmlFor="inputTest">React输入框:</label>
             <input id="inputTest" className="form-control" value={value} onChange={this.onChangeHandler.bind(this)} />
           </div>
           <div className="form-group" style={{marginTop:"8px"}}>
-            <label htmlFor="inputTestAno">另一个输入框:</label>
+            <label htmlFor="inputTestAno">另一个React输入框:</label>
             <input id="inputTestAno" className="form-control" defaultValue={valueAno} onChange={this.onChangeHandlerAno.bind(this)} />
           </div>
-          <div className="checkbox-inline">
-            
+          <div className="form-group">
+            <label htmlFor="testCheckbox">React复选框</label>
+            <input id="testCheckbox" type="checkbox" checked={checkboxValue} onChange={this.onCheckBoxHandler.bind(this)} />
           </div>
+          <div className="form-group">
+            <label htmlFor="testCheckboxAno">另一个React复选框</label>
+            <input id="testCheckboxAno" type="checkbox" defaultChecked={checkboxValueAno} onChange={this.onCheckBoxHandlerAno.bind(this)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="testRadio">React单选框</label>
+            <input id="testRadio" type="radio" checked={radioValue} onChange={this.onRadioHandler.bind(this)}/>
+          </div>
+          <select className="form-control" value={selectValue} onChange={this.onSelectHandler.bind(this)}>
+            <option value="甲">甲</option>
+            <option value="乙">乙</option>
+            <option value="丙">丙</option>
+          </select>
+          <select multiple className="form-control" value={selectValueArr} onChange={this.onSelectHandlerArr.bind(this)}>
+            <option value="甲">甲</option>
+            <option value="乙">乙</option>
+            <option value="丙">丙</option>
+          </select>
+          <textArea className="form-control" value={textAreaValue} onChange={this.onTextAreaHandler.bind(this)}>
+          </textArea>
         </div>
       </div>
     )
