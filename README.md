@@ -2202,19 +2202,42 @@ class Comp extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-    
+      value:this.props.value,
+      valueAno:this.props.value
     }
   }
   
   static get defaultProps(){
     return {
-    
+      value:"no value"
     }
   }
   
+  onChangeHandler(event){
+    this.setState({
+      value:event.target.value
+    });
+  }
+  
+  onChangeHandlerAno(event){
+    this.setState({
+      valueAno:event.target.value
+    });
+  }
+  
   render(){
+    const {value,valueAno} = this.state;
     return (
-      
+      <div className="container">
+        <div className="form-horizontal">
+          <div className="form-group" style={{marginTop:"8px"}}>
+            <input className="form-control" value={value} onChange={this.onChangeHandler.bind(this)} />
+          </div>
+          <div className="form-group" style={{marginTop:"8px"}}>
+            <input className="form-control" defaultValue={valueAno} onChange={this.onChangeHandlerAno.bind(this)} />
+          </div>
+        </div>
+      </div>
     )
   }
 }
