@@ -2354,15 +2354,68 @@ class Comp extends React.Component{
     }
   }
   
+  keyDown(event){
+    let {top, left} = this.state;
+    switch(event.keyCode){
+      case 37:
+          if(left > 0){
+              this.setState({
+                left:left - 5
+              });
+          }
+          break;
+      case 38:
+          if(top > 0){
+              this.setState({
+                top:top - 5
+              });
+          }
+          break;
+      case 39:
+          if(left !== 550){
+              this.setState({
+                left:left + 5
+              });
+          }
+          break;
+      case 40:
+          if(top !== 550){
+              this.setState({
+                top:top + 5
+              });
+          }    
+          break;
+    }
+  }
+  
   render(){
+    const {top,left} = this.state;
     return (
-      <div className="container outerContainer">
+      <div className="container outerContainer" tabIndex={1} style={{top:top, left:left}} onKeyDown={this.keyDown.bind(this)}>
         <div className="innerContainer">
         
         </div>
       <div>
     )
   }
+}
+~~~
+~~~css
+charset "utf-8";
+.outerContainer{
+  position:relative;
+  width:560px;
+  height:560px;
+  background-color:rgb(217,237,247);
+  z-index:1;
+}
+
+.innerContainer{
+  position:absolute;
+  width:10px;
+  height:10px;
+  background-color:yellow;
+  z-index:2;
 }
 ~~~
 ~~~html
