@@ -2339,6 +2339,7 @@ ReactDOM.render(<Comp />,document.getElementById("containerDiv"))
 ##React键盘事件
 ###React键盘事件Demo
 ~~~javascript
+//根据左(37)、上(38)、右(39)、下(40)
 class Comp extends React.Component{
   constructor(props){
     super(props);
