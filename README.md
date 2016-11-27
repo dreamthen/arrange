@@ -2365,6 +2365,7 @@ ReactDOM.render(<Comp />,document.getElementById("containerDiv"))
 ~~~
 ##数据顺序
 ~~~javascript
+数据-->数据对象-->数据元素-->数据项
 ~~~
 ##数据结构-队列
 ###特点
