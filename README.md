@@ -2339,8 +2339,50 @@ ReactDOM.render(<Comp />,document.getElementById("containerDiv"))
 ##React键盘事件
 ###React键盘事件Demo
 ~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      top:0,
+      left:0
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      
+    }
+  }
+  
+  render(){
+    return (
+      <div className="container outerContainer">
+        <div className="innerContainer">
+        
+        </div>
+      <div>
+    )
+  }
+}
 ~~~
 ~~~html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="reactTest.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="react.min.js"></script>
+  <script type="text/javascript" src="react-dom.min.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+  <div className="containerDiv">
+  </div>
+  <script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
 ~~~
 #数据结构
 ##数据结构定义
