@@ -2441,8 +2441,56 @@ charset "utf-8";
 ##React鼠标事件
 ###React鼠标事件Demo
 ~~~javascript
+const data = new Map();
+data.set("one","Clown");
+data.set("two","Laugh");
+data.set("three","At");
+data.set("four","You");
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      leftData:new Map(),
+      rightData:this.props.data,
+      id:""
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      data:new Map()
+    }
+  }
+  
+  render(){
+    return (
+      <div className="containerDiv form-clear">
+      </div>
+    )
+  }
+}
+~~~
+~~~css
+
 ~~~
 ~~~html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="reactTest.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="react.min.js"></script>
+  <script type="text/javascript" src="react-dom.min.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+  <div className="containerDiv">
+  </div>
+  <script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
 ~~~
 #数据结构
 ##数据结构定义
