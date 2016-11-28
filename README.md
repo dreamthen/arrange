@@ -2496,8 +2496,8 @@ class Comp extends React.Component{
   
   drop(){
     let {leftData, rightData, id} = this.state;
-    let value = rightData.get(id).name;
-    leftData.set(id, {name:value});
+    let name = rightData.get(id).name;
+    leftData.set(id, {name:name});
     rightData.delete(id);
     this.setState({
       leftData:leftData,
@@ -2507,8 +2507,8 @@ class Comp extends React.Component{
   
   dropAno(){
     let {leftData, rightData, id} = this.state;
-    let value = leftData.get(id).name;
-    rightData.set(id, {name:value});
+    let name = leftData.get(id).name;
+    rightData.set(id, {name:name});
     leftData.delete(id);
     this.setState({
       leftData:leftData,
@@ -2561,6 +2561,69 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 .rightContainer{
   background-color: mediumpurple;
 }
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="reactTest.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="react.min.js"></script>
+  <script type="text/javascript" src="react-dom.min.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+  <div className="containerDiv">
+  </div>
+  <script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
+##React自定义事件
+###React自定义事件Demo
+~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name:this.props.name
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      name:"no value"
+    }
+  }
+  
+  changeHandler(event){
+    let {name} = this.state;
+    this.setState({
+      name:event.target.value
+    });
+    this.props.clickDemo(name);
+  }
+  
+  render(){
+    const {name} = this.state;
+    return (
+      <div className="container">
+        <div className="form-horizontal">
+          <div className="form-group">
+            <label htmlFor="inputText">React文本框:</label>
+            <input id="inputText" type="text" className="form-control" value={name} onChange={this.changeHandler.bind(this)} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+function clickDemoEvent(name){
+  console.log(name);
+}
+ReactDOM.render(<Comp clickDemo={clickDemoEvent.bind(this)} />,document.getElementById("containerDiv"));
 ~~~
 ~~~html
 <!DOCTYPE html>
