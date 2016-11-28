@@ -2442,11 +2442,37 @@ charset "utf-8";
 ###React鼠标事件Demo
 ~~~javascript
 const data = new Map();
-data.set("one","Clown");
-data.set("two","Laugh");
-data.set("three","At");
-data.set("four","You");
+data.set("one", {name: "Clown"});
+data.set("two", {name: "Laugh"});
+data.set("three", {name: "At"});
+data.set("four", {name: "You"});
 class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name:this.props.name,
+      id:this.props.id
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      id:"",
+      name:""
+    }
+  }
+  
+  render(){
+    const {id, name} = this.state;
+    return (
+      <p id={id} draggable={true} onDragStart={this.props.dragStart}>
+         {name}
+      </p>
+    )
+  }
+}
+
+class Comp extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -2462,16 +2488,79 @@ class Item extends React.Component{
     }
   }
   
+  drag(id,event){
+    this.setState({
+      id:id
+    });
+  }
+  
+  drop(){
+    let {leftData, rightData, id} = this.state;
+    let value = rightData.get(id).name;
+    leftData.set(id, {name:value});
+    rightData.delete(id);
+    this.setState({
+      leftData:leftData,
+      rightData:rightData
+    });
+  }
+  
+  dropAno(){
+    let {leftData, rightData, id} = this.state;
+    let value = leftData.get(id).name;
+    rightData.set(id, {name:value});
+    leftData.delete(id);
+    this.setState({
+      leftData:leftData,
+      rightData:rightData
+    });
+  }
+  
   render(){
+    const {leftData, rightData} = this.state;
+    let leftList = [];
+    let rightList = [];
+    for(let leftItem of leftData){
+      leftList.push(<Item key={leftItem[0]} dragStart={this.drag.bind(this,leftItem[0])} id={leftItem[0]} name={leftItem[1].name} />);
+    }
+    for(let rightItem of rightData){
+      rightList.push(<Item key={rightItem[0]} dragStart={this.drag.bind(this,rightItem[0])} id={rightItem[0] name={rightItem[1].name} />);
+    }
     return (
       <div className="containerDiv form-clear">
+        <div className="leftContainer" onDragEnter={e=>e.preventDefault()} onDragOver={e=>e.preventDefault()} 
+             onDrop={this.drop.bind(this)}>
+          {leftList}
+        </div>
+        <div className="rightContainer" onDrapEnter={e=>e.preventDefault()} onDragOver={e=>e.preventDefault()}
+             onDrop={this.dropAno.bind(this)}>
+          {rightList}
+        </div>
       </div>
     )
   }
 }
+ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 ~~~
 ~~~css
+.form-clear::after{
+  clear:both;
+  content:".";
+  display:block;
+  height:0;
+  visibility:hidden;
+}
 
+.leftContainer,.rightContainer{
+  width: 300px;
+  height: 400px;
+  float: left;
+  background-color: #4183c4;
+}
+
+.rightContainer{
+  background-color: mediumpurple;
+}
 ~~~
 ~~~html
 <!DOCTYPE html>
