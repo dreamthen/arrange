@@ -2644,6 +2644,44 @@ ReactDOM.render(<Comp clickDemo={clickDemoEvent.bind(this)} />,document.getEleme
 </body>
 <html>
 ~~~
+##React父与子通信、子与父通信
+###React父与子通信、子与父通信Demo
+~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      list:[]
+    }
+  }
+}
+const data = [
+  "AAA",
+  "BBB",
+  "CCC",
+  "DDD"
+];
+ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="reactTest.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="react.min.js"></script>
+  <script type="text/javascript" src="react-dom.min.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+  <div className="containerDiv">
+  </div>
+  <script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
