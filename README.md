@@ -2675,7 +2675,7 @@ class Item extends React.Component{
     const {name, actived} = this.state;
     let style = actived ? {border:"2px solid #2dc3e8"} : {};
     return (
-      <li className="list-group-item" style={style}>
+      <li className="list-group-item" style={style} onClick={this.props.clickItem.bind(this)}>
         {name}
       </li>
     )
@@ -2714,10 +2714,14 @@ class Comp extends React.Component{
     },3000);
   }
   
+  sayItem(name){
+    alert(name);
+  }
+  
   render(){
     let {list} = this.state;
     let listMine = list.map((listItem, listIndex) => {
-       return <Item actived={listItem.actived} name={listItem.name}/>
+       return <Item clickItem={this.sayItem.bind(this,listItem.name)} actived={listItem.actived} name={listItem.name}/>
     });
     return (
       <div className="container">
