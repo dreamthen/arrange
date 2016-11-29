@@ -2647,12 +2647,61 @@ ReactDOM.render(<Comp clickDemo={clickDemoEvent.bind(this)} />,document.getEleme
 ##React父与子通信、子与父通信
 ###React父与子通信、子与父通信Demo
 ~~~javascript
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name:this.props.name,
+      actived:this.props.actived
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      name:"",
+      actived:false
+    }
+  }
+}
 class Comp extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       list:[]
     }
+  }
+  
+  static get defaultProps(){
+    return {
+      data:[]
+    }
+  }
+  
+  componentWillMount(){
+    let list = this.props.data.map((dataItem, dataIndex) => {
+       return {name:dataItem, actived:false};
+    });
+    this.setState({
+       list: list
+    });
+  }
+  
+  componentDidMount(){
+    
+  }
+  
+  render(){
+    let {list} = this.state;
+    let listMine = list.map((listItem, listIndex) => {
+       return <Item actived={listItem.actived} name={listItem.name}/>
+    });
+    return (
+      <div className="container">
+        <ul className="list-group">
+          
+        </ul>
+      </div>
+    )
   }
 }
 const data = [
