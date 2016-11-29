@@ -2662,6 +2662,24 @@ class Item extends React.Component{
       actived:false
     }
   }
+  
+  componentWillReceiveProps(nextProps){
+    if(this.props.actived !== nextProps.actived){
+      this.setState({
+        actived:nextProps.actived
+      });
+    }
+  }
+  
+  render(){
+    const {name, actived} = this.state;
+    let style = actived ? {border:"2px solid #2dc3e8"} : {};
+    return (
+      <li className="list-group-item" style={style}>
+        {name}
+      </li>
+    )
+  }
 }
 class Comp extends React.Component{
   constructor(props){
@@ -2687,7 +2705,13 @@ class Comp extends React.Component{
   }
   
   componentDidMount(){
-    
+    const {list} = this.state;
+    setTimeout(() => {
+      list[2].actived = true;
+      this.setState({
+        list:list
+      });
+    },3000);
   }
   
   render(){
@@ -2698,7 +2722,7 @@ class Comp extends React.Component{
     return (
       <div className="container">
         <ul className="list-group">
-          
+            {listMine}
         </ul>
       </div>
     )
