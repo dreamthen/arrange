@@ -2762,11 +2762,59 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 ##事件总线
 ###事件总线Demo one
 ~~~javascript
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+  }
+
+  static get defaultProps(){
+    return {
+
+    }
+  }
+}
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  static get defaultProps(){
+    return {
+
+    }
+  }
+}
+const data = [
+    "AAA",
+    "BBB",
+    "CCC",
+    "DDD"
+];
+ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 ~~~
 ~~~html
 <!DOCTYPE html>
 <html>
-</html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
 ~~~
 ###事件总线Demo two
 ~~~javascript
