@@ -2764,6 +2764,9 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 ~~~javascript
 ~~~
 ~~~html
+<!DOCTYPE html>
+<html>
+</html>
 ~~~
 ###事件总线Demo two
 ~~~javascript
