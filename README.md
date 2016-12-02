@@ -2766,27 +2766,85 @@ class Item extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      name:this.props.name,
+      actived:this.props.actived
     }
   }
 
   static get defaultProps(){
     return {
-
+      name:"",
+      actived:false
     }
+  }
+  
+  componentWillReceiveProps(nextProps){
+    if(this.props.actived !== nextProps.actived){
+      this.setState({
+         actived:nextProps.actived
+      });
+    }
+  }
+  
+  render(){
+    let {name,actived} = this.state;
+    let style = actived ? {border:"2px solid #2dc3e8"} : {};
+    return (
+      <li className="list-group-item" style={style} onClick={this.props.alertName.bind(this)}>
+        {name}
+      </li>
+    )
   }
 }
 class Comp extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-
+      list:[]
     }
   }
 
   static get defaultProps(){
     return {
-
+      data:[]
     }
+  }
+  
+  componentWillMount(){
+    let list = this.props.data.map((dataItem,dataIndex)=>{
+        return {name:dataItem,actived:false};
+    });
+    this.setState({
+        list
+    });
+  }
+  
+  componentDidMount(){
+    let {list} = this.state;
+    setTimeout(()=>{
+      list[2].actived = true;
+      this.setState({
+         list
+      });
+    },3000);
+  }
+  
+  sayName(name){
+    alert(name);
+  }
+  
+  render(){
+    let {list} = this.state;
+    let listDOM = list.map((listItem,listIndex)=>{
+      return <Item name={listItem.name} actived={listItem.actived} alertName={this.sayName.bind(this,listItem.name)} />;
+    });
+    return (
+      <div className="container">
+        <ul className="list-group">
+          {listDOM}
+        </ul>
+      </div>
+    )
   }
 }
 const data = [
