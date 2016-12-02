@@ -2762,6 +2762,15 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 ##事件总线
 ###事件总线Demo one
 ~~~javascript
+//下载bower
+npm install -g bower
+//初始化bower
+bower init
+//下载EventEmitter
+bower install eventEmitter --save
+~~~
+~~~javascript
+const busEventEmitter = new EventEmitter();
 class Item extends React.Component{
   constructor(props){
     super(props);
@@ -2800,22 +2809,28 @@ class Comp extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      list:[]
+      list:[],
+      name:this.props.name
     }
   }
 
   static get defaultProps(){
     return {
-      data:[]
+      data:[],
+      name:""
     }
   }
   
   componentWillMount(){
+    let {name} = this.state;
     let list = this.props.data.map((dataItem,dataIndex)=>{
         return {name:dataItem,actived:false};
     });
     this.setState({
         list
+    });
+    this.props.busEvent.on("test_event",()=>{
+        console.log(name);
     });
   }
   
@@ -2853,7 +2868,10 @@ const data = [
     "CCC",
     "DDD"
 ];
-ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
+ReactDOM.render(<div><Comp data={data} busEvent={busEventEmitter} name="component first"/><Comp data={data} busEvent={busEventEmitter} name="component second"/></div>,document.getElementById("containerDiv"));
+setTimeout(()=>{
+  busEventEmitter.emit("test_event");
+},5000);
 ~~~
 ~~~html
 <!DOCTYPE html>
@@ -2861,7 +2879,8 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 <head>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="reactTest.css">
-    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="EventEmitter.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="react.min.js"></script>
     <script type="text/javascript" src="react-dom.min.js"></script>
