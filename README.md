@@ -2759,6 +2759,17 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 </body>
 <html>
 ~~~
+##事件总线
+###事件总线Demo one
+~~~javascript
+~~~
+~~~html
+~~~
+###事件总线Demo two
+~~~javascript
+~~~
+~~~html
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
