@@ -3167,7 +3167,8 @@ class Item extends React.Component{
   }
   
   saveData(){
-    let {id, name} = this.state;
+    let {id} = this.state;
+    let name = this.refs.inputText.value;
     this.setState({
       checkJudge:false
     });
