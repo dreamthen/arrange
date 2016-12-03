@@ -3004,13 +3004,13 @@ class Item extends React.Component{
   
   updateData(){
     this.setState({
-      checkJudge:false
+      checkJudge:true
     });
   }
   
   saveData(){
     this.setState({
-      checkJudge:true
+      checkJudge:false
     });
   }
   
@@ -3083,13 +3083,206 @@ class Comp extends React.Component{
 }
 ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
 ~~~
+~~~css
+.list-group {
+    margin-top: 6px;
+}
+
+.list-group-item > i {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+    color: rgb(59, 111, 165);
+}
+
+.add-person {
+    outline: none;
+    border-width: 0 0 1px 0;
+    width: 150px;
+}
+
+.list-group-item > i.share-person {
+    float: none;
+    position: relative;
+    display: inline-block;
+    top:4px;
+}
+~~~
 ~~~html
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="reactTest.css">
-    <script type="text/javascript" src="EventEmitter.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
+##react object third
+~~~javascript
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+       id:this.props.id,
+       name:this.props.name,
+       checkJudge:true
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      id:0,
+      name:""
+    }
+  }
+  
+  componentWillReceiveProps(nextProps){
+    if(this.props.name !== nextProps.name){
+      this.setState({
+        name:nextProps.name
+      });
+    }
+  }
+  
+  deleteData(){
+    let {id} = this.state;
+    this.props.deleteMine.bind(this)(id);
+  }
+  
+  updateData(){
+    this.setState({
+      checkJudge: true
+    });
+  }
+  
+  saveData(){
+    let {id, name} = this.state;
+    this.setState({
+      checkJudge:false
+    });
+    this.props.saveMine.bind(this)(id, name);
+  }
+  
+  render(){
+    let {checkJudge} = this.state;
+    return (
+      checkJudge ? <li className="list-group-item">
+          <input className="add-person" type="text" defaultValue={name} ref="inputText" />
+          <i className="glyphicon glyphicon-share share-person" onClick={this.saveData.bind(this)}>
+          
+          </i>
+          <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.deleteData.bind(this)}>
+          
+          </i>
+      </li> : <li className="list-group-item">
+          {name}
+          <i className="glyphicon glyphicon-edit" onClick={this.updateData.bind(this)}>
+          
+          </i>
+          <i className="glyphicon glyphicon-ban-circle" onClick={this.deleteData.bind(this)}>
+          
+          </i>
+      </li>
+    )
+  }
+}
+
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      list: new Map(),
+      key:0
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      
+    }
+  }
+  
+  delete(id){
+    let {list} = this.state;
+    list.delete(id);
+    this.forceUpdate();
+  }
+  
+  add(){
+    let {list, key} = this.state;
+    key = this.state.key + 1;
+    list.set(key, {name: ""});
+    this.forceUpdate();
+  }
+  
+  save(id, name){
+    let {list} = this.state;
+    list.set(id, {name: name});
+    this.forceUpdate();
+  }
+  
+  render(){
+    let {list} = this.state;
+    let listDOM = [];
+    for(let listItem of list){
+      listDOM.push(<Item key={listItem[0]} id={listItem[0]} name={list[1].name} deleteMine={this.delete.bind(this)} saveMine={this.save.bind(this)}/>);
+    }
+    return (
+      <div className="container">
+        <button className="btn btn-default" onClick={this.add.bind(this)}>
+          Add
+        </button>
+        <ul className="list-group">
+          {listDOM}
+        </ul>
+      </div>
+    )
+  }
+}
+~~~
+~~~css
+.list-group {
+    margin-top: 6px;
+}
+
+.list-group-item > i {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+    color: rgb(59, 111, 165);
+}
+
+.add-person {
+    outline: none;
+    border-width: 0 0 1px 0;
+    width: 150px;
+}
+
+.list-group-item > i.share-person {
+    float: none;
+    position: relative;
+    display: inline-block;
+    top:4px;
+}
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="react.min.js"></script>
