@@ -2972,6 +2972,30 @@ ReactDOM.render(<div><Comp id={0} name="first Component" busEvent={busEventEmitt
 </body>
 <html>
 ~~~
+##react object another
+~~~javascript
+
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="EventEmitter.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
