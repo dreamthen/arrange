@@ -2895,8 +2895,82 @@ setTimeout(()=>{
 ~~~
 ###事件总线Demo two
 ~~~javascript
+const busEventEmitter = new EventEmitter();
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name:this.props.name,
+      color:this.props.color,
+      colorIndex:this.props.id,
+      id:this.props.id
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      name:"",
+      color:["rgb(111, 168, 0)", "rgb(254, 114, 0)"],
+      colorIndex:0,
+      id:0
+    }
+  }
+  
+  componentWillMount(){
+    this.props.busEvent.on("changeColor", (idAno, colorAno, colorIndexAno)=>{
+        if(this.state.id !== idAno && this.state.color[this.state.colorIndex] === colorAno[colorIndexAno]){
+          this.changeColor();
+        }
+    });
+  }
+  
+  changeColor(){
+    let {colorIndex} = this.state;
+    this.setState({
+      colorIndex:colorIndex ? 0 : 1
+    });
+    setTimeout(()=>{
+      this.props.busEvent.emit("changeColor", this.state.id, this.state.color, this.state.colorIndex);
+    },3000);
+  }
+  
+  render(){
+    let {name,color,colorIndex} = this.state;
+    return (
+      <div className="container" style={{backgroundColor:color[colorIndex],padding:"4px 8px"}}>
+        <span className="componentSpan">{name}</span>
+        <button className="btn btn-default" onClick={this.changeColor.bind(this)}>click me!</button>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<div><Comp id={0} name="first Component" busEvent={busEventEmitter} /><Comp id={1} name="seconde Component" busEvent={busEventEmitter} /></div>,document.getElementById("containerDiv"));
+~~~
+~~~css
+.componentSpan {
+    display: inline-block;
+    margin: 0 6px 0 0;
+}
 ~~~
 ~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="EventEmitter.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
 ~~~
 #数据结构
 ##数据结构定义
