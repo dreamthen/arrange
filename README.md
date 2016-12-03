@@ -2974,7 +2974,53 @@ ReactDOM.render(<div><Comp id={0} name="first Component" busEvent={busEventEmitt
 ~~~
 ##react object another
 ~~~javascript
-
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+    
+    }
+  }
+}
+class Comp extends React.Component{
+  consturctor(props){
+    super(props);
+    this.state = {
+      list:new Map(),
+      key:0
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+    
+    }
+  }
+  
+  add(){
+    let {list, key} = this.state;
+    key = this.state.key + 1;
+    list.set(key, {name:""});
+    this.forceUpdate();
+  }
+  
+  render(){
+    const {list} = this.state;
+    let listDOM = [];
+    for(let listItem of list){
+      listDOM.push(<Item key={listItem[0]} id={listItem[0]} name={listItem[1].name} />);
+    }
+    return (
+      <div className="container">
+        <button className="btn btn-default" onClick={this.add.bind(this)}>Add</button>
+        <ul className="list-group">
+          {listDOM}
+        </ul>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
 ~~~
 ~~~html
 <!DOCTYPE html>
