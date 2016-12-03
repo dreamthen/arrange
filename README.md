@@ -3008,12 +3008,18 @@ class Item extends React.Component{
     });
   }
   
+  saveData(){
+    this.setState({
+      checkJudge:true
+    });
+  }
+  
   render(){
     const {name, checkJudge} = this.state;
     return (
       checkJudge ? <li className="list-group-item">
                       <input className="add-person" type="text" ref="inputText" value={name} onChange={this.changeHandler.bind(this)} />
-                      <i className="glyphicon glyphicon-share share-person">
+                      <i className="glyphicon glyphicon-share share-person" onClick={this.saveData.bind(this)}>
                       
                       </i>
                       <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.deleteData.bind(this)}>
