@@ -2991,18 +2991,43 @@ class Item extends React.Component{
     }
   }
   
+  changeHandler(event){
+    this.setState({
+      name:event.target.value
+    });
+  }
+  
+  deleteData(){
+    let {id} = this.state;
+    this.props.deleteMine.bind(this)(id);
+  }
+  
+  updateData(){
+    this.setState({
+      checkJudge:false
+    });
+  }
+  
   render(){
     const {name, checkJudge} = this.state;
     return (
       checkJudge ? <li className="list-group-item">
-                      <input className="add-person" type="text" ref="inputText" />
-                      <i className="">
+                      <input className="add-person" type="text" ref="inputText" value={name} onChange={this.changeHandler.bind(this)} />
+                      <i className="glyphicon glyphicon-share share-person">
                       
                       </i>
-                      <i className="">
+                      <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.deleteData.bind(this)}>
                         
                       </i>
-                   </li>:<li className="list-group-item">{name}</li>;
+                   </li>:<li className="list-group-item">
+                      {name}
+                      <i className="glyphicon glyphicon-edit" onClick={this.updateData.bind(this)}>
+                      
+                      </i>
+                      <i className="glyphicon glyphicon-ban-circle" onClick={this.deleteData.bind(this)}>
+                        
+                      </i>
+                   </li>;
     )
   }
 }
@@ -3028,11 +3053,17 @@ class Comp extends React.Component{
     this.forceUpdate();
   }
   
+  delete(id){
+    let {list} = this.state;
+    list.delete(id);
+    this.forceUpdate();
+  }
+  
   render(){
     const {list} = this.state;
     let listDOM = [];
     for(let listItem of list){
-      listDOM.push(<Item key={listItem[0]} id={listItem[0]} name={listItem[1].name} />);
+      listDOM.push(<Item key={listItem[0]} id={listItem[0]} name={listItem[1].name} deleteMine={this.delete.bind(this)} />);
     }
     return (
       <div className="container">
