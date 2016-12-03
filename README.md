@@ -2978,8 +2978,32 @@ class Item extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-    
+       id:this.props.id,
+       name:this.props.name,
+       checkJudge:true
     }
+  }
+  
+  static get defaultProps(){
+    return {
+      id:0,
+      name:""
+    }
+  }
+  
+  render(){
+    const {name, checkJudge} = this.state;
+    return (
+      checkJudge ? <li className="list-group-item">
+                      <input className="add-person" type="text" ref="inputText" />
+                      <i className="">
+                      
+                      </i>
+                      <i className="">
+                        
+                      </i>
+                   </li>:<li className="list-group-item">{name}</li>;
+    )
   }
 }
 class Comp extends React.Component{
