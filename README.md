@@ -3541,6 +3541,195 @@ ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
 </body>
 <html>
 ~~~
+##React动画效果
+###React动画效果Demo one
+~~~javascript
+const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+class Item extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      id:this.props.id,
+      name:this.props.name,
+      changeJudge:this.props.changeJudge
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      id:0,
+      name:"",
+      changeJudge:true
+    }
+  }
+  
+  saveData(){
+    this.setState({
+      changeJudge:true
+    });
+  }
+  
+  changeHandler(event){
+    this.setState({
+      name:event.target.value
+    });
+  }
+  
+  deleteData(){
+    let {id} = this.state;
+    this.props.deleteMine.bind(this)(id);
+  }
+  
+  render(){
+    let {changeJudge} = this.state;
+    return (
+      changeJudge ? <li className="list-group-item">
+        {name}
+      </li> : <li className="list-group-item">
+        <input className="add-person" type="text" value={name} onChange={this.changeHandler.bind(this)} />
+        <i className="glyphicon glyphicon-share share-person" onClick={this.saveData.bind(this)}>
+        
+        </i>
+        <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.deleteData.bind(this)}>
+        
+        </i>
+      </li>
+    )
+  }
+}
+
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      list:[],
+      key:0
+    }
+  }
+  
+  static getDefaultProps(){
+    data:[]
+  }
+  
+  componentWillMount(){
+    let list = this.props.data((dataItem, dataIndex)=>{
+      this.state.key = this.state.key + 1;
+      this.setState({
+        key:this.state.key
+      });
+      return {id:this.state.key, name:dataItem, actived:true};
+    });
+    this.setState({
+      list
+    });
+  }
+  
+  add(){
+    let {list} = this.state;
+    this.state.key = this.state.key + 1;
+    list.push({id:this.state.key, name:"", actived:false});
+    this.forceUpdate();
+  }
+  
+  deleted(id){
+    let {list} = this.state;
+    list.map((listItem, listIndex)=>{
+      if(listItem.id === id){
+        list.splice(list.indexOf(listItem), 1);
+      }
+    });
+    this.forceUpdate();
+  }
+  
+  render(){
+    let {list} = this.state;
+    let listDOM = list.map((listItem, listIndex)=>{
+      return <Item id={listItem.id} name={listItem.name} changeJudge={listItem.actived} deleteMine={this.deleted.bind(this)} />;
+    });
+    return (
+      <div className="container">
+        <button className="btn btn-default" onClick={this.add.bind(this)}>Add</button>
+        <ul className="list-group">
+          <ReactCSSTransitionGroup transitionName="list" transitionEnterTimeout={1500} transitionLeaveTimeout={1500}>
+            {listDOM}
+          </ReactCSSTransitionGroup>
+        </ul>
+      </div>
+    )
+  }
+}
+const data = [
+  "Clown Laugh At You",
+  "Legend",
+  "hello ReactJs"
+];
+
+ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
+~~~
+~~~css
+.list-group {
+    margin-top: 6px;
+}
+
+.list-group-item > i {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+    color: rgb(59, 111, 165);
+}
+
+.add-person {
+    outline: none;
+    border-width: 0 0 1px 0;
+    width: 150px;
+}
+
+.list-group-item > i.share-person {
+    float: none;
+    position: relative;
+    display: inline-block;
+    top:4px;
+}
+
+.list-enter{
+  opacity:0.01;
+  transition:opacity 1.5s ease-in-out;
+}
+
+.list-enter.list-enter-active{
+  opacity:1
+}
+
+.list-leave{
+  opacity:1;
+  transition:opacity 1.5s ease-in-out;
+}
+
+.list-leave.list-leave-active{
+  opacity:0.01;
+}
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-with-addons.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
