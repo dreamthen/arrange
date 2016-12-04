@@ -3428,7 +3428,7 @@ class Comp extends React.Component{
   
   render(){
     let {name} = this.state;
-    cont myLink = {
+    const myLink = {
       value:name,
       requestChange:(newValue)=>{
         this.setState({
@@ -3446,6 +3446,77 @@ class Comp extends React.Component{
         </div>
       </div>
     )
+  }
+}
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-with-addons.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
+###React双向绑定Demo four
+~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name:"",
+      nameOne:"",
+      nameTwo:""
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      
+    }
+  }
+  
+  linkState(name){
+    return {
+      value:this.state[name],
+      requestChange:(newValue)=>{
+        this.setState({
+          [name]:newValue
+        });
+      }
+    }
+  }
+  
+  render(){
+    let {name,nameOne,nameTwo} = this.state;
+    <div className="containerDiv">
+      <div className="form-horizontal">
+        <div className="form-group">
+          <input type="text" className="form-control" valueLink={this.linkState('name')}/>
+          {name}
+        </div>
+        <div className="form-group">
+          <input type="text" className="form-control" valueLink={this.linkState('nameOne')}/>
+          {nameOne}
+        </div>
+        <div className="form-group">
+          <input type="text" className="form-control" valueLink={this.linkState('nameTwo')}/>
+          {nameTwo}
+        </div>
+      </div>
+    </div>
   }
 }
 ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
