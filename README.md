@@ -3542,7 +3542,7 @@ ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
 <html>
 ~~~
 ##React动画效果
-###React动画效果Demo one
+###React动画效果Demo
 ~~~javascript
 const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 class Item extends React.Component{
