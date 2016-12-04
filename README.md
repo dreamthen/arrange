@@ -3055,7 +3055,7 @@ class Comp extends React.Component{
   add(){
     let {list} = this.state;
     this.state.key = this.state.key + 1;
-    list.set(key, {name:""});
+    list.set(this.state.key, {name:""});
     this.forceUpdate();
   }
   
@@ -3223,7 +3223,7 @@ class Comp extends React.Component{
   add(){
     let {list} = this.state;
     this.state.key = this.state.key + 1;
-    list.set(key, {name: ""});
+    list.set(this.state.key, {name: ""});
     this.forceUpdate();
   }
   
