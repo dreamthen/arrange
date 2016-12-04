@@ -3298,7 +3298,7 @@ class Comp extends React.Component{
 <html>
 ~~~
 ##React双向绑定
-###React双向绑定Demo
+###React双向绑定Demo one
 ~~~javascript
 class Comp extends React.Component{
   constructor(props){
