@@ -3297,6 +3297,119 @@ class Comp extends React.Component{
 </body>
 <html>
 ~~~
+##React双向绑定
+###React双向绑定Demo
+~~~javascript
+class Comp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name:""
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+    
+    }
+  }
+  
+  changeHandler(event){
+    this.setState({
+      name:event.target.value
+    });
+  }
+  
+  render(){
+    let {name} = this.state;
+    return (
+      <div className="container">
+        <div className="form-horizontal">
+          <div className="form-group">
+            <input className="form-control" type="text" value={name} onChange={this.changeHandler.bind(this)}/>
+            {name}
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
+###React双向绑定Demo two
+~~~javascript
+const linkedStateMixin = React.addons.LinkedStateMixin;
+const Comp = React.createClass({
+  displayName:"Comp",
+  getInitialState(){
+    return {
+      name:""
+    }
+  },
+  
+  getDefaultProps(){
+    return {
+    
+    }
+  },
+  
+  mixins:[linkedStateMixin],
+  
+  render(){
+    let {name} = this.state
+    return (
+      <div className="containerDiv">
+        <div className="form-horizontal">
+          <div className="form-group">
+            <input type="text" className="form-control" valueLink={this.linkState('name')} />
+            {name}
+          </div>
+        </div>
+      </div>
+    )
+  }
+});
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"))
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-with-addons.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/babel" src="reactTest.js"></script>
+</body>
+<html>
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
