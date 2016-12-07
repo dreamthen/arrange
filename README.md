@@ -3730,6 +3730,29 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 </body>
 <html>
 ~~~
+##配置React模块开发
+~~~javascript
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="react.min.js"></script>
+    <script type="text/javascript" src="react-with-addons.min.js"></script>
+    <script type="text/javascript" src="react-dom.min.js"></script>
+    <script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/javascript" src="build.js"></script>
+</body>
+<html>
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
