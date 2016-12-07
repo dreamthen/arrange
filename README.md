@@ -1198,6 +1198,38 @@ app.listen(3000);                                                          //nod
 ~~~
 ##模块化
 ~~~javascript
+//在module文件夹中的模块js module.js
+console.log("This is a module~");
+module.exports = function moduleOne(){
+  console.log("moduleOne");
+}
+//在module文件夹之外的nodeModule.js
+const moduleOne = require("./module/module");
+moduleOne();
+moduleOne();
+//执行结果:
+//This is a module~
+//moduleOne
+//moduleOne
+//在module文件夹中的模块js moduleAno.js
+console.log("This is a moduleAno~");
+exports.moduleOne = function(){
+  console.log("moduleOne");
+}
+
+exports.moduleTwo = function(){
+  console.log("moduleTwo");
+}
+//在module文件夹之外的nodeModuleAno.js
+const module = require("./module/moduleAno");
+module.moduleOne();
+module.moduleOne();
+module.moduleTwo();
+//执行结果:
+//This is a moduleAno~
+//moduleOne
+//moduleOne
+//moduleTwo
 ~~~
 ##统一的事件驱动
 ~~~javascript
