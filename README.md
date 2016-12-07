@@ -3732,6 +3732,184 @@ ReactDOM.render(<Comp data={data} />,document.getElementById("containerDiv"));
 ~~~
 ##配置React模块开发
 ~~~javascript
+//将Comp,Item组件和主文件分成三个文件，Comp和Item分别以文件的形式放进component文件夹中
+//Comp.js
+const React = require("react");
+const Item = require("./Item");
+class Comp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            list: new Map(),
+            key: 0
+        }
+    }
+
+    static get defaultProps() {
+        return {}
+    }
+
+    add() {
+        let {list}= this.state;
+        this.state.key = this.state.key + 1;
+        list.set(this.state.key, {name: ""});
+        this.forceUpdate();
+    }
+
+    deleteData(id) {
+        let {list} = this.state;
+        list.delete(id);
+        this.forceUpdate();
+    }
+
+    saveData(id, name) {
+        let {list} = this.state;
+        list.set(id, {name: name});
+        this.forceUpdate();
+    }
+
+    render() {
+        let {list} = this.state;
+        let listDOM = [];
+        for (let listItem of list) {
+            listDOM.push(<Item key={listItem[0]} id={listItem[0]} name={listItem[1].name}
+                               onDelete={this.deleteData.bind(this)} onSave={this.saveData.bind(this)}
+                               changeStatus={true}/>);
+        }
+        return (
+            <div className="container">
+                <div className="form-horizontal">
+                    <button className="btn btn-default" style={{marginTop: "4px"}} onClick={this.add.bind(this)}>Add
+                    </button>
+                    <ul className="list-group">
+                        {listDOM}
+                    </ul>
+                </div>
+            </div>
+        )
+    }
+}
+module.exports = Comp;
+//Item.js
+const React = require("react");
+class Item extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: this.props.id,
+            name: this.props.name,
+            changeStatus: this.props.changeStatus
+        }
+    }
+
+    static get defaultProps() {
+        return {
+            id: 0,
+            name: "",
+            changeStatus: true
+        }
+    }
+
+    deleteMine() {
+        let {id} = this.state;
+        this.props.onDelete(id);
+    }
+
+    saveMine() {
+        let {id} = this.state;
+        let name = this.refs.inputText.value;
+        this.setState({
+            changeStatus: false
+        });
+        this.props.onSave(id, name);
+    }
+
+    updateMine() {
+        this.setState({
+            changeStatus: true
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.name !== nextProps.name) {
+            this.setState({
+                name: nextProps.name
+            })
+        }
+    }
+
+    changeHandler() {
+        this.setState({
+            name: event.target.value
+        });
+    }
+
+    render() {
+        const {name, changeStatus} = this.state;
+        return (
+            changeStatus ? <li className="list-group-item">
+                {/*<input type="text" className="add-person" value={name} onChange={this.changeHandler.bind(this)}/>*/}
+                <input type="text" className="add-person" defaultValue={name} ref="inputText" />
+                <i className="glyphicon glyphicon-share share-person" onClick={this.saveMine.bind(this)}>
+
+                </i>
+                <i className="glyphicon glyphicon-ban-circle share-person" onClick={this.deleteMine.bind(this)}>
+
+                </i>
+            </li> : <li className="list-group-item form-clear">
+                {name}
+                <i className="glyphicon glyphicon-edit" onClick={this.updateMine.bind(this)}>
+
+                </i>
+                <i className="glyphicon glyphicon-ban-circle" onClick={this.deleteMine.bind(this)}>
+
+                </i>
+            </li>
+        )
+    }
+}
+module.exports = Item;
+//主文件
+const React = require("react");
+const ReactDOM =require("react-dom");
+const Comp = require("../component/Comp");
+ReactDOM.render(<Comp />,document.getElementById("containerDiv"));
+//然后执行如下命令
+npm install browserify --save
+npm install babelify --save
+npm install --save-dev babel-preset-es2015 babel-preset-react
+//在package.json的"scripts"对象中添加"start"属性
+"start":"browserify ./react/scripts/indexSixteen.js > build.js -t [ babelify --presets [ es2015 react ] ]"
+//最后执行如下命令
+npm start
+//就可在本地服务器运行，看到配置模块化之后的界面
+~~~
+~~~css
+@charset "utf-8";
+.list-group {
+    margin-top: 6px;
+}
+
+.list-group-item > i {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 8px;
+    color: rgb(59, 111, 165);
+}
+
+.add-person {
+    outline: none;
+    border-width: 0 0 1px 0;
+    width: 150px;
+}
+
+.list-group-item > i.share-person {
+    float: none;
+    position: relative;
+    display: inline-block;
+    top:4px;
+}
 ~~~
 ~~~html
 <!DOCTYPE html>
