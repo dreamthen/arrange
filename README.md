@@ -1201,6 +1201,21 @@ app.listen(3000);                                                          //nod
 ~~~
 ##统一的事件驱动
 ~~~javascript
+//先执行如下命令下载依赖包
+npm install events --save
+npm install util --save
+//然后编写事件驱动代码
+const eventEmitter = require("events").EventEmitter;
+const util = require("util");
+function MyEvent(){
+  eventEmitter.call(this);
+}
+util.inherits(MyEvent, eventEmitter);
+const emitter = new MyEvent();
+emitter.on("changeName", (name)=>{
+  console.log("This is a person, his name is ",name);
+});
+emitter.emit("changeName", "Clown Laugh At You~");
 ~~~
 #react
 ##react project
