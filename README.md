@@ -1280,6 +1280,61 @@ console.log("head end~");
 //<meta http-equiv="refresh" content="0;url=http://www.baidu.com/">
 //</html>
 ~~~
+##Http Server 服务器端
+~~~javascript
+const http = require("http");
+const fs = require("fs");
+let server = http.createServer((req, res)=>{
+  res.writeHead(200, {"Content-Type":"text/html"});
+  fs.readFile("./html/http.html", (err, data)=>{
+    if(err) throw err;
+    res.end(data);
+  });
+});
+server.listen(3000);
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>nodeJs</title>
+</head>
+<body>
+    <h1 style="color: #2dc3e8;">Hello Http Server Api~</h1>
+    <h3>Very Cool</h3>
+</body>
+</html>
+~~~
+##Http Server 服务器端(灵活)
+~~~javascript
+const http = require("http");
+const fs = require("fs");
+let server = http.createServer();
+server.on("request", (req, res)=>{
+  res.writeHead(200,{"Content-Type", "text/html"});
+  fs.readFile("./html/http.html",(err, data)=>{
+    if(err) throw err;
+    res.end(data);
+  });
+});
+server.on("request",(req, res)=>{
+  console.log("log......");
+});
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>nodeJs</title>
+</head>
+<body>
+    <h1 style="color: #2dc3e8;">Hello Http Server Api~</h1>
+    <h3>Very Cool</h3>
+</body>
+</html>
+~~~
 #react
 ##react project
 ~~~javascript
