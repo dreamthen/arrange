@@ -1245,9 +1245,40 @@ function MyEvent(){
 util.inherits(MyEvent, eventEmitter);
 const emitter = new MyEvent();
 emitter.on("changeName", (name)=>{
-  console.log("This is a person, his name is ",name);
+  console.log("This is a person, his name is",name);
 });
 emitter.emit("changeName", "Clown Laugh At You~");
+//运行node nodeEvents
+//运行结果如下:
+//This is a person, his name is Clown Laugh At You~
+~~~
+##Http Client 客户端
+~~~javascript
+const http = require("http");
+http.get({
+  hostname:"baidu.com",
+  path:"/",
+  port:80
+},(res)=>{
+  let bufList = [];
+  res.on("readable", ()=>{
+    let buffer = res.read();
+    if(buffer) {
+      bufList.push(buffer);
+      console.log(bufList.toString());
+    } else {
+      let result = Buffer.concat(bufList);
+      console.log(result.toString());
+    }
+  });
+});
+console.log("head end~");
+//运行node nodeHttpClient.js
+//运行结果如下:
+//head end~
+//<html>
+//<meta http-equiv="refresh" content="0;url=http://www.baidu.com/">
+//</html>
 ~~~
 #react
 ##react project
