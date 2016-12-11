@@ -1084,7 +1084,9 @@ ssh-keygen -t rsa -b 4096 -c "dreamthen.00@gmail.com"                  
 ##Git命令
 ~~~javascript
 git clone git@github.com:dreamthen/Altitude.git                           //对项目克隆并复制到本地
-git status                                                                //显示出此git项目其中改动文件的状态
+git clone -b origin/release git@github.com:dreamthen/Altitude.git         //对项目进行分支选择克隆并复制到本地
+git push origin boss-christmas-dueTo1222                                  //将新建的boss-christmas-dueTo1222分支push到远程
+git status                                                                //显示出此git项目其中改动文件的状态
 git status -s                                                             //显示出此git项目改动文件的状态,git add之前如果修改了文件,会在这个文件前面两位的第二位显示一个红色的M,而新添加的文件会在前面两位的第一位显示一个红色的A;git add之后,git commit之前如果修改了文件,会在这个文件前面两位的第二位显示一个绿色的M,而新添加的文件会在前面两位的第一位显示一个绿色的A
 git diff                                                                  //git add之前,对此git项目中的文件修改区别进行显示,添加了什么会用+号显示,删除了什么会用-号显示
 git diff --staged                                                         //git add之后,git commit之前,对此git项目中的文件修改区别进行显示,添加了什么会用+号显示,删除了什么会用-号显示
