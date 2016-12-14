@@ -4060,15 +4060,63 @@ npm start
     <link rel="stylesheet" type="text/css" href="reactTest.css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
-    <script type="text/javascript" src="react.min.js"></script>
-    <script type="text/javascript" src="react-with-addons.min.js"></script>
-    <script type="text/javascript" src="react-dom.min.js"></script>
-    <script type="text/javascript" src="browser.js"></script>
 </head>
 <body>
 <div className="containerDiv">
 </div>
 <script type="text/javascript" src="build.js"></script>
+</body>
+<html>
+~~~
+##React树 Tree Demo
+~~~javascript
+//先下载依赖包tree-node
+npm install tree-node --save
+//将Tree，TreeNode和主文件分为三个文件，Tree和TreeNode分别以文件的形式放进component文件夹中
+//TreeNode.js
+const React = require("react");
+//Tree.js
+const React = require("react");
+const TreeNode = require("./TreeNode");
+const TNode = require("tree-node");
+class Tree extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      treeData = new TNode()
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      
+    }
+  }
+  
+  componentWillMount(){
+    
+  }
+  
+  render(){
+    
+  }
+}
+~~~
+~~~css
+~~~
+~~~html
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="reactTest.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+</head>
+<body>
+<div className="containerDiv">
+</div>
+<script type="text/javascript" src="tree.js"></script>
 </body>
 <html>
 ~~~
