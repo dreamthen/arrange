@@ -4075,6 +4075,39 @@ npm install tree-node --save
 //将Tree，TreeNode和主文件分为三个文件，Tree和TreeNode分别以文件的形式放进component文件夹中
 //TreeNode.js
 const React = require("react");
+class TreeNode extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+    
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      
+    }
+  }
+  
+  render(){
+    let listDOM = [];
+    let {node} = this.props;
+    for(let nodeId of node.childIdsList){
+      let childId = node.childs[nodeId];
+      listDOM.push(<TreeNode id={childId.id} node={childId} />);
+    }
+    return (
+      <li>
+        <h4>
+          <a href="javascript:void(0);">+</a>{node.data.title}
+        </h4>
+        <ul>
+          {listDOM}
+        </ul>
+      </li>
+    )
+  }
+}
 //Tree.js
 const React = require("react");
 const TreeNode = require("./TreeNode");
@@ -4094,13 +4127,45 @@ class Tree extends React.Component{
   }
   
   componentWillMount(){
-    
+    if(this.props.json){
+      let {treeData} = this.state;
+      let {json} = this.props;
+      treeData.reborn(json);
+    }
   }
   
   render(){
-    
+    let listDOM = [];
+    let {treeData} = this.state;
+    for(let nodeId of treeData.childIds){
+      let childId = treeData.getNode(nodeId);
+      listDOM.push(<TreeNode key={childId.id} node={childId.json} />);
+    }
+    return (
+      <ul>
+        {listDOM}
+      </ul>
+    )
   }
 }
+module.exports = Tree;
+//主文件tree文件夹下面的index.js
+const React = require("react");
+const ReactDOM = require("react-dom");
+const Tree = require("../component/Tree");
+const TNode = require("tree-node");
+const root = new TNode();
+const nodeOne = new TNode;
+nodeOne.data("title","Clown Laugh At You");
+const nodeTwo = new TNode;
+nodeTwo.data("title","Legend");
+root.appendChild(nodeOne).appendChild(nodeTwo);
+const nodeThree = new TNode;
+nodeThree.data("title","hello reactJs");
+const nodeFour = new TNode;
+nodeFour.data("title","sunshine~");
+nodeTwo.appendChild(nodeThree).appendChild(nodeFour);
+ReactDOM.render(<Tree json={root.json} />, document.getElementById("containerDiv"));
 ~~~
 ~~~css
 ~~~
