@@ -4099,9 +4099,15 @@ class TreeNode extends React.Component{
     }
     return (
       <li>
-        <h4>
-          <a href="javascript:void(0);">+</a>{node.data.title}
-        </h4>
+        {open ? <h4>
+            <a href="javascript:void(0);"><i className="glyphicon glyphicon-minus">
+              
+            </i></a>{node.data.title}
+          </h4>:<h4>
+            <a href="javascript:void(0);"><i className="glyphicon glyphicon-plus">
+                
+            </i></a>{node.data.title}
+          </h4>}
         <ul>
           {listDOM}
         </ul>
