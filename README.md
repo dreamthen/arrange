@@ -4142,9 +4142,23 @@ class Tree extends React.Component{
       listDOM.push(<TreeNode key={childId.id} node={childId.json} />);
     }
     return (
-      <ul>
-        {listDOM}
-      </ul>
+      <div className="container">
+          <ul>
+            {listDOM}
+          </ul>
+          <div>
+            <ul className="list-group">
+              <li className="list-group-item">
+              </li>
+              <li className="list-group-item">
+              </li>
+              <li className="list-group-item">
+              </li>
+              <li className="list-group-item">
+              </li>
+            </ul>
+          </div>
+      </div>
     )
   }
 }
