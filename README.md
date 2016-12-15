@@ -4079,13 +4079,36 @@ class TreeNode extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      open:true
+      open:true,
+      className:""
     }
   }
   
   static get defaultProps(){
     return {
       
+    }
+  }
+  
+  opt(){
+    let {open} = this.state;
+    if(open){
+      this.state.className = "gary-leave gary-leave-active";
+      this.forceUpdate();
+      setTimeout(()=>{
+        this.setState({
+          open:false
+        });
+      },200);
+    }else{
+      this.setState({
+        open:true
+      });
+      setTimeout(()=>{
+        this.setState({
+          className:"gary-enter gary-enter-active"
+        });
+      },0);
     }
   }
   
@@ -4100,15 +4123,15 @@ class TreeNode extends React.Component{
     return (
       <li>
         {open ? <h4>
-            <a href="javascript:void(0);"><i className="glyphicon glyphicon-minus">
+            <a href="javascript:void(0);" onClick={this.opt.bind(this)}><i className="glyphicon glyphicon-minus">
               
             </i></a>{node.data.title}
           </h4>:<h4>
-            <a href="javascript:void(0);"><i className="glyphicon glyphicon-plus">
+            <a href="javascript:void(0);" onClick={this.opt.bind(this)}><i className="glyphicon glyphicon-plus">
                 
             </i></a>{node.data.title}
           </h4>}
-        <ul>
+        <ul className={className} style={{display: open ? "block" : "none"}}>
           {listDOM}
         </ul>
       </li>
@@ -4123,7 +4146,10 @@ class Tree extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      treeData = new TNode()
+      treeData = new TNode(),
+      showMenu:false,
+      top:0,
+      left:0
     }
   }
   
@@ -4141,19 +4167,29 @@ class Tree extends React.Component{
     }
   }
   
+  show(x, y, nodeId){
+    let top = y,
+        left = x;
+    this.setState({
+        top,
+        left,
+        showMenu:true
+    });
+  }
+  
   render(){
     let listDOM = [];
-    let {treeData} = this.state;
+    let {treeData, showMenu, left, top} = this.state;
     for(let nodeId of treeData.childIds){
       let childId = treeData.getNode(nodeId);
-      listDOM.push(<TreeNode key={childId.id} node={childId.json} />);
+      listDOM.push(<TreeNode key={childId.id} node={childId.json} show={this.show.bind(this)} />);
     }
     return (
       <div className="container">
-          <ul>
+          <ul onContextMenu={(e) => {e.preventDefault()}}>
             {listDOM}
           </ul>
-          <div>
+          <div className="showMenu" style={{display: showMenu ? "block" : "none", top: top, left: left}}>
             <ul className="list-group">
               <li className="list-group-item">
                 <a href="javascript:void(0);">添加</a>
@@ -4193,6 +4229,31 @@ nodeTwo.appendChild(nodeThree).appendChild(nodeFour);
 ReactDOM.render(<Tree json={root.json} />, document.getElementById("containerDiv"));
 ~~~
 ~~~css
+.showMenu{
+  position:absolute;
+}
+
+.gary-enter{
+  opacity:0.01;
+  transition:opacity .2s ease-in-out;
+  -webkit-transition:opacity .2s ease-in-out;
+  -o-transition:opacity .2s ease-in-out;
+}
+
+.gary-enter.gary-enter-active{
+  opacity:1;
+}
+
+.gary-leave{
+  opacity:1;
+  transition:opacity .2s ease-in-out;
+  -webkit-transition:opacity .2s ease-in-out;
+  -o-transition:opacity .2s ease-in-out;
+}
+
+.gary-leave.gary-leave-active{
+  opacity:0.01;
+}
 ~~~
 ~~~html
 <!DOCTYPE html>
