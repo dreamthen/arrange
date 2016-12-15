@@ -4079,7 +4079,7 @@ class TreeNode extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-    
+      open:true
     }
   }
   
@@ -4091,6 +4091,7 @@ class TreeNode extends React.Component{
   
   render(){
     let listDOM = [];
+    let {open} = this.state;
     let {node} = this.props;
     for(let nodeId of node.childIdsList){
       let childId = node.childs[nodeId];
@@ -4149,12 +4150,16 @@ class Tree extends React.Component{
           <div>
             <ul className="list-group">
               <li className="list-group-item">
+                <a href="javascript:void(0);">添加</a>
               </li>
               <li className="list-group-item">
+                <a href="javascript:void(0);">删除</a>
               </li>
               <li className="list-group-item">
+                <a href="javascript:void(0);">上移</a>
               </li>
               <li className="list-group-item">
+                <a href="javascript:void(0);">下移</a>
               </li>
             </ul>
           </div>
