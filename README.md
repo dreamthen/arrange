@@ -4112,13 +4112,22 @@ class TreeNode extends React.Component{
     }
   }
   
+  menu(event){
+    if(event.button === 2){
+      let {node} = this.props;
+      let x = event.clientX;
+      let y = event.clientY;
+      this.props.show.bind(this)(x, y, node.id);
+    }
+  }
+  
   render(){
     let listDOM = [];
     let {open} = this.state;
     let {node} = this.props;
     for(let nodeId of node.childIdsList){
       let childId = node.childs[nodeId];
-      listDOM.push(<TreeNode id={childId.id} node={childId} />);
+      listDOM.push(<TreeNode id={childId.id} node={childId} show={this.props.show.bind(this)} />);
     }
     return (
       <li>
@@ -4145,7 +4154,8 @@ class Tree extends React.Component{
       treeData = new TNode(),
       showMenu:false,
       top:0,
-      left:0
+      left:0,
+      id:0
     }
   }
   
@@ -4169,8 +4179,25 @@ class Tree extends React.Component{
     this.setState({
         top,
         left,
-        showMenu:true
+        showMenu:true,
+        id:nodeId
     });
+  }
+  
+  add(){
+    
+  }
+  
+  del(){
+    
+  }
+  
+  up(){
+    
+  }
+  
+  down(){
+    
   }
   
   render(){
@@ -4188,16 +4215,16 @@ class Tree extends React.Component{
           <div className="showMenu" style={{display: showMenu ? "block" : "none", top: top, left: left}}>
             <ul className="list-group">
               <li className="list-group-item">
-                <a href="javascript:void(0);">添加</a>
+                <a href="javascript:void(0);" onClick={this.add.bind(this)}>添加</a>
               </li>
               <li className="list-group-item">
-                <a href="javascript:void(0);">删除</a>
+                <a href="javascript:void(0);" onClick={this.del.bind(this)}>删除</a>
               </li>
               <li className="list-group-item">
-                <a href="javascript:void(0);">上移</a>
+                <a href="javascript:void(0);" onClick={this.up.bind(this)}>上移</a>
               </li>
               <li className="list-group-item">
-                <a href="javascript:void(0);">下移</a>
+                <a href="javascript:void(0);" onClick={this.down.bind(this)}>下移</a>
               </li>
             </ul>
           </div>
