@@ -4122,15 +4122,11 @@ class TreeNode extends React.Component{
     }
     return (
       <li>
-        {open ? <h4>
-            <a href="javascript:void(0);" onClick={this.opt.bind(this)}><i className="glyphicon glyphicon-minus">
-              
-            </i></a>{node.data.title}
-          </h4>:<h4>
-            <a href="javascript:void(0);" onClick={this.opt.bind(this)}><i className="glyphicon glyphicon-plus">
+          <h4 onMouseDown={this.menu.bind(this)}>
+            <a href="javascript:void(0);" onClick={this.opt.bind(this)}><i className={open ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus"}>
                 
             </i></a>{node.data.title}
-          </h4>}
+          </h4>
         <ul className={className} style={{display: open ? "block" : "none"}}>
           {listDOM}
         </ul>
