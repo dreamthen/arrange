@@ -4273,6 +4273,17 @@ ReactDOM.render(<Tree json={root.json} />, document.getElementById("containerDiv
   position:absolute;
 }
 
+.showMenu ul{
+  padding:6px 18px;
+  background-color:#4183c4;
+}
+
+.showMenu ul li a{
+  color:#4183c4;
+  display:block;
+  text-decoration:none;
+}
+
 .gary-enter{
   opacity:0.01;
   transition:opacity .2s ease-in-out;
