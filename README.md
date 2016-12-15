@@ -4185,19 +4185,30 @@ class Tree extends React.Component{
   }
   
   add(){
-    
+    let {treeData, id} = this.state;
+    let newData = window.confirm("title");
+    let newNode = new TNode;
+    newNode.data("title", newData);
+    treeData.getNode(id).appendChild(newNode);
+    this.forceUpdate();
   }
   
   del(){
-    
+    let {treeData, id} = this.state;
+    treeData.removeChild(id);
+    this.forceUpdate();
   }
   
   up(){
-    
+    let {treeData, id} = this.state;
+    treeData.up(id);
+    this.forceUpdate();
   }
   
   down(){
-    
+    let {treeData, id} = this.state;
+    treeData.down(id);
+    this.forceUpdate();
   }
   
   render(){
