@@ -4099,7 +4099,7 @@ class TreeNode extends React.Component{
         this.setState({
           open:false
         });
-      },200);
+      }, 200);
     }else{
       this.setState({
         open:true
@@ -4108,7 +4108,7 @@ class TreeNode extends React.Component{
         this.setState({
           className:"gary-enter gary-enter-active"
         });
-      },0);
+      }, 200);
     }
   }
   
@@ -4225,8 +4225,10 @@ class Tree extends React.Component{
       listDOM.push(<TreeNode key={childId.id} node={childId.json} show={this.show.bind(this)} />);
     }
     return (
-      <div className="container">
-          <ul onContextMenu={(e) => {e.preventDefault()}}>
+      <div className="container" onContextMenu={(e) => {
+        e.preventDefault();
+      }}>
+          <ul>
             {listDOM}
           </ul>
           <div onMouseLeave={this.closeMenu.bind(this)} className="showMenu" style={{display: showMenu ? "block" : "none", top: top, left: left}}>
