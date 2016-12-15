@@ -4196,19 +4196,25 @@ class Tree extends React.Component{
   del(){
     let {treeData, id} = this.state;
     treeData.removeChild(id);
-    this.forceUpdate();
+    this.closeMenu.bind(this)();
   }
   
   up(){
     let {treeData, id} = this.state;
     treeData.up(id);
-    this.forceUpdate();
+    this.closeMenu.bind(this)();
   }
   
   down(){
     let {treeData, id} = this.state;
     treeData.down(id);
-    this.forceUpdate();
+    this.closeMenu.bind(this)();
+  }
+  
+  closeMenu(){
+    this.setState({
+      showMenu:false
+    });
   }
   
   render(){
@@ -4223,7 +4229,7 @@ class Tree extends React.Component{
           <ul onContextMenu={(e) => {e.preventDefault()}}>
             {listDOM}
           </ul>
-          <div className="showMenu" style={{display: showMenu ? "block" : "none", top: top, left: left}}>
+          <div onMouseLeave={this.closeMenu.bind(this)} className="showMenu" style={{display: showMenu ? "block" : "none", top: top, left: left}}>
             <ul className="list-group">
               <li className="list-group-item">
                 <a href="javascript:void(0);" onClick={this.add.bind(this)}>添加</a>
