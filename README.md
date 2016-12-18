@@ -4421,7 +4421,7 @@ npm run compile
 npm run browser
 ~~~
 ~~~html
-<!DCOTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <link type="text/javascript" rel="stylesheet" href="bootstrap.min.css">
