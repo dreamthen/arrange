@@ -4324,6 +4324,116 @@ ReactDOM.render(<Tree json={root.json} />, document.getElementById("containerDiv
 </body>
 <html>
 ~~~
+##Store demo
+~~~javascript
+//建立一个名为store_project的文件夹，然后执行如下命令
+npm init
+npm install babel-cli browserify babelify babel-preset-es2015 babel-preset-react --save-dev
+npm install angularjs events bootstrap react react-dom jquery util fs express http --save
+//在package.json的文件中在"scripts"底下建立如下属性和值
+"compile":"babel --presets es2015,react component -d dist"
+"browser":"browserify ./dist/index.js -o storeIndex.js -t [ babelify --presets [ es2015 react ] ]"
+~~~
+~~~javascript
+//Store.js
+let EventEmitter = require("events").EventEmitter;
+class Store extends EventEmitter{
+  constructor(){
+    super();
+    this._List = []
+  }
+  
+  _add(storeItem){
+    this._List.push(storeItem);
+    return this._List;
+  }
+  
+  get List(){
+    return this._List;
+  }
+}
+//List.js
+const React = require("react");
+const Store = require("./Store");
+let store = new Store();
+class List extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      list:[],
+      value:""
+    }
+  }
+  
+  static get defaultProps(){
+    return {
+      
+    }
+  }
+  
+  componentWillMount(){
+    store.on("change",(list)=>{
+      this.setState({
+        list
+      });
+    });
+  }
+  
+  doChangeValue(e){
+    this.setState({
+      value:e.target.value
+    });
+  }
+  
+  doChangeList(){
+    let {value} = this.state;
+    store.emit("change",store._add(value));
+  }
+  
+  render(){
+    let listDOM = [];
+    let {list, value} = this.state;
+    list.map((listItem, listIndex)=>{
+      listDOM.push(<li key={listIndex} className="list-group-item">{listItem}</li>);
+    });
+    return (
+      <div className="container">
+        <ul className="list-group">
+          {listDOM}
+        </ul>
+        <div className="form-group">
+          <input value={value} className="form-control" style={{display:"inline-block", width:"90%"}} onChange={this.doChangeValue.bind(this)} />
+          <button className="btn btn-info" onClick={this.doChangeList.bind(this)}>Add</button>
+        </div>
+      </div>
+    )
+  }
+}
+//index.js
+const React = require("react");
+const ReactDOM = require("react-dom");
+const List = require("./List");
+ReactDOM.render(<List />,document.getElementById("containerDiv"));
+~~~
+~~~javascript
+//在命令行中执行如下命令
+npm run compile
+npm run browser
+~~~
+~~~html
+<!DCOTYPE html>
+<html>
+<head>
+  <link type="text/javascript" rel="stylesheet" href="bootstrap.min.css">
+  <link type="text/javascript" rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="containerDiv">
+  </div>
+  <script type="text/javascript" src="storeIndex.js"></script>
+</body>
+</html>
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
