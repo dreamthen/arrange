@@ -1359,6 +1359,9 @@ server.on("request", (req, res)=>{
     console.log("read end~");
     writeStream.end();
   });
+  fs.watchFile("./affair/me.txt",(event,fileName)=>{
+    console.log("文件发生改动~~");
+  });
 });
 
 server.on("request",(req, res)=>{
@@ -1366,12 +1369,60 @@ server.on("request",(req, res)=>{
 });
 
 server.listen(3000);
-//在node控制台中显示
+//在node控制台中显示如下:
 //log......
 //read end~
 //log......
 //read end~
+//文件发生改动~~
+//文件发生改动~~
 //生成me.txt文件，me.txt内容与message.txt内容相同
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>nodeJs</title>
+</head>
+<body>
+    <h1 style="color: #2dc3e8;">Hello Http Server Api~</h1>
+    <h3>Very Cool</h3>
+</body>
+</html>
+~~~
+##集群实例
+~~~javascript
+const cluster = require("cluster");
+const http = require("http");
+const npmCpus = require("os").cpus().length;
+if(cluster.isMaster){
+  console.log("主进程");
+  for(let i = 0; i < npmCpus; i++){
+    cluster.fork();
+  }
+} else {
+  console.log("子进程");
+  let server = http.createServer();
+  server.on("request", (req, res)=>{
+    res.writeHead(200,{"Content-Type": "text/html"});
+    fs.readFile("./html/html.html", (err, data)=>{
+      if(err) throw err;
+      res.end(data);
+    });
+  });
+  
+  server.on("request",()=>{
+    console.log("log......");
+  });
+  server.listen(3000);
+}
+//在node控制台中显示如下:
+//主进程
+//子进程
+//子进程
+//log......
+//log......
 ~~~
 ~~~html
 <!DOCTYPE html>
