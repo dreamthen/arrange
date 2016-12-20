@@ -1323,6 +1323,55 @@ server.on("request", (req, res)=>{
 server.on("request",(req, res)=>{
   console.log("log......");
 });
+
+server.listen(3000);
+~~~
+~~~html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>nodeJs</title>
+</head>
+<body>
+    <h1 style="color: #2dc3e8;">Hello Http Server Api~</h1>
+    <h3>Very Cool</h3>
+</body>
+</html>
+~~~
+##文件系统和数据流
+~~~javascript
+const http = require("http");
+const fs = require("fs");
+let server = http.createServer();
+server.on("request", (req, res)=>{
+  res.writeHead(200,{"Content-Type", "text/html"});
+  fs.readFile("./html/http.html",(err, data)=>{
+    if(err) throw err;
+    res.end(data);
+  });
+  let readStream = fs.createReadStream("./affair/message.txt");
+  let writeStream = fs.createWriteStream("./affair/me.txt");
+  readStream.on("data", (data)=>{
+    writeStream.write(data);
+  });
+  readStream.on("end", ()=>{
+    console.log("read end~");
+    writeStream.end();
+  });
+});
+
+server.on("request",(req, res)=>{
+  console.log("log......");
+});
+
+server.listen(3000);
+//在node控制台中显示
+//log......
+//read end~
+//log......
+//read end~
+//生成me.txt文件，me.txt内容与message.txt内容相同
 ~~~
 ~~~html
 <!DOCTYPE html>
