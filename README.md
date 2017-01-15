@@ -4714,6 +4714,43 @@ arr[4]();
 //1
 //4
 ~~~
+##模块
+###旧时代
+~~~javascript
+function Modules(){
+  var name = "Gary";
+  var physical = {
+    description,
+    change
+  }
+  function description(){
+    console.log("Introduce myself:" + name);
+  }
+  
+  function change(){
+    physical.description = descriptionAno;
+  }
+  
+  function descriptionAno(){
+    console.log(("Introduce myself:" + name).toUpperCase());
+  }
+  return physical;
+}
+
+var modules = Modules();
+modules.description();
+modules.change();
+modules.description();
+//在控制台中打印出:
+//Introduce myself:Gary
+//INTRODUCE MYSELF:GARY
+~~~
+###现代模块
+~~~javascript
+~~~
+###在未来
+~~~javascript
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
