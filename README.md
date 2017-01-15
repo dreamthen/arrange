@@ -4805,7 +4805,7 @@ export awsome;
 //main.js
 module bar from "bar";
 module foo from "foo";
-bar.hello("hippo");
+console.log(bar.hello("hippo"));
 foo.awsome("hippo");
 //在控制台中打印出:
 //introduce myself:hippo
