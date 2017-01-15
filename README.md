@@ -4747,6 +4747,43 @@ modules.description();
 ~~~
 ###现代模块
 ~~~javascript
+function Modules(){
+  var modules = {};
+  function define(name, dels, lmp){
+    for(var i = 0; i < dels.length; i++){
+      dels[i] = modules[dels[i]];
+    }
+    modules[name] = lmp.apply(lmp, dels);
+  }
+  function get(name){
+    return modules[name];
+  }
+}
+
+var modulesAno = Modules();
+modulesAno.define("bar", [], function(){
+  function hello(who){
+    return "introduce myself:" + who;
+  }
+  return {
+    hello
+  }
+});
+modulesAno.define("foo", ["bar"], function(bar){
+  function awsome(who){
+    console.log(bar.hello().toUpperCase());
+  }
+  return {
+    awsome
+  }
+});
+var bar = modulesAno.get("bar");
+var foo = modulesAno.get("foo");
+console.log(bar.hello("hippo"));
+foo.awsome("hippo");
+//在控制台中打印出:
+//introduce myself:hippo
+//INTRODUCE MYSELF:HIPPO
 ~~~
 ###在未来
 ~~~javascript
