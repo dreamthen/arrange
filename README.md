@@ -4758,6 +4758,10 @@ function Modules(){
   function get(name){
     return modules[name];
   }
+  return {
+    define:define,
+    get:get
+  }
 }
 
 var modulesAno = Modules();
@@ -4771,7 +4775,7 @@ modulesAno.define("bar", [], function(){
 });
 modulesAno.define("foo", ["bar"], function(bar){
   function awsome(who){
-    console.log(bar.hello().toUpperCase());
+    console.log(bar.hello(who).toUpperCase());
   }
   return {
     awsome
@@ -4787,6 +4791,25 @@ foo.awsome("hippo");
 ~~~
 ###在未来
 ~~~javascript
+//bar.js
+function hello(who){
+  return "introduce myself:" + who;
+}
+export hello;
+//foo.js
+import hello from 'bar';
+function awsome(who){
+  console.log(hello(who).toUpperCase());
+}
+export awsome;
+//main.js
+module bar from "bar";
+module foo from "foo";
+bar.hello("hippo");
+foo.awsome("hippo");
+//在控制台中打印出:
+//introduce myself:hippo
+//INTRODUCE MYSELF:HIPPO
 ~~~
 #数据结构
 ##数据结构定义
