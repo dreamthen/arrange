@@ -4534,6 +4534,11 @@ npm run browser
 </body>
 </html>
 ~~~
+#你不知道的JavaScript
+##作用域
+~~~javascript
+全局作用域、函数作用域和块作用域
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
