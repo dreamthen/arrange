@@ -4567,6 +4567,16 @@ console.log(i);
 //3
 //4
 //5
+var arr;
+(function(){
+  arr = [];
+  arr.push(1);
+  arr.push(2);
+  arr.push(5);
+})();
+console.log(arr);
+//在控制台中打印出:
+//[1, 2, 5]
 在es6出现之后，引入了let，出现块作用域
 {
   let name = "Clown";
