@@ -4543,7 +4543,7 @@ npm run browser
 ~~~
 ##作用域
 ~~~javascript
-全局作用域、函数作用域和块作用域
+分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
 if(judge){
@@ -4577,6 +4577,21 @@ var arr;
 console.log(arr);
 //在控制台中打印出:
 //[1, 2, 5]
+function foo(){
+  console.log(a);
+  a = 2;
+}
+foo();
+//在控制台中打印出:
+//undefined
+function foo(){
+  a = 2;
+  var a;
+  console.log(a);
+}
+foo();
+//在控制台中打印出:
+//2
 在es6出现之后，引入了let，出现块作用域
 {
   let name = "Clown";
@@ -4595,6 +4610,42 @@ console.log(j);
 //3
 //4
 //ReferenceError:j is not defined
+let arr;
+{
+    arr = [];
+    arr.push(1);
+    arr.push(2);
+    arr.push(5);
+}
+console.log(arr);
+//在控制台中打印出:
+//1
+//2
+//5
+function foo(){
+  console.log(a);
+  let a = 2;
+}
+//在控制台中报出错误:
+//ReferenceError
+function foo(){
+  a = 2;
+  {
+    let a;
+    console.log(a);
+  }
+}
+//在控制台中打印出:
+//undefined
+function foo(){
+  a = 2;
+  {
+    let a;
+  }
+  console.log(a);
+}
+//在控制台中打印出:
+//2
 ~~~
 ##闭包
 #数据结构
