@@ -4657,8 +4657,62 @@ function A(){
   }
   return B;
 }
+A()();
 //在控制台中打印出:
 //Gary
+var arr = [];
+function foo(){
+  for(var i = 0; i < 5; i++){
+    arr.push(function(){
+      console.log(i);
+    });
+  }
+}
+foo();
+arr[0]();
+arr[1]();
+arr[4]();
+//在控制台中打印出:
+//5
+//5
+//5
+var arr = [];
+function foo(){
+  for(var i = 0; i < 5; i++){
+    arr.push((function(i){
+      return function(){
+        console.log(i);
+      }
+    })(i));
+  }
+}
+foo();
+arr[0]();
+arr[1]();
+arr[4]();
+//在控制台中打印出:
+//0
+//1
+//4
+{
+  let arr = [];
+  function foo(){
+    for(let i = 0; i < 5; i++){
+        arr.push(function(){
+          console.log(i);
+        });
+    }
+  }
+  foo();
+  arr[0]();
+  arr[1]();
+  arr[4]();
+}
+//利用块作用域和闭包的结合完美解决
+//在控制台中打印出:
+//0
+//1
+//4
 ~~~
 #数据结构
 ##数据结构定义
