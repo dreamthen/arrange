@@ -4648,6 +4648,18 @@ function foo(){
 //2
 ~~~
 ##闭包
+~~~javascript
+任何有回调函数的函数都是闭包，A函数包裹B函数，并返回B函数，B函数中可以对A函数中的变量进行使用，使得B函数访问的作用域扩大，这就是闭包
+function A(){
+  var name = "Gary";
+  function B(){
+    console.log(name);
+  }
+  return B;
+}
+//在控制台中打印出:
+//Gary
+~~~
 #数据结构
 ##数据结构定义
 ~~~javascript
