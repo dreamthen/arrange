@@ -4545,7 +4545,46 @@ npm run browser
 ~~~javascript
 全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
-
+var judge = true;
+if(judge){
+  var name = "CLAY"; 
+}
+console.log(name);
+//在控制台中打印出"CLAY"
+{
+  var name = "CLAY";
+}
+console.log(name);
+//在控制台中打印出"CLAY"
+for(var i = 0; i < 5; i++){
+  console.log(i);
+}
+console.log(i);
+//在控制台中打印出:
+//0
+//1
+//2
+//3
+//4
+//5
+在es6出现之后，引入了let，出现块作用域
+{
+  let name = "Clown";
+}
+console.log(name);
+//在控制台中报出错误:
+//ReferenceError:name is not defined
+for(let j = 0; j < 5; j++){
+  console.log(j);
+}
+console.log(j);
+//在控制台中打印出并报出错误:
+//0
+//1
+//2
+//3
+//4
+//ReferenceError:j is not defined
 ~~~
 ##闭包
 #数据结构
