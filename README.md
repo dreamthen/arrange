@@ -4570,6 +4570,31 @@ console.log(typeof i);    //object
 if(!f && typeof f === "object"){
   console.log("f是一个null值");
 }
+//typeof规避错误
+if(typeof barz === "undefined"){
+  barz = function(){
+  }
+}
+//IIFE typeof规避错误
+(function(){
+  function barz(){
+  }
+  
+  function doSomethingCool(){
+    var harz = (typeof barz !== "undefined") ? barz : function(){};
+    harz();
+  }
+  
+  doSomethingCool();
+})();
+//依赖注入 typeof规避错误
+function barz(){
+}
+function doSomethingCool(barz){
+  var harz = barz || function(){};
+  harz();
+}
+barz();
 ~~~
 ##Javascript运行方式
 ~~~javascript
