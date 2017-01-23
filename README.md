@@ -4545,6 +4545,9 @@ var c = true;
 var d = { name : "Yinwk" };
 var e;
 var f = null;
+var h = function(){
+};
+var i = [2, 8, 10];
 console.log(a);    //42      
 console.log(b);    //42
 console.log(c);    //true
@@ -4552,6 +4555,8 @@ console.log(d);    //{ name : "Yinwk" }
 console.log(e);    //undefined
 console.log(f);    //null
 console.log(g);    //g is not defined
+console.log(h);    //function(){}
+console.log(i);    //[2, 8, 10]
 console.log(typeof a);    //string
 console.log(typeof b);    //number
 console.log(typeof c);    //boolean
@@ -4559,6 +4564,8 @@ console.log(typeof d);    //object
 console.log(typeof e);    //undefined
 console.log(typeof f);    //object
 console.log(typeof g);    //undefined
+console.log(typeof h);    //function
+console.log(typeof i);    //object
 ~~~
 ##Javascript运行方式
 ~~~javascript
