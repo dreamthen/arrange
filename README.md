@@ -4535,6 +4535,18 @@ npm run browser
 </html>
 ~~~
 #你不知道的JavaScript
+##TYPES & GRAMMER
+~~~javascript
+var a = "42";
+var b = 42;
+var c;
+console.log(a);    //42      
+console.log(b);    //42
+console.log(c);    //undefined
+console.log(d);    //d is not defined(undeclared)
+console.log(typeof a);    //string
+console.log(typeof b);    //number
+~~~
 ##Javascript运行方式
 ~~~javascript
 1、语法分析，将代码以空格分隔开，找到关键字和声明方式
