@@ -4541,15 +4541,24 @@ npm run browser
 //对象类型:object
 var a = "42";
 var b = 42;
-var c;
+var c = true;
+var d = { name : "Yinwk" };
+var e;
+var f = null;
 console.log(a);    //42      
 console.log(b);    //42
-console.log(c);    //undefined
-console.log(d);    //d is not defined(undeclared)
+console.log(c);    //true
+console.log(d);    //{ name : "Yinwk" }
+console.log(e);    //undefined
+console.log(f);    //null
+console.log(g);    //g is not defined
 console.log(typeof a);    //string
 console.log(typeof b);    //number
-console.log(typeof c);    //undefined
-console.log(typeof d);    //undefined
+console.log(typeof c);    //boolean
+console.log(typeof d);    //object
+console.log(typeof e);    //undefined
+console.log(typeof f);    //object
+console.log(typeof g);    //undefined
 ~~~
 ##Javascript运行方式
 ~~~javascript
