@@ -4566,6 +4566,10 @@ console.log(typeof f);    //object
 console.log(typeof g);    //undefined
 console.log(typeof h);    //function
 console.log(typeof i);    //object
+//识别声明的变量是否为null
+if(!f && typeof f === "object"){
+  console.log("f是一个null值");
+}
 ~~~
 ##Javascript运行方式
 ~~~javascript
