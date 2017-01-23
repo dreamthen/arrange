@@ -4537,6 +4537,8 @@ npm run browser
 #你不知道的JavaScript
 ##TYPES & GRAMMER
 ~~~javascript
+//基本类型:string,boolean,number,undefined,null
+//对象类型:object
 var a = "42";
 var b = 42;
 var c;
@@ -4546,6 +4548,8 @@ console.log(c);    //undefined
 console.log(d);    //d is not defined(undeclared)
 console.log(typeof a);    //string
 console.log(typeof b);    //number
+console.log(typeof c);    //undefined
+console.log(typeof d);    //undefined
 ~~~
 ##Javascript运行方式
 ~~~javascript
