@@ -4594,7 +4594,7 @@ function doSomethingCool(barz){
   var harz = barz || function(){};
   harz();
 }
-barz();
+doSomethingCool(barz);
 ~~~
 ##Javascript运行方式
 ~~~javascript
