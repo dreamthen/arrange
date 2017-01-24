@@ -4595,6 +4595,70 @@ function doSomethingCool(barz){
   harz();
 }
 doSomethingCool(barz);
+//数组
+var arr = ['100',true,[256]];
+console.log(arr[0]);    //100(字符串)
+console.log(arr[1]);    //true
+console.log(arr[2][0]);    //256
+
+var arr = [];
+arr[0] = '144';
+arr[1] = false;
+arr[2] = [356];
+console.log(arr.length);    //3
+console.log(arr[0]);    //144
+console.log(arr[1]);    //false
+console.log(arr[2][0]);    //356
+
+var arr = [];
+arr[0] = '144';
+arr[2] = [356];
+console.log(arr.length);    //3
+console.log(arr[1]);    //undefined,此undefined和arr[1] = undefined不同
+
+var arr = [];
+arr[0] = "Gary";
+arr[2] = 125;
+arr["foobar"] = "foobar";
+console.log(arr.length);    //3
+console.log(arr["foobar"]);    //foobar
+console.log(arr.foobar);    //foobar
+
+function doSomeThingCool(){
+  var array = Array.prototype.slice.call(arguments);
+  array.push("barm");
+  console.log(array);
+}
+doSomeThingCool("barz","bary");    //[barz, bary, barm]
+//字符串
+//字符串和数组共有的方法有:concat,slice,indexOf,lastIndexOf,length
+var string = "foo";
+var array = ["f", "o", "o"];
+console.log(string.length);    //3
+console.log(array.length);    //3
+string[1] = string[1].toUpperCase();
+array[1] = array[1].toUpperCase();
+console.log(string);    //foo
+console.log(array);    //["f", "O", "o"]
+
+//join
+var string = "foo";
+var array = ["f", "o", "o"];
+console.log(array.join("-"));    //f-o-o
+var stringAno = Array.prototype.map.call(string, function(stringArr, index){
+  return stringArr.toUpperCase();
+});
+var stringResult = Array.prototype.join.call(stringAno, "-");
+console.log(stringResult);    //F-O-O
+
+//reverse
+var string = "foo";
+var array = ["f", "o", "o"];
+console.log(array.reverse());    //["o", "o", "f"]
+var stringAno = string.split("")
+                      .reverse()
+                      .join("");
+console.log(stringAno);    //oof
 ~~~
 ##Javascript运行方式
 ~~~javascript
