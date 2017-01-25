@@ -4658,7 +4658,42 @@ console.log(array.reverse());    //["o", "o", "f"]
 var stringAno = string.split("")
                       .reverse()
                       .join("");
-console.log(stringAno);    //oof
+console.log(stringAno);    //oof
+//数字
+var a = 42;
+var b = 42.3;
+var c = 42.0;
+var d = 42.;
+var e = 0.42;
+var f = .42;
+console.log(a + "," + b + "," + c + "," + d + "," + e + "," + f);    //42,42.3,42,42,0.42,0.42
+
+var number = 5E10;
+console.log(number);    //50000000000
+console.log(number.toExponential());    //5e+10
+
+var num = 23.1415926
+console.log(num.toFixed(0));    //23
+console.log(num.toFixed(1));    //23.1
+console.log(num.toFixed(2));    //23.14
+console.log(num.toFixed(3));    //23.142
+console.log(num.toFixed(4));    //23.1416
+console.log(num.toFixed(5));    //23.14159
+
+var n = 23.1415926
+console.log(num.toPrecision(2));    //23
+console.log(num.toPrecision(3));    //23.1
+console.log(num.toPrecision(4));    //23.14
+console.log(num.toPrecision(5));    //23.142
+console.log(num.toPrecision(6));    //23.1416
+console.log(num.toPrecision(7));    //23.14159
+
+console.log((23.1415926).toPrecision(5));    //23.142
+console.log((42.0).toPrecision(2));    //42
+console.log(.42.toPrecision(1));    //0.4
+console.log(42.toPrecision(2));    //报错啦~Error~
+console.log(42..toPrecision(2));    //42
+console.log(42 .toPrecision(2));    //42
 ~~~
 ##Javascript运行方式
 ~~~javascript
