@@ -4753,7 +4753,45 @@ function doCool(b){
 }
 doCool(3);
 //隐藏作用域代码,在控制台中打印:15
-//
+//在一个大的作用域气泡中,如果要使用同一个变量名的话,要进行重新声明
+
+(function foo(){
+  var a = 22;
+  console.log(a);
+})();
+var a = 30;
+console.log(a);
+//在控制台中打印:
+//22
+//30
+
+var a = 100;
+(function doSomeThing(global){
+  var a = 66;
+  console.log(a);
+  console.log(global.a);
+})(window);
+//在控制台中打印:
+//66
+//100
+
+setTimeout(function timePicker(){
+  console.log("lose my time~");
+}, 1000);
+//在控制台中隔一秒钟后打印:
+//lose my time~
+
+var a = 100;
+(function define(def){
+  def(window);
+})(function def(global){
+  var a = 66;
+  console.log(a);
+  console.log(global.a);
+});
+//在控制台中打印:
+//66
+//100
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
