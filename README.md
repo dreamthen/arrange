@@ -4725,7 +4725,7 @@ foo("var b = 3");    //3
 //eval修改了词法作用域,本来b赋值为2的,被eval强行修改作用域,被赋值为3
 function foo(obj){
   with(obj){
-    a: 2
+    a = 2;
   }  
 }
 var objOne = {
