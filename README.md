@@ -4714,7 +4714,46 @@ function foo(a){
 var c = foo(3);
 //首先是foo函数的调用:RHS引用;接着将参数a进行赋值3:LHS引用;随后声明一个b变量,参数a - 1赋其值,其中赋值:LHS引用,参数a的引用:RHS引用;然后返回a + b之和,分别用了a的应用和b的引用:RHS引用;最后声明一个c变量,并把函数foo返回的值赋给它:LHS引用
 
+//规避作用域
+//两种方式:eval和with
+function foo(words){
+  eval(words);
+  console.log(b);
+}
+var b = 2;
+foo("var b = 3");    //3
+//eval修改了词法作用域,本来b赋值为2的,被eval强行修改作用域,被赋值为3
+function foo(obj){
+  with(obj){
+    a: 2
+  }  
+}
+var objOne = {
+  a: 100
+};
+var objTwo = {
+  b:255
+};
+foo(objOne);
+console.log(objOne.a);    //2
+foo(objTwo);
+console.log(objTwo.a);    //undefined
+console.log(a);    //2
+//with建立了新的词法作用域,但是可能会泄露其中的属性给全局,并声明新变量
+//根据Javascript的编译和执行的运行方式,eval和with会大大降低代码的运行效率,建议不要使用
 
+//隐藏作用域、解决冲突和自动执行的函数表达式(IIFE)
+function doCool(b){
+  function doSomeThing(a){
+     return a - 1;
+  }
+  
+  var result = a + doSomeThing(b);
+  return result * 3;
+}
+doCool(3);
+//隐藏作用域代码,在控制台中打印:15
+//
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
