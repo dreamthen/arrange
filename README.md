@@ -4917,6 +4917,72 @@ if(bar > baz) {
 //在控制台中显示:
 //Reference Error:bar is not defined
 
+//经典闭包案例
+{
+  let arr = [];
+  function foo(){
+    let array = [];
+    for(var i = 0; i < 10; i++){
+      array.push(function listItem(){    //妈妈快看，这是闭包
+        console.log(i);
+      });
+    }
+    return array;
+  }
+  arr = foo();
+  arr[3]();
+  arr[7]();
+  arr[8]();
+}
+//在控制台中显示:
+//10
+//10
+//10
+
+{
+  let arr = [];
+  function foo(){
+    let array = [];
+    for(var i = 0; i < 10; i++){
+      array.push((function listItem(i){
+        return function(){
+          console.log(i);
+        }
+      })(i));
+    }
+    return array;
+  }
+  arr = foo();
+  arr[3]();
+  arr[7]();
+  arr[8]();
+}
+//在控制台中显示:
+//3
+//7
+//8
+
+{
+  let arr = [];
+  function foo(){
+    let array = [];
+    for(let i = 0; i < 10; i++){
+      array.push(function(){
+        console.log(i);
+      });
+    }
+    return array;
+  }
+  arr = foo();
+  arr[3]();
+  arr[7]();
+  arr[9]();
+}
+//在控制台中显示:
+//3
+//7
+//9
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
