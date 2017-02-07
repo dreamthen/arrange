@@ -4827,8 +4827,95 @@ try{
 }
 console.log(err);
 //在控制台中显示:
-//以日志形式打印:ReferenceError:blog is not defined
-//以错误形式打印:ReferenceError:err is not defined
+//以日志形式打印:Reference Error:blog is not defined
+//以错误形式打印:Reference Error:err is not defined
+
+//ES6 引入let,隐式劫持块作用域,但是let无法做到提升
+var flag = true;
+if(flag){
+    {
+       let bar = flag * 2;
+       console.log(bar);
+    }
+}
+console.log(bar);
+//在控制台中显示:
+//2
+//Reference Error:bar is not defined
+
+{
+    for(let i = 0; i < 10; i++){
+      {
+          console.log(i);
+      }
+    }
+    console.log(i);
+}
+//在控制台中显示:
+//0
+//1
+//2
+//3
+//4
+//5
+//6
+//7
+//8
+//9
+//Reference Error:i is not defined
+
+var foo = true, baz = 10;
+if(foo){
+  var bar = 3;
+  if(bar > baz) {
+    console.log("<>>");
+  } else {
+    console.log("<<>");
+  }
+}
+
+//transfrom
+var foo = true, baz = 10;
+if(foo){
+  var bar = 3;
+}
+if(bar > baz){
+  console.log("<>>");
+} else {
+  console.log("<<>");
+}
+//两种形式在控制台中显示:
+//<<>
+
+//引入let
+var foo = true, baz = 10;
+if(foo){
+  {
+    let bar = 3;
+    if(bar > baz){
+      console.log("<>>");
+    } else {
+      console.log("<<>");
+    }
+  }
+}
+//在控制台中显示:
+//<<>
+//无法进行transform变换
+var foo = true, baz = 10;
+if(foo) {
+  {
+    let bar = 3;
+  }
+}
+
+if(bar > baz) {
+  console.log("<>>");
+} else {
+  console.log("<<>");
+}
+//在控制台中显示:
+//Reference Error:bar is not defined
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
