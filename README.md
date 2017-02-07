@@ -4793,6 +4793,43 @@ var a = 100;
 //66
 //100
 
+//块作用域
+var foo = true;
+if(foo){
+  var bar = foo * 2;
+  console.log(bar);
+}
+console.log(bar);
+//Javascript中没有块作用域的概念,如果在块作用域中声明了变量,它会直接暴露在全局作用域或者块作用域外部的作用域中
+//在控制台中显示:
+//2
+//2
+
+//创建块作用域——with
+var obj = {};
+function foo(obj){
+  with(obj){
+    a = 100;
+    b = 56;
+  }
+}
+var a = 101;
+foo(obj);
+console.log(a);
+//在控制台中显示:
+//100
+
+//ES3 try——catch作用域
+try{
+  console.log(blog);
+} catch(err) {
+  console.log(err);
+}
+console.log(err);
+//在控制台中显示:
+//以日志形式打印:ReferenceError:blog is not defined
+//以错误形式打印:ReferenceError:err is not defined
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
