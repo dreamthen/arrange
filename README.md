@@ -5065,6 +5065,19 @@ function foo(){
 //3
 
 foo();
+var foo = function(){
+  console.log("hello world");
+}
+//相当于:
+//var foo;
+//foo();
+//foo = function(){
+//  console.log("hello world");
+//}
+//在控制台中显示:
+//TypeError
+
+foo();
 var flag = true;
 if(flag) {
   function foo(){ console.log("a"); }
