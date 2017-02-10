@@ -4983,6 +4983,98 @@ if(bar > baz) {
 //7
 //9
 
+//提升
+a = 2;
+var a;
+console.log(a);
+//先有蛋(声明),再有鸡(赋值),词法作用域的作用
+//相当于:
+//var a;
+//a = 2;
+//console.log(a);
+//在控制台中显示:
+//2
+
+console.log(a);
+var a = 2;
+//相当于:
+//var a;
+//console.log(a);
+//a = 2;
+//在控制台中显示:
+//undefined
+
+foo();
+function foo(){
+  console.log(a);
+  var a = 2;
+}
+//相当于:
+//function foo(){
+// var a;
+// console.log(a);
+// a = 2;
+//}
+//foo();
+//在控制台中显示:
+//undefined
+
+foo();
+function foo(){
+  console.log(1);
+}
+var foo;
+foo = function(){
+  console.log(2);
+}
+//相当于:
+//function foo(){
+//  console.log(1);
+//}
+//foo();
+//foo = function(){
+//  console.log(2);
+//}
+//在控制台中显示:
+//1
+
+foo();
+function foo(){
+  console.log(1);
+}
+var foo;
+foo = function bar(){
+  console.log(2);
+};
+function foo(){
+  console.log(3);
+}
+//相当于:
+//function foo(){
+// console.log(1);
+//}
+//function foo(){
+// console.log(3);
+//}
+//foo();
+//foo = function(){
+//  var bar = ...self...;
+//  console.log(2);
+//}
+//在控制台中显示:
+//3
+
+foo();
+var flag = true;
+if(flag) {
+  function foo(){ console.log("a"); }
+} else {
+  function foo(){ console.log("b"); }
+}
+//在这里if的块作用域起不到作用,函数只遵循词法作用域
+//在控制台中显示:
+//b
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
