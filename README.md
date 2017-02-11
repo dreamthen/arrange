@@ -5145,6 +5145,30 @@ result(baz);
 //在控制台中显示:
 //265
 
+//闭包随处可见,实际上就是回调函数
+function warning(message){
+  setTimeout(function timer(){
+    console.log(message);
+  }, 1000);
+}
+warning("warning message");
+//在控制台中延迟一秒钟之后显示:
+//warning message
+
+function clickMe(name, selector){
+  $(selector).click(function clickMine(evt){
+    console.log("Click Button:" + name);
+  });  
+}
+clickMe("Button One","#btnFirst");
+clickMe("Button Two","#btnSecond");
+//点击两个按钮,在控制台中显示:
+//Button One
+//Button Two
+
+//循环闭包
+
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
