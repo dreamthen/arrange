@@ -5167,7 +5167,57 @@ clickMe("Button Two","#btnSecond");
 //Button Two
 
 //循环闭包
+function foo(){
+  for(var i = 0; i <= 5; i++){
+    setTimeout(function timer(){
+      console.log(i);
+    }, i*1000);
+  }
+}
+foo();
+//在控制台中6秒钟隔一秒一显示:
+//6
+//6
+//6
+//6
+//6
+//6
 
+function foo(){
+  for(var i = 0; i <= 5; i++){
+    setTimeout((function timer(i){
+      return function(){
+        console.log(i);
+      }
+    })(i), i*1000);
+  }
+}
+foo();
+//在控制台中6秒钟隔一秒一显示:
+//0
+//1
+//2
+//3
+//4
+//5
+
+function foo(){
+  for(let i = 0; i <= 5; i++){
+    setTimeout(function timer(){
+      console.log(i);
+    }, i*1000);
+  }
+}
+foo();
+//在控制台中6秒钟隔一秒一显示:
+//0
+//1
+//2
+//3
+//4
+//5
+
+//模块
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
