@@ -5088,6 +5088,63 @@ if(flag) {
 //在控制台中显示:
 //b
 
+//闭包
+//其实质含义是指函数中包含着函数,其内函数进行传递或者返回,在其他作用域或者全局作用域中可以看到外函数释放之后的作用域,使得外函数的作用域放大
+function foo(){
+  var a = 100;
+  function bar(){
+    console.log(a);
+  }
+  bar();
+}
+foo();
+//这可以看作闭包,但是实际上并不是闭包
+//在控制台中显示:
+//100
+
+function foo(){
+  var a = 245;
+  function bar(){
+    console.log(a);
+  }
+  return bar;
+}
+var baz = foo();
+baz();
+//这才是闭包
+//在控制台中显示:
+//245
+
+function foo(){
+  var a = 255;
+  function bar(){
+    console.log(a);
+  }
+  baz(bar);
+}
+function baz(fn){
+  fn();
+}
+foo();
+//在控制台中显示:
+//255
+
+var baz;
+function foo(){
+  var a = 265;
+  function bar(){
+    console.log(a);
+  }
+  baz = bar;
+}
+function result(fn){
+  fn();
+}
+foo();
+result(baz);
+//在控制台中显示:
+//265
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
