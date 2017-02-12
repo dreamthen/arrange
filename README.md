@@ -5218,6 +5218,51 @@ foo();
 //5
 
 //模块
+function coolMoudle(){
+  var cool = "very cool";
+  var coolArray = [44,38,56];
+  function doCool(){
+    console.log(cool);
+  }
+  function doCoolArray(){
+    console.log(coolArray.join("_"));
+  }
+  return {
+    doCool:doCool,
+    doCoolArray:doCoolArray
+  }
+}
+var foo = coolMoudle();
+foo.doCool();
+foo.doCoolArray();
+//在控制台中显示:
+//very cool
+//44_38_56
+
+function coolMoudle(){
+  var cool = "very cool";
+  var physical = {
+    change:change,
+    doCool:doCool
+  };
+  function doCool(){
+    console.log(cool);
+  }
+  function change(){
+    physical.doCool = doCoolAno;
+  }
+  function doCoolAno(){
+    console.log(cool.toUpperCase());
+  }
+  return physical;
+}
+var foo = coolMoudle();
+foo.doCool();
+foo.change();
+foo.doCool();
+//在控制台中显示:
+//very cool
+//VERY COOL
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
