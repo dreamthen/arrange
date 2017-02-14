@@ -5239,6 +5239,42 @@ foo.doCoolArray();
 //very cool
 //44_38_56
 
+var foo = (function coolMoudle(){
+  var cool = "very cool";
+  var coolArray = [44,34,56];
+  function doCool(){
+    console.log(cool);
+  }
+  function doCoolArray(){
+    console.log(coolArray.join("!"));
+  }
+  return {
+    doCool:doCool,
+    doCoolArray:doCoolArray
+  }
+})();
+foo.doCool();
+foo.doCoolArray();
+//在控制台中显示:
+//very cool
+//44_34_56
+
+function coolMoudle(id){
+  function identify(){
+    console.log(id.toUpperCase());
+  }
+  return {
+    identify:identify
+  }
+}
+var moudleOne = coolMoudle("gary");
+var moudleTwo = coolMoudle("simon");
+moudleOne.identify();
+moudleTwo.identify();
+//在控制台中显示:
+//GARY
+//SIMON
+
 function coolMoudle(){
   var cool = "very cool";
   var physical = {
