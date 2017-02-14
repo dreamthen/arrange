@@ -5300,6 +5300,41 @@ foo.doCool();
 //very cool
 //VERY COOL
 
+//现代模块
+var moudleCool = (function coolMoudle(){
+  var moudle = {};
+  function define(name, defs, imps){
+    for(var i = 0; i < defs.length; i++){
+      defs[i] = moudle[defs[i]];
+    }
+    moudle[name] = imps.apply(imps, defs);
+  }
+})();
+moudleCool.define("bar", [], function moudleOne(){
+  function hello(name){
+    return "Commit changes:" + name;
+  }
+  return {
+    hello:hello
+  }
+});
+moudleCool.define("foo", ["bar"], function moudleTwo(bar){
+  var hungry = "hippo";
+  function awesome(){
+    console.log(bar.hello(hungry.toUpperCase()));
+  }
+  return {
+    awesome:awesome
+  }
+});
+var bar = moudleCool.get("bar");
+var foo = moudleCool.get("foo");
+console.log(bar.hello("gary"));
+foo.awesome();
+//在控制台中显示:
+//Commit changes:gary
+//Commit changes:HIPPO
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
