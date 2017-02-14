@@ -5335,6 +5335,28 @@ foo.awesome();
 //Commit changes:gary
 //Commit changes:HIPPO
 
+//未来模块
+//bar.js
+function hello(name){
+  return "Commit changes:" + name;
+}
+export hello;
+//foo.js
+import hello from "bar";
+function awesome(){
+  var hungry = "hippo";
+  console.log(hello(hungry.toUpperCase()));
+}
+export awesome;
+//scripts.js
+module bar from "bar";
+module foo from "foo";
+console.log(bar.hello("gary"));
+foo.awesome();
+//在控制台中显示:
+//Commit changes:gary
+//Commit changes:HIPPO
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
