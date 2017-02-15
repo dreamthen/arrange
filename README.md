@@ -5357,6 +5357,54 @@ foo.awesome();
 //Commit changes:gary
 //Commit changes:HIPPO
 
+//动态作用域
+//Javascript中并不支持动态作用域,但是this的原理和动态作用域互通
+//词法作用域是在编写代码的时候,编译器就确定了的,也就是在声明和定义的时候生成的
+//动态作用域则是在引擎执行代码的时候形成的,只在乎调用时候的情形,而不在意声明和定义
+fucntion foo(){
+  console.log(a);
+}
+function bar(){
+  var a = 3;
+  foo();
+}
+var a = 102;
+bar();
+//在控制台中显示:
+//102
+
+//块级作用域的替代方案
+{
+  let a = 249;
+  console.log(a);
+}
+console.log(a);
+//如果设想一下,ES6代码要在浏览器上运行,要转码成的形式:
+try{
+  throw 2;
+} catch(a) {
+  console.log(a);
+}
+console.log(a);
+//在控制台中显示:
+//249
+//Reference Error:a is not defined
+//ES6想要在浏览器上面运行现阶段还需要转码器
+//谷歌公司开发的Traceur还有Babel
+//转码成的形式:
+{
+  try{
+    throw undefined;
+  } catch(a) {
+    a = 2;
+    console.log(a);
+  }
+}
+console.log(a);
+//在控制台中显示:
+//2
+//Reference Error:a is not defined
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
