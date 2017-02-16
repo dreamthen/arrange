@@ -5405,6 +5405,61 @@ console.log(a);
 //2
 //Reference Error:a is not defined
 
+//this
+var bar = {
+  name: "awesome",
+  cool: function(){
+    setTimeout(function timer(){
+      console.log(this.name);
+    }, 1000);
+  }
+};
+var name = "not awesome";
+bar.cool();
+//在控制台中显示:
+//not awesome
+
+var bar = {
+  name: "awesome",
+  cool: function coolMoudle(){
+    var self = this;
+    setTimeout(function timer(){
+      console.log(self.name);
+    }, 1000);
+  }
+}
+var name = "not awesome";
+bar.cool();
+//在控制台中隔1秒钟后显示:
+//awesome
+
+var bar = {
+  name:"awesome",
+  cool:function coolMoudle(){
+    setTimeout(() => {
+      console.log(this.awesome);
+    }, 1000);
+  }
+}
+var name = "not awesome";
+bar.cool();
+//ES6中的胖箭头会继承自己所在的作用域的this,所以此处的this指向的是cool方法
+//在控制台中隔1秒钟后显示:
+//awesome
+
+var bar = {
+  name:"awesome",
+  cool:function coolMoudle(){
+    setTimeout(function timer(){
+      console.log(this.name);
+    }.bind(this), 1000);
+  }
+}
+var name = "not awesome";
+bar.cool();
+//在控制台中隔1秒钟后显示:
+//awesome
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
