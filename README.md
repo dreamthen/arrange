@@ -5460,6 +5460,91 @@ bar.cool();
 //在控制台中隔1秒钟后显示:
 //awesome
 
+//认识this
+function bar(){
+  console.log("name:" + this.name + ",age" + this.age);
+}
+function foo(){
+  console.log("first name:" + this.firstName.toUpperCase() + ",last name:" + this.lastName.toUpperCase());
+}
+var barObj = {
+  name:"Gary",
+  age:23
+}
+var fooObj = {
+  firstName:"Yin",
+  lastName:"Gary"
+}
+bar.call(barObj);
+foo.call(fooObj);
+//在控制台中显示:
+//name:Gary,age:23
+//first name:YIN,last name:GARY
+
+//this并不指向自身
+function foo(i){
+  console.log(i);
+  this.count++;
+}
+foo.count = 0;
+for(var i = 0; i <= 10; i++){
+  if(i > 5){
+    foo(i);
+  }
+}
+console.log(foo.count);
+//在控制台中显示:
+//6
+//7
+//8
+//9
+//10
+//0
+
+//规避this用法是逃避的体现
+function foo(i){
+  console.log(i);
+  data.count++;
+}
+var data = {
+  count: 0
+};
+for(var i = 0; i <= 10; i++){
+  if(i > 5){
+    foo(i);
+  }
+}
+console.log(data.count);
+//在控制台中显示:
+//6
+//7
+//8
+//9
+//10
+//5
+
+//正确的this用法
+function foo(i){
+  console.log(i);
+  this.count++;
+}
+var data = {
+  count: 0
+};
+for(var i = 0; i <= 10; i++){
+  if(i > 5){
+    foo.call(data, i);
+  }
+}
+console.log(data.count);
+//在控制台中显示:
+//6
+//7
+//8
+//9
+//10
+//5
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
