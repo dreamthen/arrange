@@ -5565,6 +5565,20 @@ console.log(foo.count);
 //10
 //5
 
+//this也不指向作用域
+function foo(){
+  var a = "Hello World";
+  this.bar();
+}
+function bar(){
+  console.log(this.a);
+}
+foo();
+//在控制台中显示:
+//Hello World
+//this跟函数的定义和声明是没有任何关系的,只跟函数的调用有关
+//函数在哪儿调用、函数的调用方式以及传递的参数这才和this紧密相连
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
