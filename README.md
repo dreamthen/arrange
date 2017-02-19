@@ -5545,6 +5545,26 @@ console.log(data.count);
 //10
 //5
 
+//当然也可以不使用data对象
+function foo(i){
+  console.log(i);
+  this.count++;
+}
+foo.count = 0;
+for(var i = 0; i< = 10; i++){
+  if(i > 5){
+    foo.call(foo, i);
+  }
+}
+console.log(foo.count);
+//在控制台中显示:
+//6
+//7
+//8
+//9
+//10
+//5
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
