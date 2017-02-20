@@ -5579,6 +5579,76 @@ foo();
 //this跟函数的定义和声明是没有任何关系的,只跟函数的调用有关
 //函数在哪儿调用、函数的调用方式以及传递的参数这才和this紧密相连
 
+//this全面解析
+//this调用栈
+function baz(){
+  console.log("baz");
+  bar();
+}
+function bar(){
+  console.log("bar");
+  foo();
+}
+function foo(){
+  console.log("foo");
+}
+baz();
+//在控制台中显示:
+//baz
+//bar
+//foo
+
+//默认绑定
+function foo(){
+  console.log(this.name);
+}
+var name = "Hello World";
+foo();
+//在控制台中显示:
+//Hello World
+function foo(){
+  "use strict";
+  console.log(this.name);
+}
+var name = "Hello World";
+foo();
+//在控制台中显示:
+//Referenct Error:a is not defined
+function foo(){
+  console.log(this.name);
+}
+var name = "Hello World";
+(function zone(){
+  "use strict";
+  foo();
+})();
+//在控制台中显示:
+//Hello World
+
+//隐式绑定
+function foo(){
+  console.log(this.a);
+}
+var obj = {
+  a: 1004,
+  foo:foo
+};
+obj.foo();
+//在控制台中显示:
+//1004
+function foo(){
+  console.log(this.name);
+}
+var obj = {
+  name:"Gary",
+  foo:foo
+};
+var name = "Clay";
+var baz = obj.foo();
+baz();
+//在控制台中显示:
+//Clay
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
