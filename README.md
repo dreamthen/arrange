@@ -5643,11 +5643,54 @@ var obj = {
   name:"Gary",
   foo:foo
 };
-var name = "Clay";
+var name = "Oops,global";
 var baz = obj.foo();
 baz();
 //在控制台中显示:
-//Clay
+//Oops,global
+function foo(){
+  console.log(this.name);
+}
+var obj = {
+  name: "Gary",
+  foo: foo
+};
+var objOne = {
+  name:"Simon",
+  obj:obj
+};
+objOne.obj.foo();
+//在控制台中显示:
+//Gary
+function foo(){
+  console.log(this.name);
+}
+var obj = {
+  name:"Gary",
+  foo:foo
+};
+function define(fn){
+  fn();
+}
+var name = "Oops,global";
+define(obj.foo);
+//在控制台中显示:
+//Oops,global
+function foo(){
+  console.log(this.name);
+}
+var obj = {
+  name:"Gary",
+  foo:foo
+};
+var name = "Oops,global";
+setTimeout(obj.foo, 1000);
+//在控制台中隔一秒后显示:
+//Oops,global
+//相当于:
+//function setTimeout(fn, timeout){
+//  fn();
+//}
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
