@@ -5720,6 +5720,33 @@ objOne.obj.foo();
 //在控制台中显示:
 //Gary
 
+//显式绑定
+function foo(){
+  console.log(this.num);
+}
+var obj = {
+  num:996
+};
+foo.call(obj);
+//在控制台中显示:
+//996
+function foo(){
+  console.log(this.num);
+}
+var obj = {
+  num:1004
+};
+function bar(){
+  foo.call(obj);
+}
+bar();
+setTimeout(bar, 1000);
+bar.call(window);
+//在控制台中显示:
+//1004    bar()
+//1004    bar.call(window)
+//1004    setTimeout(bar, 1000)
+
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
 var judge = true;
