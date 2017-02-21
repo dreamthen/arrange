@@ -5746,6 +5746,61 @@ bar.call(window);
 //1004    bar()
 //1004    bar.call(window)
 //1004    setTimeout(bar, 1000)
+function foo(something){
+  console.log(this.num, something);
+  return this.num + something;
+}
+var obj = {
+  num: 2
+};
+function bar(){
+  return foo.apply(obj, arguments);
+}
+var baz = bar(3);
+console.log(baz);
+//在控制台中显示:
+//2 3
+//5
+function foo(something){
+  console.log(this.num, something);
+  return this.num + something;
+}
+var obj = {
+  num: 2
+};
+function bind(foo, obj){
+  return function(){
+    foo.apply(obj, arguments);
+  }
+}
+var bar = bind(foo, obj);
+var baz = bar(3);
+console.log(baz);
+//在控制台中显示:
+//2 3
+//5
+function foo(something){
+  console.log(this.num, something);
+  return this.num + something;
+}
+var obj = {
+  num: 2
+};
+var bar = obj.bind(obj);
+var baz = bar(3);
+console.log(baz);
+//在控制台中显示:
+//2 3
+//5
+
+//new绑定
+function Foo(a){
+  this.a = a;
+}
+var bar = new Foo(2);
+console.log(bar.a);
+//在控制台中显示:
+//2
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
