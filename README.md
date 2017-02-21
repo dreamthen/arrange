@@ -5669,6 +5669,20 @@ var obj = {
   name:"Gary",
   foo:foo
 };
+var objOne = {
+  name:"Simon",
+  obj:obj
+};
+objOne.obj.foo();
+//在控制台中显示:
+//Simon
+function foo(){
+  console.log(this.name);
+}
+var obj = {
+  name:"Gary",
+  foo:foo
+};
 function define(fn){
   fn();
 }
