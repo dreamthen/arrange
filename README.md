@@ -5691,6 +5691,20 @@ setTimeout(obj.foo, 1000);
 //function setTimeout(fn, timeout){
 //  fn();
 //}
+function foo(){
+  console.log(this.name);
+}
+var obj = {
+  name:"Gary",
+  foo:foo
+};
+var objOne = {
+  name:"Simon",
+  obj:obj
+};
+objOne.obj.foo();
+//在控制台中显示:
+//Gary
 
 分为全局作用域、函数作用域和块作用域
 在es6出现之前，是不存在块作用域的
