@@ -5722,56 +5722,40 @@ objOne.obj.foo();
 
 //显式绑定
 function foo(){
-  console.log(this.num);
+  console.log(this.a);
 }
 var obj = {
-  num:996
+  a: "clown laugh at you~"
 };
-foo.call(obj);
+foo.apply(obj);
 //在控制台中显示:
-//996
-function foo(){
-  console.log(this.num);
+//clown laugh at you~
+function foo(num){
+  console.log(this.a, num);
+  return this.a + num;
 }
 var obj = {
-  num:1004
+  a: 2
 };
-function bar(){
-  foo.call(obj);
-}
-bar();
-setTimeout(bar, 1000);
-bar.call(window);
-//在控制台中显示:
-//1004    bar()
-//1004    bar.call(window)
-//1004    setTimeout(bar, 1000)
-function foo(something){
-  console.log(this.num, something);
-  return this.num + something;
-}
-var obj = {
-  num: 2
-};
-function bar(){
+function baz(){
   return foo.apply(obj, arguments);
 }
-var baz = bar(3);
-console.log(baz);
+var bar = baz(3);
+console.log(bar);
 //在控制台中显示:
 //2 3
 //5
-function foo(something){
-  console.log(this.num, something);
-  return this.num + something;
+function foo(num){
+  console.log(this.a, num);
+  return this.a + num;
 }
 var obj = {
-  num: 2
+  a: 2
 };
-function bind(foo, obj){
-  return function(){
-    foo.apply(obj, arguments);
-  }
+function bind(func, obj){
+  return function result(){
+    return func.apply(obj, arguments);  
+  };
 }
 var bar = bind(foo, obj);
 var baz = bar(3);
@@ -5779,14 +5763,14 @@ console.log(baz);
 //在控制台中显示:
 //2 3
 //5
-function foo(something){
-  console.log(this.num, something);
-  return this.num + something;
+function foo(num){
+  console.log(this.a, num);
+  return this.a + num;
 }
 var obj = {
-  num: 2
+  a: 2
 };
-var bar = obj.bind(obj);
+var bar = foo.bind(obj);
 var baz = bar(3);
 console.log(baz);
 //在控制台中显示:
