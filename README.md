@@ -6206,3 +6206,20 @@ OUI和Vendor Assign共同组成了MAC地址，MAC地址最初是全球唯一的�
 7.服务器接受到请求头和参数之后,根据请求头和参数返回响应头和主体响应信息
 8.浏览器根据响应头和主体响应信息,作出html、css、js和图片渲染或者异常处理
 ~~~
+###获取元素的固定位置
+~~~javascript
+let absoluteTop = this.refs["mainInformation"].getBoundingClientRect().top + this.refs["mainInformation"].scrollTop;
+console.log(absoluteTop);
+~~~
+###获取元素的高度
+~~~javascript
+let titleHeight = this.refs["mainInformationTitle"].clientHeight();
+let contentHeight = this.refs["mainInformationContent"].clientHeight();
+let totalHeight = titleHeight + contentHeight;
+console.log(totalHeight);
+~~~
+###获取元素的样式表
+~~~javascript
+let marginTop = window.getComputedStyle(this.refs["mainInformation"]) ? window.getComputedStyle(this.refs["mainInformation"]).marginTop ? this.refs["mainInformation"].currentStyle;
+console.log(parseInt(marginTop.slice(0, -2)));
+~~~
