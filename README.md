@@ -6223,3 +6223,28 @@ console.log(totalHeight);
 let marginTop = window.getComputedStyle(this.refs["mainInformation"]) ? window.getComputedStyle(this.refs["mainInformation"]).marginTop ? this.refs["mainInformation"].currentStyle;
 console.log(parseInt(marginTop.slice(0, -2)));
 ~~~
+###linux安装nginx
+~~~javascript
+先检验一下是否安装有openssl,pcre和lizb
+用rpm -qa | grep "openssl"
+rpm -qa | grep "pcre"
+rpm -qa | grep "lizb"
+去查找是否安装
+对于安装nginx来说,这三项软件是必须的
+然后下载nginx安装包
+wget https://nginx.org/download/nginx-1.12.2.tar.gz
+接着进行压缩,复制到指定路径,再将原文件删除
+tar -zxvf nginx-1.12.2.tar.gz
+cp nginx-1.12.2 nginxTarGz
+rm -rf nginx-1.12.2
+随后进行安装
+进入nginxTarGz目录底下的nginx-1.12.2目录下
+--prefix nginx安装的路径
+--with-pcre指向的是pcre-8.23.0的源文件目录
+--with-lizb指向的是lizb-1.2.7的源文件目录
+--with-openssl指向的是openssl的源文件目录
+执行./configure --prefix=/root/nginx-1.12.2 --with-pcre=/source/pcre/pcre-8.23.0 --with-lizb=/source/lizb/lizb-1.2.7 --with-openssl=/source/openssl/openssl-1.0.2k
+最后执行make && make install进行安装
+启动nginx
+/root/nginx-1.12.2/sbin/nginx
+~~~
