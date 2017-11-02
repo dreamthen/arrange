@@ -6229,6 +6229,10 @@ console.log(parseInt(marginTop.slice(0, -2)));
 用rpm -qa | grep "openssl"
 rpm -qa | grep "pcre"
 rpm -qa | grep "lizb"
+查找openssl,pcre和lizb所在目录
+rpm -ql openssl
+rpm -ql lizb
+rpm -ql pcre
 去查找是否安装
 对于安装nginx来说,这三项软件是必须的
 然后下载nginx安装包
